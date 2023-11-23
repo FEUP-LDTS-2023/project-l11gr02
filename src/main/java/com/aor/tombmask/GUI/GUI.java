@@ -1,5 +1,6 @@
 package com.aor.tombmask.GUI;
 
+import com.aor.tombmask.model.Position;
 import com.aor.tombmask.utils.ACTION;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
@@ -39,10 +40,22 @@ public class GUI {
         return screen;
     }
 
-    public void drawWall(int x, int y) {
+    public void drawWall(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
-        textGraphics.putString(new TerminalPosition(x,y)," ");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY())," ");
+    }
+
+    public void drawBat(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"B");
+    }
+
+    public void drawHero(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "H");
     }
 
     public void drawText(int x,int y,String message) {
