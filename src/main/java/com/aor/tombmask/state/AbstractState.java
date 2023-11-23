@@ -9,26 +9,6 @@ import com.aor.tombmask.view.AbstractView;
 import java.io.IOException;
 
 
-public abstract class AbstractState<T> {
-    private final AbstractController<T> controller;
-    private final T model;
-    private final AbstractView<T> viewer;
-
-    public AbstractState(T model){
-        this.controller = getEspecificController();
-        this.viewer = getEspecificViewer();
-        this.model = model;
-    }
-
-    public abstract AbstractController<T> getEspecificController();
-    public abstract AbstractView<T> getEspecificViewer();
-
-    public T getModel() { return model; }
-
-    public void nextState(Game game, GUI gui) throws IOException{
-        ACTION action = gui.getAction(gui.getUserInput());
-        controller.nextState(game, action);
-        viewer.draw(gui);
-    }
-
+public interface AbstractState {
+    void nextState(Game game, GUI gui) throws IOException;
 }

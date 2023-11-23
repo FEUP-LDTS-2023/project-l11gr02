@@ -1,8 +1,11 @@
 package com.aor.tombmask.controller;
+import com.aor.tombmask.GUI.GUI;
 import com.aor.tombmask.Game;
 import com.aor.tombmask.model.Menu;
 import com.aor.tombmask.utils.ACTION;
 import com.aor.tombmask.utils.MENU_OPTION;
+
+import java.io.IOException;
 
 public class MenuController extends AbstractController<Menu>{
     public MenuController(Menu menu){
@@ -10,7 +13,7 @@ public class MenuController extends AbstractController<Menu>{
     }
 
     @Override
-    public void nextState(Game game, ACTION action){
+    public void executeState(Game game, ACTION action) throws IOException {
         switch (action){
             case UP:
                 getModel().upMenu();
@@ -19,7 +22,7 @@ public class MenuController extends AbstractController<Menu>{
                 getModel().downMenu();
                 break;
             case ENTER:
-                if(getModel().isSelected(MENU_OPTION.PLAY)) {  }
+                if(getModel().isSelected(MENU_OPTION.PLAY)) { ; }
                 else { game.setState(null); }
         }
     }
