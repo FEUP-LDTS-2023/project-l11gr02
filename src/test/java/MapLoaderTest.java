@@ -1,4 +1,7 @@
+import com.aor.tombmask.model.Bat;
 import com.aor.tombmask.model.Position;
+import com.aor.tombmask.model.Spike;
+import com.aor.tombmask.model.Wall;
 import com.aor.tombmask.utils.MapLoader;
 import org.junit.jupiter.api.Test;
 
@@ -24,22 +27,22 @@ public class MapLoaderTest {
 
         MapLoader mapLoader = new MapLoader(pathLevel1);
 
-        assertEquals(expectedHeroPosition.getY(),mapLoader.getHeroPosition().getY());
-        assertEquals(expectedHeroPosition.getX(),mapLoader.getHeroPosition().getX());
+        assertEquals(expectedHeroPosition.getY(),mapLoader.getHero().getPosition().getY());
+        assertEquals(expectedHeroPosition.getX(),mapLoader.getHero().getPosition().getX());
     }
     @Test
     public void positionBatHandlerTest() throws IOException {
-        List<Position> expectedBatPositions = new ArrayList<>();
-        expectedBatPositions.add(new Position(7,2));
-        expectedBatPositions.add(new Position(2,6));
+        List<Bat> expectedBatPositions = new ArrayList<>();
+        expectedBatPositions.add(new Bat(7,2));
+        expectedBatPositions.add(new Bat(2,6));
 
         MapLoader mapLoader = new MapLoader(pathLevel1);
 
         for(int i = 0; i < expectedBatPositions.size(); i++) {
-            Position p1 = expectedBatPositions.get(i);
-            Position p2 = mapLoader.getBatPositions().get(i);
-            assertEquals(p1.getX(),p2.getX());
-            assertEquals(p1.getY(),p2.getY());
+            Bat p1 = expectedBatPositions.get(i);
+            Bat p2 = mapLoader.getBats().get(i);
+            assertEquals(p1.getPosition().getX(),p2.getPosition().getX());
+            assertEquals(p1.getPosition().getY(),p2.getPosition().getY());
         }
     }
     @Test
@@ -55,8 +58,8 @@ public class MapLoaderTest {
             expectedWallPositions.add(new Position(0,r));
             expectedWallPositions.add(new Position(10-1,r));
         }
-        for(Position position : mapLoader.getWallPositions()) {
-            assert expectedWallPositions.contains(position);
+        for(Wall wall : mapLoader.getWalls()) {
+            assert expectedWallPositions.contains(wall.getPosition());
         }
     }
     @Test
@@ -69,8 +72,8 @@ public class MapLoaderTest {
         expectedSpikePositions.add(new Position(22,4));
         expectedSpikePositions.add(new Position(22,5));
 
-        for(Position expectedSpike : expectedSpikePositions) {
-            assert mapLoader.getSpikePositions().contains(expectedSpike);
+        for(Spike spike : mapLoader.getSpikes()) {
+            assert expectedSpikePositions.contains(spike.getPosition());
         }
     }
 }

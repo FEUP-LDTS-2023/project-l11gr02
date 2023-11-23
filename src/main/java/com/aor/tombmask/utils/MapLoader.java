@@ -1,6 +1,6 @@
 package com.aor.tombmask.utils;
 
-import com.aor.tombmask.model.Position;
+import com.aor.tombmask.model.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapLoader {
-    private Position heroPosition;
-    private final List<Position> batPositions;
-    private final List<Position> wallPositions;
-    private final List<Position> spikePositions;
+    private Hero hero;
+    private final List<Bat> bats;
+    private final List<Wall> walls;
+    private final List<Spike> spikes;
     private final List<String> globalPositions;
 
     public MapLoader(String path) throws IOException {
-        this.heroPosition = new Position(0,0);
-        this.wallPositions = new ArrayList<>();
-        this.spikePositions = new ArrayList<>();
-        this.batPositions = new ArrayList<>();
+        this.hero = new Hero(0,0);
+        this.walls = new ArrayList<>();
+        this.spikes = new ArrayList<>();
+        this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
         createPositions(globalPositions);
     }
@@ -36,18 +36,18 @@ public class MapLoader {
             String string = globalPositions.get(j);
             for(int i = 0 ; i < string.length(); i++) {
                 Position currentPosition = new Position(i,j);
-                if(string.charAt(i) == 'W') wallPositions.add(currentPosition);
-                if(string.charAt(i) == 'B') batPositions.add(currentPosition);
-                if(string.charAt(i) == 'S') spikePositions.add(currentPosition);
-                if(string.charAt(i) == 'H') heroPosition = currentPosition;
+                if(string.charAt(i) == 'W') walls.add(new Wall(currentPosition));
+                if(string.charAt(i) == 'B') bats.add(new Bat(currentPosition));
+                if(string.charAt(i) == 'S') spikes.add(new Spike(currentPosition));
+                if(string.charAt(i) == 'H') hero = new Hero(currentPosition);
             }
         }
     }
 
-    public Position getHeroPosition() {return this.heroPosition;}
-    public List<Position> getBatPositions() {return this.batPositions;}
-    public List<Position> getWallPositions() {return this.wallPositions;}
-    public List<Position> getSpikePositions() {return this.spikePositions;}
+    public Hero getHero() {return this.hero;}
+    public List<Bat> getBats() {return this.bats;}
+    public List<Wall> getWalls() {return this.walls;}
+    public List<Spike> getSpikes() {return this.spikes;}
     public List<String> getGlobalPositions() {return this.globalPositions;}
 
 }

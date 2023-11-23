@@ -6,6 +6,10 @@ public class Coin extends Element{
         super(x,y);
         this.collected_coins = 0;
     }
+    public Coin(Position position) {
+        super(position.getX(),position.getY());
+        this.collected_coins = 0;
+    }
 
     public void collect_coin(){
         collected_coins++;
