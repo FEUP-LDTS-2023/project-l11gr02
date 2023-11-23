@@ -15,14 +15,17 @@ import java.io.IOException;
 
 public class MenuState implements AbstractState {
     private final Menu menu;
+    private final MenuController menuController;
+    private final MainMenuView mainMenuView;
     public MenuState(GUI gui) throws IOException {
         this.menu = new Menu();
-        new MainMenuView(menu).draw(gui);
+        menuController = new MenuController(menu);
+        mainMenuView = new MainMenuView(menu);
     }
     @Override
     public void nextState(Game game, GUI gui) throws IOException {
         ACTION action = gui.getAction(gui.getUserInput());
-        new MenuController(menu).executeState(game, action);
-        new MainMenuView(menu).draw(gui);
+        menuController.executeState(game, action, gui);
+        mainMenuView.draw(gui);
     }
 }
