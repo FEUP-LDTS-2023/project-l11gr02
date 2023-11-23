@@ -16,4 +16,8 @@ public class Position {
     public int getX() {
         return x;
     }
+
+    public boolean equals(Position position) {
+        return x == position.getX() && y == position.getY();
+    }
 }

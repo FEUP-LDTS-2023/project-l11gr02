@@ -95,6 +95,9 @@ public class Arena {
     }
 
     public boolean isBat(Position position) {
+        if(bats == null){
+            return false;
+        }
         for (Bat bat : bats)
             if (bat.getPosition().equals(position))
                 return true;
@@ -102,6 +105,9 @@ public class Arena {
     }
 
     public boolean isSpike(Position position) {
+        if(spikes == null){
+            return false;
+        }
         for (Spike spike : spikes)
             if (spike.getPosition().equals(position))
                 return true;
@@ -109,6 +115,9 @@ public class Arena {
     }
 
     public boolean isCoin(Position position){
+        if(coins == null){
+            return false;
+        }
         for(Coin coin : coins){
             if(coin.getPosition().equals(position)){
                 return true;
@@ -118,6 +127,9 @@ public class Arena {
     }
 
     public boolean isStar(Position position){
+        if(stars == null){
+            return false;
+        }
         for(Star star : stars){
             if(star.getPosition().equals(position)){
                 return true;
@@ -127,12 +139,31 @@ public class Arena {
     }
 
     public boolean isPoint(Position position){
+        if(points == null){
+            return false;
+        }
         for(Point point : points){
             if(point.getPosition().equals(position)){
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isWall(Position position){
+        if(walls == null){
+            return false;
+        }
+        for(Wall wall : walls){
+            if(wall.getPosition().equals(position)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isEnd(Position position){
+        return position.equals(end.getPosition());
     }
 
     public boolean isEmpty(Position position) {
@@ -144,23 +175,29 @@ public class Arena {
 
     public <T>void remove_Collectable(T obj){
         if(obj instanceof Coin){
-            for(Coin coin : coins){
-                if(coin.getPosition().equals(((Coin) obj).getPosition())){
-                    coins.remove(coin);
+            Iterator<Coin> iterator = coins.iterator();
+            while (iterator.hasNext()) {
+                Coin coin = iterator.next();
+                if (coin.getPosition().equals(((Coin) obj).getPosition())) {
+                    iterator.remove();
                 }
             }
         }
         else if(obj instanceof Star){
-            for(Star star : stars){
-                if(star.getPosition().equals(((Star) obj).getPosition())){
-                    stars.remove(star);
+            Iterator<Star> iterator = stars.iterator();
+            while (iterator.hasNext()) {
+                Star star = iterator.next();
+                if (star.getPosition().equals(((Star) obj).getPosition())) {
+                    iterator.remove();
                 }
             }
         }
         else if(obj instanceof Point){
-            for(Point point : points){
-                if(point.getPosition().equals(((Point) obj).getPosition())){
-                    points.remove(point);
+            Iterator<Point> iterator = points.iterator();
+            while (iterator.hasNext()) {
+                Point point = iterator.next();
+                if (point.getPosition().equals(((Point) obj).getPosition())) {
+                    iterator.remove();
                 }
             }
         }
