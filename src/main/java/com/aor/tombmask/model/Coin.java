@@ -1,6 +1,7 @@
 package com.aor.tombmask.model;
 
 public class Coin extends Element{
+    private Arena arena;
     private int collected_coins;
     public Coin(int x, int y){
         super(x,y);
@@ -17,5 +18,9 @@ public class Coin extends Element{
 
     public int getCollected_coins() {
         return collected_coins;
+    }
+
+    public String toString() {
+        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
     }
 }

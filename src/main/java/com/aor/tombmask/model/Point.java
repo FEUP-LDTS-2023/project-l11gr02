@@ -18,4 +18,8 @@ public class Point extends Element{
     public void collect_point(){
         collected_points++;
     }
+
+    public String toString() {
+        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
+    }
 }
