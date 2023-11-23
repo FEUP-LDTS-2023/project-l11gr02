@@ -1,5 +1,8 @@
 package com.aor.tombmask.model;
 
+import com.aor.tombmask.utils.MapLoader;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,9 +20,14 @@ public class Arena {
     private List<Star> stars;
     private List<Point> points;
 
-    public Arena(int width, int height){
+    public Arena(int width, int height, String path) throws IOException {
+        MapLoader loader = new MapLoader(path);
         this.width = width;
         this.height = height;
+        this.bats = loader.getBats();
+        this.hero = loader.getHero();
+        this.walls = loader.getWalls();
+        this.spikes = loader.getSpikes();
     }
 
     public int getWidth() {

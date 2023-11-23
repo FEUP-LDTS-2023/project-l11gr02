@@ -75,10 +75,11 @@ public class GUI {
 
 
     public KeyStroke getUserInput() throws IOException {
-        return screen.readInput();
+        return screen.pollInput();
     }
 
     public ACTION getAction(KeyStroke keyStroke) {
+        if(keyStroke == null) return ACTION.NONE;
         switch (keyStroke.getKeyType()){
             case ArrowUp -> {
                 return ACTION.UP;
