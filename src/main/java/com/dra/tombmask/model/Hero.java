@@ -1,8 +1,14 @@
 package com.dra.tombmask.model;
 
+import com.dra.tombmask.utils.DIRECTION;
+
 public class Hero extends Element{
-    public Hero(int x, int y){
-        super(x,y);
+    private DIRECTION direction;
+    public Hero(Position position) {
+        super(position.getX(),position.getY());
+        this.direction = DIRECTION.IDLE;
     }
-    public Hero(Position position) {super(position.getX(),position.getY());}
+
+    public DIRECTION getDirection(){ return direction; }
+    public void setDirection(DIRECTION direction) { this.direction = direction; }
 }

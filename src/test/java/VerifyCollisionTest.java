@@ -19,13 +19,17 @@ public class VerifyCollisionTest {
 
     @BeforeEach
     public void setup() throws IOException {
+<<<<<<< HEAD
+        arena = new Arena(30,30, "docs/level1");
+=======
         arena = new Arena(30,30,"docs/level1");
+>>>>>>> main
     }
 
     @Test
     public void isBat(){
         bats = new ArrayList<>();
-        bats.add(new Bat(2,2));
+        bats.add(new Bat(2,2, true));
 
         arena.setBats(bats);
 
