@@ -2,10 +2,9 @@ package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +28,13 @@ public class MapLoader {
     }
 
     public List<String> getGlobalPositions(String file) throws IOException {
-        Path path = Paths.get(file);
-        return Files.readAllLines(path, StandardCharsets.UTF_8);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(file))));
+        String line;
+        List<String> result = new ArrayList<String>();
+        while((line = bufferedReader.readLine()) != null) {
+            result.add(line);
+        }
+        return result;
     }
 
     public void createPositions(List<String> globalPositions) {

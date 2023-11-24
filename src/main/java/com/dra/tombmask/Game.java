@@ -4,13 +4,14 @@ import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.state.AbstractState;
 import com.dra.tombmask.state.MenuState;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Game {
     private final GUI gui;
     private AbstractState state;
 
-    public Game() throws IOException {
+    public Game() throws IOException, FontFormatException {
         this.gui = new GUI();
         this.state = new MenuState(gui);
     }

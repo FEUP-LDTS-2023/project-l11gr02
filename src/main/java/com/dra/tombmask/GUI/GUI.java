@@ -11,7 +11,10 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 public class GUI {
@@ -20,16 +23,27 @@ public class GUI {
 
     private Screen screen;
 
-    public GUI() throws IOException {
-        Terminal terminal = createTerminal(WIDTH,HEIGHT);
+    public GUI() throws IOException, FontFormatException {
+        Terminal terminal = createTerminal(WIDTH,HEIGHT,loadFont());
         this.screen = createScreen(terminal);
     }
 
-    public Terminal createTerminal(int WIDTH, int HEIGHT) throws IOException {
+    public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfiguration);
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
+    }
+
+    public AWTTerminalFontConfiguration loadFont() throws IOException, FontFormatException {
+        File file = new File("./src/main/resources/fonts/podemos.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT,file);
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+        Font loadedFont = font.deriveFont(Font.PLAIN,40);
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
     public Screen createScreen(Terminal terminal) throws IOException {
@@ -49,25 +63,25 @@ public class GUI {
     public void drawBat(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"B");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"b");
     }
 
     public void drawHero(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "H");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "h");
     }
 
     public void drawSpike(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "S");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "s");
     }
 
     public void drawEndLevel(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "E");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "e");
     }
 
     public void drawText(int x,int y,String message) {
