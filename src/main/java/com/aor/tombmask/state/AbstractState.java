@@ -10,5 +10,5 @@ import java.io.IOException;
 
 
 public interface AbstractState {
-    void nextState(Game game, GUI gui) throws IOException;
+    void nextState(Game game, GUI gui) throws IOException, InterruptedException;
 }
