@@ -12,6 +12,7 @@ import java.util.List;
 
 public class MapLoader {
     private Hero hero;
+    private EndLevel endLevel;
     private final List<Bat> bats;
     private final List<Wall> walls;
     private final List<Spike> spikes;
@@ -19,6 +20,7 @@ public class MapLoader {
 
     public MapLoader(String path) throws IOException {
         this.hero = new Hero(0,0);
+        this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
@@ -40,11 +42,13 @@ public class MapLoader {
                 if(string.charAt(i) == 'B') bats.add(new Bat(currentPosition));
                 if(string.charAt(i) == 'S') spikes.add(new Spike(currentPosition));
                 if(string.charAt(i) == 'H') hero = new Hero(currentPosition);
+                if(string.charAt(i) == 'E') endLevel = new EndLevel(currentPosition);
             }
         }
     }
 
     public Hero getHero() {return this.hero;}
+    public EndLevel getEndLevel() {return this.endLevel;}
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
