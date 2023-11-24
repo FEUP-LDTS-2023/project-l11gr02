@@ -38,7 +38,7 @@ public class GUI {
     }
 
     public AWTTerminalFontConfiguration loadFont() throws IOException, FontFormatException {
-        File file = new File("./src/main/resources/fonts/podemos.ttf");
+        File file = new File("./src/main/resources/fonts/font.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT,file);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
@@ -56,13 +56,12 @@ public class GUI {
 
     public void drawWall(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY())," ");
     }
 
     public void drawBat(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"b");
     }
 
@@ -74,13 +73,11 @@ public class GUI {
 
     public void drawSpike(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "s");
     }
 
     public void drawEndLevel(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "e");
     }
 
