@@ -11,11 +11,10 @@ import java.io.IOException;
 public class Game {
     private final GUI gui;
     private AbstractState state;
-    public GameView gameView;
 
     public Game() throws IOException {
         this.gui = new GUI();
-        this.state = new MenuState(gui);
+        this.state = new MenuState();
     }
 
     public void setState(AbstractState state){
@@ -25,17 +24,15 @@ public class Game {
         return state;
     }
 
-    public void setGameView(Arena arena) {
-        gameView = new GameView(arena);
-    }
-
     public void run() throws IOException, InterruptedException {
         while(state != null){
+            int FPS = 14;
+            int frameTime = 1000/FPS;
             long startTime = System.currentTimeMillis();
             state.nextState(this, gui);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
-            long sleepTime = 100 - elapsedTime;
+            long sleepTime = frameTime - elapsedTime;
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {

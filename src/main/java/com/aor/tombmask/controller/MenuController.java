@@ -14,8 +14,9 @@ public class MenuController extends AbstractController<Menu>{
         super(menu);
     }
 
+
     @Override
-    public void executeState(Game game, ACTION action, GUI gui) throws IOException {
+    public void executeState(Game game, ACTION action) throws IOException {
         switch (action){
             case UP:
                 getModel().upMenu();
@@ -24,7 +25,7 @@ public class MenuController extends AbstractController<Menu>{
                 getModel().downMenu();
                 break;
             case ENTER:
-                if(getModel().isSelected(MENU_OPTION.PLAY)) { game.setState(new GameState(new Arena(60, 30, "docs/level1"), gui)); }
+                if(getModel().isSelected(MENU_OPTION.PLAY)) { game.setState(new GameState(new Arena(60, 30, "docs/level1"))); }
                 else { game.setState(null); }
         }
     }

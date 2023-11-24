@@ -10,17 +10,16 @@ import com.aor.tombmask.view.GameView;
 import java.io.IOException;
 
 public class GameState implements AbstractState{
-    private final Arena arena;
     private final ArenaController arenaController;
-    public GameState(Arena arena, GUI gui) throws IOException {
-        this.arena = arena;
+    private final GameView gameViewer;
+    public GameState(Arena arena) throws IOException {
         arenaController = new ArenaController(arena);
+        gameViewer = new GameView(arena);
     }
     @Override
     public void nextState(Game game, GUI gui) throws IOException, InterruptedException {
-        game.setGameView(arena);
         ACTION action = gui.getAction(gui.getUserInput());
-        arenaController.executeState(game, action, gui);
-        game.gameView.draw(gui);
+        arenaController.executeState(game, action);
+        gameViewer.draw(gui);
     }
 }

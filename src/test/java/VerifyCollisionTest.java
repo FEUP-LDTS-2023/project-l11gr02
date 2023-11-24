@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +18,14 @@ public class VerifyCollisionTest {
     private List<Point> points;
 
     @BeforeEach
-    public void setup(){
-        arena = new Arena(30,30);
+    public void setup() throws IOException {
+        arena = new Arena(30,30, "docs/level1");
     }
 
     @Test
     public void isBat(){
         bats = new ArrayList<>();
-        bats.add(new Bat(2,2));
+        bats.add(new Bat(2,2, true));
 
         arena.setBats(bats);
 

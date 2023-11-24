@@ -19,13 +19,14 @@ public class ArenaController extends AbstractController<Arena>{
     }
 
     @Override
-    public void executeState(Game game, ACTION action, GUI gui) throws IOException, InterruptedException {
+    public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
+        batController.executeState(game, action);
         switch (action){
             case EXIT:
-                game.setState(new MenuState(gui));
+                game.setState(new MenuState());
                 break;
             default:
-                heroController.executeState(game, action, gui);
+                heroController.executeState(game, action);
         }
     }
 }

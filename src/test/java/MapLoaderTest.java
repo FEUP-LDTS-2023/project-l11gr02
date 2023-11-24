@@ -33,8 +33,8 @@ public class MapLoaderTest {
     @Test
     public void positionBatHandlerTest() throws IOException {
         List<Bat> expectedBatPositions = new ArrayList<>();
-        expectedBatPositions.add(new Bat(7,2));
-        expectedBatPositions.add(new Bat(2,6));
+        expectedBatPositions.add(new Bat(7,2, true));
+        expectedBatPositions.add(new Bat(2,6, true));
 
         MapLoader mapLoader = new MapLoader(pathLevel1);
 

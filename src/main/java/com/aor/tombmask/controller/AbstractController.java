@@ -15,5 +15,5 @@ public abstract class AbstractController<T> {
 
     public T getModel() { return model; }
 
-    public abstract void executeState(Game game, ACTION action, GUI gui) throws IOException, InterruptedException;
+    public abstract void executeState(Game game, ACTION action) throws IOException, InterruptedException;
 }

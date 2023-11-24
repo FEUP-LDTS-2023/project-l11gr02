@@ -3,8 +3,10 @@ package com.aor.tombmask.controller;
 import com.aor.tombmask.GUI.GUI;
 import com.aor.tombmask.Game;
 import com.aor.tombmask.model.Arena;
+import com.aor.tombmask.model.Hero;
 import com.aor.tombmask.model.Position;
 import com.aor.tombmask.utils.ACTION;
+import com.aor.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
@@ -12,78 +14,69 @@ public class HeroController extends AbstractController<Arena>{
     public HeroController(Arena arena){
         super(arena);
     }
-    public void moveUp(Game game, GUI gui, int x, int y) throws IOException, InterruptedException {
-        while (true){
-            y--;
-            if(!getModel().isEmpty(new Position(x,y))) break;
-            if(getModel().isEmpty(new Position(x,y))){
-                getModel().getHero().setPosition(new Position(x,y));
-                game.gameView.draw(gui);
-                Thread.sleep(5);
-                continue;
-            }
-            break;
-        }
-    }
 
-    public void moveDown(Game game, GUI gui, int x, int y) throws IOException, InterruptedException {
-        while (true){
-            y++;
-            if(!getModel().isEmpty(new Position(x,y))) break;
-            if(getModel().isEmpty(new Position(x,y))){
-                getModel().getHero().setPosition(new Position(x,y));
-                game.gameView.draw(gui);
-                Thread.sleep(5);
-                continue;
-            }
-            break;
-        }
-    }
-
-    public void moveLeft(Game game, GUI gui, int x, int y) throws IOException, InterruptedException {
-        while (true){
-            x--;
-            if(!getModel().isEmpty(new Position(x,y))) break;
-            if(getModel().isEmpty(new Position(x,y))){
-                getModel().getHero().setPosition(new Position(x,y));
-                game.gameView.draw(gui);
-                Thread.sleep(5);
-                continue;
-            }
-            break;
-        }
-    }
-
-    public void moveRight(Game game, GUI gui, int x, int y) throws IOException, InterruptedException {
-        while (true){
-            x++;
-            if(!getModel().isEmpty(new Position(x,y))) break;
-            if(getModel().isEmpty(new Position(x,y))){
-                getModel().getHero().setPosition(new Position(x,y));
-                game.gameView.draw(gui);
-                Thread.sleep(5);
-                continue;
-            }
-            break;
-        }
-    }
-    @Override
-    public void executeState(Game game, ACTION action, GUI gui) throws IOException, InterruptedException {
-        int x = getModel().getHero().getPosition().getX();
-        int y = getModel().getHero().getPosition().getY();
-        switch (action){
+    public void moveHero(){
+        Hero hero = getModel().getHero();
+        int x = hero.getPosition().getX();
+        int y = hero.getPosition().getY();
+        switch (hero.getDirection()){
             case UP:
-                moveUp(game, gui, x, y);
+                y--;
+                if(!getModel().isEmpty(new Position(x,y))){
+                    hero.setDirection(DIRECTION.IDLE);
+                    break;
+                }
+                hero.setPosition(new Position(x,y));
                 break;
             case DOWN:
-                moveDown(game, gui, x, y);
+                y++;
+                if(!getModel().isEmpty(new Position(x,y))){
+                    hero.setDirection(DIRECTION.IDLE);
+                    break;
+                }
+                hero.setPosition(new Position(x,y));
                 break;
             case LEFT:
-                moveLeft(game, gui, x, y);
+                x--;
+                if(!getModel().isEmpty(new Position(x,y))){
+                    hero.setDirection(DIRECTION.IDLE);
+                    break;
+                }
+                hero.setPosition(new Position(x,y));
                 break;
             case RIGHT:
-                moveRight(game, gui, x, y);
+                x++;
+                if(!getModel().isEmpty(new Position(x,y))){
+                    hero.setDirection(DIRECTION.IDLE);
+                    break;
+                }
+                hero.setPosition(new Position(x,y));
+                break;
+            case IDLE:
                 break;
         }
+    }
+
+    @Override
+    public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
+        switch (action){
+            case UP:
+                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
+                getModel().getHero().setDirection(DIRECTION.UP);
+                break;
+            case DOWN:
+                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
+                getModel().getHero().setDirection(DIRECTION.DOWN);
+                break;
+            case LEFT:
+                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
+                getModel().getHero().setDirection(DIRECTION.LEFT);
+                break;
+            case RIGHT:
+                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
+                getModel().getHero().setDirection(DIRECTION.RIGHT);
+                break;
+        }
+        moveHero();
     }
 }

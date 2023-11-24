@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MapLoader {
     private Hero hero;
@@ -18,7 +19,7 @@ public class MapLoader {
     private final List<String> globalPositions;
 
     public MapLoader(String path) throws IOException {
-        this.hero = new Hero(0,0);
+        this.hero = new Hero(new Position(0, 0));
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
@@ -32,12 +33,13 @@ public class MapLoader {
     }
 
     public void createPositions(List<String> globalPositions) {
+        Random random = new Random();
         for(int j = 0; j < globalPositions.size(); j++) {
             String string = globalPositions.get(j);
             for(int i = 0 ; i < string.length(); i++) {
                 Position currentPosition = new Position(i,j);
                 if(string.charAt(i) == 'W') walls.add(new Wall(currentPosition));
-                if(string.charAt(i) == 'B') bats.add(new Bat(currentPosition));
+                if(string.charAt(i) == 'B') bats.add(new Bat(currentPosition, random.nextBoolean()));
                 if(string.charAt(i) == 'S') spikes.add(new Spike(currentPosition));
                 if(string.charAt(i) == 'H') hero = new Hero(currentPosition);
             }
