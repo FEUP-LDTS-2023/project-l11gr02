@@ -1,5 +1,5 @@
-import com.aor.tombmask.GUI.GUI;
-import com.aor.tombmask.utils.ACTION;
+import com.dra.tombmask.GUI.GUI;
+import com.dra.tombmask.utils.ACTION;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import org.junit.jupiter.api.Test;
