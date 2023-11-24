@@ -11,18 +11,17 @@ import com.dra.tombmask.view.MainMenuView;
 import java.io.IOException;
 
 public class MenuState implements AbstractState {
-    private final Menu menu;
     private final MenuController menuController;
     private final MainMenuView mainMenuView;
-    public MenuState(GUI gui) throws IOException {
-        this.menu = new Menu();
+    public MenuState() throws IOException {
+        Menu menu = new Menu();
         menuController = new MenuController(menu);
         mainMenuView = new MainMenuView(menu);
     }
     @Override
     public void nextState(Game game, GUI gui) throws IOException {
         ACTION action = gui.getAction(gui.getUserInput());
-        menuController.executeState(game, action, gui);
+        menuController.executeState(game, action);
         mainMenuView.draw(gui);
     }
 }
