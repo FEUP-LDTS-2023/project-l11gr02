@@ -1,13 +1,12 @@
-import com.aor.tombmask.model.Bat;
-import com.aor.tombmask.model.Position;
-import com.aor.tombmask.model.Spike;
-import com.aor.tombmask.model.Wall;
-import com.aor.tombmask.utils.MapLoader;
+import com.dra.tombmask.model.Bat;
+import com.dra.tombmask.model.Position;
+import com.dra.tombmask.model.Spike;
+import com.dra.tombmask.model.Wall;
+import com.dra.tombmask.utils.MapLoader;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
