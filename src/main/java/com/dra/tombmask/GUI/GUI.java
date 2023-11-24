@@ -58,6 +58,18 @@ public class GUI {
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "H");
     }
 
+    public void drawSpike(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "S");
+    }
+
+    public void drawEndLevel(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "E");
+    }
+
     public void drawText(int x,int y,String message) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));

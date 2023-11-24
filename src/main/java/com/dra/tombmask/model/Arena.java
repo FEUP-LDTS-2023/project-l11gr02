@@ -11,6 +11,7 @@ public class Arena {
     private final int height;
 
     private Hero hero;
+    private EndLevel endLevel;
     private List<Bat> bats;
     private List<Wall> walls;
     private List<Spike> spikes;
@@ -25,6 +26,7 @@ public class Arena {
         this.height = height;
         this.bats = loader.getBats();
         this.hero = loader.getHero();
+        this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
     }
@@ -36,6 +38,9 @@ public class Arena {
     public int getHeight() {
         return height;
     }
+
+    public EndLevel getEndLevel() {return endLevel;}
+    public void setEndLevel(EndLevel endLevel) {this.endLevel = endLevel;}
 
     public Hero getHero() {
         return hero;

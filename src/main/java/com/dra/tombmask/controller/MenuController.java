@@ -24,7 +24,7 @@ public class MenuController extends AbstractController<Menu>{
                 getModel().downMenu();
                 break;
             case ENTER:
-                if(getModel().isSelected(MENU_OPTION.PLAY)) { game.setState(new GameState(new Arena(60, 30, "docs/level1"), gui)); }
+                if(getModel().isSelected(MENU_OPTION.PLAY)) { game.setState(new GameState(new Arena(60, 30, "docs/level2"), gui)); }
                 else { game.setState(null); }
         }
     }

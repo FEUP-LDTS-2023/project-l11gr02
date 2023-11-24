@@ -1,7 +1,7 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.aor.tombmask.utils.*;
+import com.dra.tombmask.utils.*;
 
 
 import java.io.IOException;
