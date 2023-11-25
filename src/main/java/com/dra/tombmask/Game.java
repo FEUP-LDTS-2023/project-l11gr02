@@ -9,15 +9,18 @@ import java.io.IOException;
 public class Game {
     private final GUI gui;
     private AbstractState state;
+    public int currentArena;
 
     public Game() throws IOException, FontFormatException {
         this.gui = new GUI();
         this.state = new MenuState();
+        this.currentArena = 1;
     }
 
     public void setState(AbstractState state){
         this.state = state;
     }
+    public void setCurrentArena(int i) { this.currentArena = i; }
     public AbstractState getState(){
         return state;
     }
