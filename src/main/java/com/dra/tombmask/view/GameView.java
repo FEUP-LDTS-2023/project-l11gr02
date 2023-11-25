@@ -4,6 +4,7 @@ import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.EndLevel;
 import com.dra.tombmask.model.Hero;
+import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +23,10 @@ public class GameView extends AbstractView<Arena>{
         drawGame(gui,getModel().getEndLevel(), new EndLevelView());
     }
 
-    private <T> void drawGame(GUI gui, T element,ElementView<T> viewer){
+    public  <T> void drawGame(GUI gui, T element,ElementView<T> viewer){
         viewer.draw(element,gui);
     }
-    private <T> void drawGame(GUI gui, List<T> elements, ElementView<T> viewer){
+    public  <T> void drawGame(GUI gui, List<T> elements, ElementView<T> viewer){
         for(T element: elements){
             viewer.draw(element, gui);
         }

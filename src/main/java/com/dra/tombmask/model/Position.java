@@ -1,5 +1,7 @@
 package com.dra.tombmask.model;
 
+import java.util.Objects;
+
 public class Position {
     private int x;
     private int y;
@@ -24,7 +26,12 @@ public class Position {
         return x;
     }
 
-    public boolean equals(Position position) {
-        return x == position.getX() && y == position.getY();
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Position position)) return false;
+        return x == position.x && y == position.y;
+    }
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
     }
 }

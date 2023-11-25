@@ -1,3 +1,5 @@
+package utils;
+
 import com.dra.tombmask.model.Bat;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.model.Spike;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -65,6 +68,12 @@ public class MapLoaderTest {
     public void positionSpikeHandlerTest() throws IOException {
         MapLoader mapLoader = new MapLoader(pathLevel3);
         List<Position> expectedSpikePositions = new ArrayList<>();
+
+        for(Spike spike : mapLoader.getSpikes()) {
+            System.out.println(spike.getPosition().getX());
+            System.out.println(spike.getPosition().getY());
+            System.out.println();
+        }
 
         expectedSpikePositions.add(new Position(22,1));
         expectedSpikePositions.add(new Position(22,2));
