@@ -15,7 +15,6 @@ public class Arena {
     private List<Bat> bats;
     private List<Wall> walls;
     private List<Spike> spikes;
-    private EndLevel end;
     private List<Coin> coins;
     private List<Star> stars;
     private List<Point> points;
@@ -75,11 +74,11 @@ public class Arena {
     }
 
     public EndLevel getEnd() {
-        return end;
+        return endLevel;
     }
 
     public void setEnd(EndLevel end) {
-        this.end = end;
+        this.endLevel = end;
     }
 
     public List<Coin> getCoins() {
@@ -175,7 +174,7 @@ public class Arena {
     }
 
     public boolean isEnd(Position position){
-        return position.equals(end.getPosition());
+        return position.equals(endLevel.getPosition());
     }
 
     public boolean isEmpty(Position position) {

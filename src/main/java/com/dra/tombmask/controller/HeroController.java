@@ -5,17 +5,19 @@ import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Hero;
 import com.dra.tombmask.model.Position;
+import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HeroController extends AbstractController<Arena>{
     public HeroController(Arena arena){
         super(arena);
     }
 
-    public void moveHero(){
+    public String moveHero(){
         Hero hero = getModel().getHero();
         int x = hero.getPosition().getX();
         int y = hero.getPosition().getY();
@@ -26,6 +28,8 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
+                if(getModel().isEnd(new Position(x,y))) return "end";
+                if(getModel().isBat(new Position(x, y))) return "bat";
                 hero.setPosition(new Position(x,y));
                 break;
             case DOWN:
@@ -34,6 +38,8 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
+                if(getModel().isEnd(new Position(x,y))) return "end";
+                if(getModel().isBat(new Position(x, y))) return "bat";
                 hero.setPosition(new Position(x,y));
                 break;
             case LEFT:
@@ -42,6 +48,8 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
+                if(getModel().isEnd(new Position(x,y))) return "end";
+                if(getModel().isBat(new Position(x, y))) return "bat";
                 hero.setPosition(new Position(x,y));
                 break;
             case RIGHT:
@@ -50,11 +58,14 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
+                if(getModel().isEnd(new Position(x,y))) return "end";
+                if(getModel().isBat(new Position(x, y))) return "bat";
                 hero.setPosition(new Position(x,y));
                 break;
             case IDLE:
                 break;
         }
+        return "";
     }
 
     @Override
@@ -77,6 +88,14 @@ public class HeroController extends AbstractController<Arena>{
                 getModel().getHero().setDirection(DIRECTION.RIGHT);
                 break;
         }
-        moveHero();
+        if(Objects.equals(moveHero(), "bat")) game.setState(null);
+        else if(Objects.equals(moveHero(), "end")) {
+            game.setCurrentArena(game.currentArena + 1);
+            try {
+                game.setState(new GameState(new Arena(60, 30, String.format("docs/level%s", game.currentArena))));
+            }catch (IOException e){
+                game.setState(null);
+            }
+        }
     }
 }
