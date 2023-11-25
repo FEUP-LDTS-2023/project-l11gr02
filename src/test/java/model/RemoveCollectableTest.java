@@ -1,3 +1,5 @@
+package model;
+
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Coin;
 import com.dra.tombmask.model.Point;
@@ -18,7 +20,7 @@ public class RemoveCollectableTest {
 
     @BeforeEach
     public void setup() throws IOException {
-        arena = new Arena(30,30,"level1");
+        arena = new Arena(30,30,"docs/level1");
 
         coins = new ArrayList<>();
         coins.add(new Coin(1,1));
