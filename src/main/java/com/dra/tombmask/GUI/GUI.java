@@ -73,7 +73,7 @@ public class GUI {
 
     public void drawSpike(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "s");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "t");
     }
 
     public void drawEndLevel(Position position) {

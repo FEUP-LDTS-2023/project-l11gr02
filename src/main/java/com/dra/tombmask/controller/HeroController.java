@@ -28,8 +28,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!collisionCheck(new Position(x, y)).isEmpty()) return collisionCheck(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case DOWN:
@@ -38,8 +37,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!collisionCheck(new Position(x, y)).isEmpty()) return collisionCheck(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case LEFT:
@@ -48,8 +46,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!collisionCheck(new Position(x, y)).isEmpty()) return collisionCheck(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case RIGHT:
@@ -58,13 +55,19 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!collisionCheck(new Position(x, y)).isEmpty()) return collisionCheck(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case IDLE:
                 break;
         }
+        return "";
+    }
+
+    private String collisionCheck(Position position) {
+        if(getModel().isEnd(position)) return "end";
+        if(getModel().isBat(position)) return "bat";
+        if(getModel().isSpike(position)) return "spike";
         return "";
     }
 
@@ -88,7 +91,7 @@ public class HeroController extends AbstractController<Arena>{
                 getModel().getHero().setDirection(DIRECTION.RIGHT);
                 break;
         }
-        if(Objects.equals(moveHero(), "bat")) game.setState(null);
+        if(Objects.equals(moveHero(), "bat") || Objects.equals(moveHero(),"spike")) game.setState(null);
         else if(Objects.equals(moveHero(), "end")) {
             game.setCurrentArena(game.currentArena + 1);
             try {
