@@ -1,3 +1,5 @@
+package model;
+
 import com.dra.tombmask.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,11 +21,7 @@ public class VerifyCollisionTest {
 
     @BeforeEach
     public void setup() throws IOException {
-<<<<<<< HEAD
         arena = new Arena(30,30, "docs/level1");
-=======
-        arena = new Arena(30,30,"docs/level1");
->>>>>>> main
     }
 
     @Test

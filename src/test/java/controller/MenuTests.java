@@ -1,3 +1,5 @@
+package controller;
+
 import com.dra.tombmask.model.Menu;
 import com.dra.tombmask.utils.MENU_OPTION;
 import org.junit.jupiter.api.Test;

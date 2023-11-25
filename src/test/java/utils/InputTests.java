@@ -1,3 +1,5 @@
+package utils;
+
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.utils.ACTION;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -5,6 +7,7 @@ import com.googlecode.lanterna.input.KeyType;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.awt.*;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class InputTests {
     GUI gui;
 
-    public InputTests() throws IOException {
+    public InputTests() throws IOException, FontFormatException {
         this.gui = new GUI();
     }
 

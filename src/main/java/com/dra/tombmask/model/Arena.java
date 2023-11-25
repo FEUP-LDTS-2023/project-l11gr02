@@ -3,6 +3,7 @@ package com.dra.tombmask.model;
 import com.dra.tombmask.utils.MapLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +29,15 @@ public class Arena {
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
+    }
+    public Arena(int width,int height) {
+        this.width = width;
+        this.height = height;
+        this.bats = new ArrayList<>();
+        this.hero = new Hero(new Position(0,0));
+        this.endLevel = new EndLevel(0,0);
+        this.walls = new ArrayList<>();
+        this.spikes = new ArrayList<>();
     }
 
     public int getWidth() {

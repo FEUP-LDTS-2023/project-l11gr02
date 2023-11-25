@@ -19,7 +19,4 @@ public class Star extends Element{
         collected_stars++;
     }
 
-    public String toString() {
-        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
-    }
 }
