@@ -18,8 +18,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class GUI {
-    static int HEIGHT = 30;
-    static int WIDTH = 60;
+    static int HEIGHT = 12;
+    static int WIDTH = 30;
 
     private Screen screen;
 
@@ -33,8 +33,7 @@ public class GUI {
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfiguration);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
+        return terminalFactory.createTerminal();
     }
 
     public AWTTerminalFontConfiguration loadFont() throws IOException, FontFormatException {
@@ -73,7 +72,7 @@ public class GUI {
 
     public void drawSpike(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "s");
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "t");
     }
 
     public void drawEndLevel(Position position) {

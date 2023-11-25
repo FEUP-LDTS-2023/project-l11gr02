@@ -1,11 +1,9 @@
 package com.dra.tombmask.controller;
 
-import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
-import com.dra.tombmask.controller.*;
 
 import java.io.IOException;
 
