@@ -2,6 +2,7 @@ package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Bat;
 import com.dra.tombmask.model.Hero;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.state.GameState;
@@ -66,8 +67,8 @@ public class HeroController extends AbstractController<Arena>{
 
     private String checkCollision(Position position){
         if(getModel().isEnd(position)) return "end";
-        if(getModel().isBat(position)) return "bat";
-        if(getModel().isSpike(position))return "spike";
+        if(getModel().hasItemAtPosition(getModel().getBats(),position)) return "bat";
+        if(getModel().hasItemAtPosition(getModel().getSpikes(),position)) return "spike";
         return "";
     }
 

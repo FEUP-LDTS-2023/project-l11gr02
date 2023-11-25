@@ -2,7 +2,11 @@ package com.dra.tombmask.model;
 
 import com.dra.tombmask.utils.DIRECTION;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bat extends Element{
+    private Arena arena;
     private DIRECTION direction;
     public Bat(int x, int y, Boolean currentDirection){
         super(x,y);
