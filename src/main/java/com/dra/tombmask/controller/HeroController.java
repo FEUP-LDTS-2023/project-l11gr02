@@ -1,6 +1,5 @@
 package com.dra.tombmask.controller;
 
-import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Hero;
@@ -28,8 +27,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case DOWN:
@@ -38,8 +36,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case LEFT:
@@ -48,8 +45,8 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
+
                 hero.setPosition(new Position(x,y));
                 break;
             case RIGHT:
@@ -58,13 +55,19 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(getModel().isEnd(new Position(x,y))) return "end";
-                if(getModel().isBat(new Position(x, y))) return "bat";
+                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case IDLE:
                 break;
         }
+        return "";
+    }
+
+    private String checkCollision(Position position){
+        if(getModel().isEnd(position)) return "end";
+        if(getModel().isBat(position)) return "bat";
+        if(getModel().isSpike(position))return "spike";
         return "";
     }
 
@@ -89,6 +92,7 @@ public class HeroController extends AbstractController<Arena>{
                 break;
         }
         if(Objects.equals(moveHero(), "bat")) game.setState(null);
+        if(Objects.equals(moveHero(),"spike")) game.setState(null);
         else if(Objects.equals(moveHero(), "end")) {
             game.setCurrentArena(game.currentArena + 1);
             try {
