@@ -1,8 +1,12 @@
 package controller;
 
+import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Bat;
 import com.dra.tombmask.utils.DIRECTION;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

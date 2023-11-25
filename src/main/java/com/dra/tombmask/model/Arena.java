@@ -115,68 +115,9 @@ public class Arena {
         this.points = points;
     }
 
-    public boolean isBat(Position position) {
-        if(bats == null){
-            return false;
-        }
-        for (Bat bat : bats)
-            if (bat.getPosition().equals(position))
-                return true;
-        return false;
-    }
-
-    public boolean isSpike(Position position) {
-        if(spikes == null){
-            return false;
-        }
-        for (Spike spike : spikes)
-            if (spike.getPosition().equals(position))
-                return true;
-        return false;
-    }
-
-    public boolean isCoin(Position position){
-        if(coins == null){
-            return false;
-        }
-        for(Coin coin : coins){
-            if(coin.getPosition().equals(position)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isStar(Position position){
-        if(stars == null){
-            return false;
-        }
-        for(Star star : stars){
-            if(star.getPosition().equals(position)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isPoint(Position position){
-        if(points == null){
-            return false;
-        }
-        for(Point point : points){
-            if(point.getPosition().equals(position)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isWall(Position position){
-        if(walls == null){
-            return false;
-        }
-        for(Wall wall : walls){
-            if(wall.getPosition().equals(position)){
+    public <T extends Element> boolean hasItemAtPosition(List<T> items, Position position) {
+        for (T item : items) {
+            if (item.getPosition().equals(position)) {
                 return true;
             }
         }
