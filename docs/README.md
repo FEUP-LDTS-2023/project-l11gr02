@@ -71,7 +71,7 @@ In each level, the player must take the hero to the end of the level, which is i
 In the final of the three levels, if the player passed successfully them, he wins the game,
 and, logically, it is the end of it.
 
-### Fututre plans
+### Future plans
 
 We intend to introduce the following features:
 * Power-ups:
