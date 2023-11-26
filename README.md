@@ -31,6 +31,8 @@ Besides that, Simple Tomb of the Mask was designed to have some power-ups referr
 ## UML Class Diagram
 A UML class diagram showcasing used Design Patterns:
 
+<img src="docs/uml2.jpg" alt="UML">
+
 
 
 
