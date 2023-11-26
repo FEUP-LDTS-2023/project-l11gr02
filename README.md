@@ -50,7 +50,6 @@ Besides that, Simple Tomb of the Mask was designed to have some power-ups referr
 ## Design patterns used
 * State Pattern is used when an Object changes its behavior based on its internal state. In more detail, this design pattern is used to provide a systematic and loosely-coupled way to achieve the change of the behaviour of
   an Object based on its state through context and state implementations.
-* Observer Pattern is used to get notified whenever there is any change of the state of an Object.
 
 ## UML Class Diagram
 A UML class diagram showcasing used Design Patterns:
