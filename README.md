@@ -47,6 +47,12 @@ Our game consists, for now, in 3 levels. It has several characters and static fe
 
 Besides that, Simple Tomb of the Mask was designed to have some power-ups referred in the list above, like coins, stars and points.
 
+## Mockup
+For this project, the design would be based in this image:
+<p align="left">
+  <img src="https://github.com/FEUP-LDTS-2023/project-l11gr02/assets/88210776/591281c0-367f-41c4-a281-3ee9c2f601d7" alt="mockup" width = 300>
+</p>
+
 ## Design patterns used
 * State Pattern is used when an Object changes its behavior based on its internal state. In more detail, this design pattern is used to provide a systematic and loosely-coupled way to achieve the change of the behaviour of
   an Object based on its state through context and state implementations.
