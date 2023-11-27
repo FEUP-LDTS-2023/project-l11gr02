@@ -13,6 +13,15 @@ This game was developed by *Afonso Moura(*up202207931*@fe.up.pt)*,*Rubem Neto* (
 player, the game ends.
 - **Spikes** - Structures similar to walls but, when the player collides with it, the game ends.
 
+### CONTROLS
+
+'^' : moves hero up until he finds an obstacle as, for example, a wall or a spike.<br>
+'<' : moves hero to the left until he finds an obstacle as,for example, a wall or a spike.<br>
+'>' : moves hero to the right until he finds an obstacle as,for example, a wall or a spike.<br>
+'v' : moves hero down until he finds an obstacle as, for example, a wall or a spike.<br>
+'ESC' : press ESC to leave the level you are playing.<br>
+'exit' : option in the menu to exit the game.
+
 ### PLANNED FEATURES
 
 Power-ups:
@@ -29,6 +38,36 @@ Elements:
 - **Teleporter**: Teleports player to connected teleporter, always appear as pairs.
 
 ### DESIGN
+
+#### MODEL VIEW CONTROLLER (MVC)
+
+This design is a good design for this project as it divides the responsibility of dealing with the display and 
+business logic.Which provides for a better maintainability and extensibility.
+
+- **Model**: Holds the current data and provides that data to the **View**.
+- **Controller**: Brain of the operation, changes the **Model** data.
+- **View**: Responsible for the display,get input from the user and send it to the **Controller**.
+
+#### THE GAME NEEDS TO RUN IN A LOOP
+
+**Problem in Context**
+
+The game needs to run independent of the user input, changing it state from time to time.
+
+**The Pattern**
+
+The Pattern used was the **Game Loop** pattern.
+
+**Implementation**
+
+The following image represents how the solution was implemented in UML diagram.
+
+![img.png](img.png)
+
+**Consequences**
+
+- The game loop needs to be taken in account for every new feature.
+- It removes the dependence in the user input.
 
 #### THE WHOLE GAME AND MENU IS DEPENDENT ON THEIR STATE
 
@@ -59,8 +98,8 @@ The use of the State Pattern in the current design allows the following benefits
 ### MOST VIEW ELEMENTS OF THE GAME HAVE SAME METHODS
 
 **Problem in Context**
-For the view Elements present in the game, they have the same methods. For that, it would lead to a lot of repetitive code
-violating one of the SOLID principles, the **Open-Closed Principle**.
+For the view Elements present in the game, they have the same methods. For that, it would lead to a lot of repetitive code.
+Also for creating new elements into the game would need to modify the code which violates the **Open-Closed** Principle.
 
 **The Pattern**
 
@@ -82,8 +121,6 @@ The following image represents how the solution was implemented in UML diagram.
 
 ### TESTING
 
-Tests are present in following HTML page:
-[website](tests%2Ftest%2Findex.html)
 
 ### SELF-EVALUATION
 
