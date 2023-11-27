@@ -60,7 +60,7 @@ For this project, the design would be based in this image:
 ## UML Class Diagram
 A UML class diagram showcasing used Design Patterns:
 
-<img src="docs/uml2.jpg" alt="UML">
+<img src="docs/images/uml2.jpg" alt="UML">
 
 
 
