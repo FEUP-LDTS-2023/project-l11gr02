@@ -1,4 +1,4 @@
-import com.dra.tombmask.Game;
+package com.dra.tombmask;
 
 import java.awt.*;
 import java.io.IOException;

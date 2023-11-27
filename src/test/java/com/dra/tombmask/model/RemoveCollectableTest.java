@@ -1,4 +1,4 @@
-package model;
+package com.dra.tombmask.model;
 
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Coin;

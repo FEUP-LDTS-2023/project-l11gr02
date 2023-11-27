@@ -1,4 +1,4 @@
-package model;
+package com.dra.tombmask.model;
 
 import com.dra.tombmask.model.*;
 import org.junit.jupiter.api.Assertions;

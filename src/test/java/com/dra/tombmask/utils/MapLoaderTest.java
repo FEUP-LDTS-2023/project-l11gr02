@@ -1,4 +1,4 @@
-package utils;
+package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.Bat;
 import com.dra.tombmask.model.Position;

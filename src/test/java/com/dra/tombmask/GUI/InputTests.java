@@ -1,4 +1,4 @@
-package utils;
+package com.dra.tombmask.GUI;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.utils.ACTION;

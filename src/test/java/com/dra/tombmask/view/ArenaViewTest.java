@@ -1,4 +1,4 @@
-package view;
+package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.*;

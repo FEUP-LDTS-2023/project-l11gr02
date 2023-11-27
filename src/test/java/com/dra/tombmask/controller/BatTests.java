@@ -1,4 +1,4 @@
-package controller;
+package com.dra.tombmask.controller;
 
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Bat;
