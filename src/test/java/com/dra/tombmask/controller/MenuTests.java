@@ -1,4 +1,4 @@
-package controller;
+package com.dra.tombmask.controller;
 
 import com.dra.tombmask.model.Menu;
 import com.dra.tombmask.utils.MENU_OPTION;

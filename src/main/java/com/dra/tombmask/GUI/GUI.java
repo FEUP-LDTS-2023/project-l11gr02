@@ -102,27 +102,15 @@ public class GUI {
 
     public ACTION getAction(KeyStroke keyStroke) {
         if(keyStroke == null) return ACTION.NONE;
-        switch (keyStroke.getKeyType()){
-            case ArrowUp -> {
-                return ACTION.UP;
-            }
-            case ArrowDown -> {
-                return ACTION.DOWN;
-            }
-            case ArrowLeft -> {
-                return ACTION.LEFT;
-            }
-            case ArrowRight -> {
-                return ACTION.RIGHT;
-            }
-            case Enter -> {
-                return ACTION.ENTER;
-            }
-            case Escape -> {
-                return ACTION.EXIT;
-            }
-        }
-        return ACTION.NONE;
+        return switch (keyStroke.getKeyType()) {
+            case ArrowUp -> ACTION.UP;
+            case ArrowDown -> ACTION.DOWN;
+            case ArrowLeft -> ACTION.LEFT;
+            case ArrowRight -> ACTION.RIGHT;
+            case Enter -> ACTION.ENTER;
+            case Escape -> ACTION.EXIT;
+            default -> ACTION.NONE;
+        };
     }
 
     public void clear() {
