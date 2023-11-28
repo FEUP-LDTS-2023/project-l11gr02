@@ -10,6 +10,7 @@ import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 public class HeroController extends AbstractController<Arena>{
@@ -97,7 +98,8 @@ public class HeroController extends AbstractController<Arena>{
         else if(Objects.equals(moveHero(), "end")) {
             game.setCurrentArena(game.currentArena + 1);
             try {
-                game.setState(new GameState(new Arena(60, 30, String.format("docs/level%s", game.currentArena))));
+                String path = "./src/main/resources/levels/level"+game.currentArena;
+                game.setState(new GameState(new Arena(60, 30,path)));
             }catch (IOException e){
                 game.setState(null);
             }
