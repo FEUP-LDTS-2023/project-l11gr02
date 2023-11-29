@@ -13,7 +13,7 @@ public class MainMenuView extends AbstractView<Menu> {
     @Override
     public void drawModel(GUI gui) throws IOException {
         gui.drawText(5,5,"SIMPLE TOMB OF THE MASK");
-        gui.drawClickable(6,7,"PLAY",getModel().getCurrentOption() == MENU_OPTION.PLAY);
-        gui.drawClickable(6,9,"EXIT",getModel().getCurrentOption() == MENU_OPTION.EXIT);
+        gui.drawSelectable(6,7,"PLAY",getModel().getCurrentOption() == MENU_OPTION.PLAY);
+        gui.drawSelectable(6,9,"EXIT",getModel().getCurrentOption() == MENU_OPTION.EXIT);
     }
 }

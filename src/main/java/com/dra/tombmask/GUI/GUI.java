@@ -28,6 +28,10 @@ public class GUI {
         this.screen = createScreen(terminal);
     }
 
+    public Screen getScreen() {
+        return this.screen;
+    }
+
     public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
@@ -52,42 +56,13 @@ public class GUI {
         screen.doResizeIfNecessary();
         return screen;
     }
-
-    public void drawWall(Position position) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY())," ");
-    }
-
-    public void drawBat(Position position) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"b");
-    }
-
-    public void drawHero(Position position, Boolean isShielded) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        String color = !isShielded ? "#FFFF00" : "#FF0000";
-        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "h");
-    }
-
-    public void drawSpike(Position position) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "t");
-    }
-
-    public void drawEndLevel(Position position) {
-        TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "e");
-    }
-
     public void drawText(int x,int y,String message) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(x,y,message);
     }
 
-    public void drawClickable(int x, int y, String message, boolean isSelected) throws IOException {
+    public void drawSelectable(int x, int y, String message, boolean isSelected) throws IOException {
         if(isSelected) {
             TextGraphics textGraphics = screen.newTextGraphics();
             textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
