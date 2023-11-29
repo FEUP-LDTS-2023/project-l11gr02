@@ -78,7 +78,6 @@ public class GUI {
         TerminalPosition terminalPosition = new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY());
         textGraphics.putString(terminalPosition," ");
     }
-
     public void drawSelectable(int x, int y, String message, boolean isSelected) throws IOException {
         if(isSelected) {
             TextGraphics textGraphics = screen.newTextGraphics();
