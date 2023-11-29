@@ -134,34 +134,4 @@ public class Arena {
                 return false;
         return true;
     }
-
-    public <T>void remove_Collectable(T obj){
-        if(obj instanceof Coin){
-            Iterator<Coin> iterator = coins.iterator();
-            while (iterator.hasNext()) {
-                Coin coin = iterator.next();
-                if (coin.getPosition().equals(((Coin) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
-        else if(obj instanceof Star){
-            Iterator<Star> iterator = stars.iterator();
-            while (iterator.hasNext()) {
-                Star star = iterator.next();
-                if (star.getPosition().equals(((Star) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
-        else if(obj instanceof Point){
-            Iterator<Point> iterator = points.iterator();
-            while (iterator.hasNext()) {
-                Point point = iterator.next();
-                if (point.getPosition().equals(((Point) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
-    }
 }

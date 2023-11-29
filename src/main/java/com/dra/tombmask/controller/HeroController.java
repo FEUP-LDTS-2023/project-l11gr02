@@ -1,10 +1,7 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
-import com.dra.tombmask.model.Bat;
-import com.dra.tombmask.model.Hero;
-import com.dra.tombmask.model.Position;
+import com.dra.tombmask.model.*;
 import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
@@ -65,10 +62,28 @@ public class HeroController extends AbstractController<Arena>{
         return "";
     }
 
-    private String checkCollision(Position position){
+    public String checkCollision(Position position){
         if(getModel().isEnd(position)) return "end";
         if(getModel().hasItemAtPosition(getModel().getBats(),position)) return "bat";
         if(getModel().hasItemAtPosition(getModel().getSpikes(),position)) return "spike";
+        if(!getModel().getCoins().isEmpty()){
+            if(getModel().hasItemAtPosition(getModel().getCoins(),position)) {
+                new Coin(position).collect(position,getModel(),getModel().getHero());
+                return "coin";
+            }
+        }
+        if(!getModel().getStars().isEmpty()){
+            if(getModel().hasItemAtPosition(getModel().getStars(),position)){
+                new Star(position).collect(position,getModel(),getModel().getHero());
+                return "star";
+            }
+        }
+        if(!getModel().getPoints().isEmpty()){
+            if(getModel().hasItemAtPosition(getModel().getPoints(),position)){
+                new Point(position).collect(position,getModel(),getModel().getHero());
+                return "point";
+            }
+        }
         return "";
     }
 
