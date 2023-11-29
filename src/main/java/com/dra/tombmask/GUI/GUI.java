@@ -1,6 +1,8 @@
 package com.dra.tombmask.GUI;
 
+import com.dra.tombmask.model.Element;
 import com.dra.tombmask.model.Position;
+import com.dra.tombmask.model.Wall;
 import com.dra.tombmask.utils.ACTION;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
@@ -61,6 +63,20 @@ public class GUI {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(x,y,message);
+    }
+
+    public void drawElement(Element element,GUI gui){
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(element.getColor()));
+        TerminalPosition terminalPosition = new TerminalPosition(element.getPosition().getX(),element.getPosition().getY());
+        textGraphics.putString(terminalPosition, element.getSymbol());
+    }
+
+    public void drawWall(Wall wall, GUI gui){
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
+        TerminalPosition terminalPosition = new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY());
+        textGraphics.putString(terminalPosition," ");
     }
 
     public void drawSelectable(int x, int y, String message, boolean isSelected) throws IOException {

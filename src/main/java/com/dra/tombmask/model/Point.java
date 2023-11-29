@@ -5,10 +5,12 @@ public class Point extends Element{
     public Point(int x, int y){
         super(x,y);
         this.collected_points = 0;
+        this.setSymbol("p");
     }
     public Point(Position position){
         super(position.getX(), position.getY());
         this.collected_points = 0;
+        this.setSymbol("p");
     }
 
     public int getCollected_points() {
