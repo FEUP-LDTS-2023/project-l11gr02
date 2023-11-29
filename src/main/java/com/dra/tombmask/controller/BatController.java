@@ -16,6 +16,10 @@ public class BatController extends AbstractController<Arena>{
     }
 
     public void moveBat(Bat bat){
+        if(bat.getTimeout() > 0){
+            bat.setTimeout(Math.max(0, bat.getTimeout()-0.16));
+            return;
+        }
         int x = bat.getPosition().getX();
         int y = bat.getPosition().getY();
         switch (bat.getDirection()){
@@ -34,6 +38,8 @@ public class BatController extends AbstractController<Arena>{
                     break;
                 }
                 bat.setPosition(new Position(x,y));
+                break;
+            default:
                 break;
         }
     }

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bat extends Element{
-    private Arena arena;
+    private double timeout = 0;
+
     private DIRECTION direction;
     public Bat(int x, int y, Boolean currentDirection){
         super(x,y);
@@ -23,4 +24,13 @@ public class Bat extends Element{
 
     public DIRECTION getDirection() { return direction; }
     public void setDirection(DIRECTION direction) { this.direction = direction; }
+
+    public double getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(double timeout) {
+        if (timeout < 0) return;
+        this.timeout = timeout;
+    }
 }
