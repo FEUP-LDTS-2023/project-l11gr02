@@ -7,7 +7,8 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class HeroView implements ElementView<Hero>{
-    public void draw(Hero hero, GUI gui) {
-        gui.drawElement(hero, gui);
+
+    public void draw(Hero hero, GUI gui){
+        gui.drawHero(hero.getPosition(), hero.isShielded());
     }
 }
