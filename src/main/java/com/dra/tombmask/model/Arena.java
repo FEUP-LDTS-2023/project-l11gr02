@@ -19,6 +19,7 @@ public class Arena {
     private List<Coin> coins;
     private List<Star> stars;
     private List<Point> points;
+    private List<PowerUp> powerUps;
 
     public Arena(int width, int height, String path) throws IOException {
         MapLoader loader = new MapLoader(path);
@@ -29,6 +30,7 @@ public class Arena {
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
+        this.powerUps = loader.getPowerUps();
     }
     public Arena(int width,int height) {
         this.width = width;
@@ -38,6 +40,7 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
+        this.powerUps = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -61,6 +64,14 @@ public class Arena {
 
     public List<Bat> getBats() {
         return bats;
+    }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
     }
 
     public void setBats(List<Bat> bats) {
@@ -122,6 +133,15 @@ public class Arena {
             }
         }
         return false;
+    }
+
+    public PowerUp getPowerUp(Position position){
+        for(PowerUp p : powerUps){
+            if(p.getPosition().equals(position)){
+                return p;
+            }
+        }
+        return null;
     }
 
     public boolean isEnd(Position position){

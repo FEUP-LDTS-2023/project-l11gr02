@@ -1,6 +1,7 @@
 package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.powerups.FreezeStrategy;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +18,7 @@ public class MapLoader {
     private final List<Wall> walls;
     private final List<Spike> spikes;
     private final List<String> globalPositions;
+    private final List<PowerUp> powerUps;
 
     public MapLoader(String path) throws IOException {
         this.hero = new Hero(new Position(0, 0));
@@ -25,6 +27,7 @@ public class MapLoader {
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
+        this.powerUps = new ArrayList<>();
         createPositions(globalPositions);
     }
 
@@ -38,6 +41,8 @@ public class MapLoader {
         return result;
     }
 
+
+
     public void createPositions(List<String> globalPositions) {
         Random random = new Random();
         for(int j = 0; j < globalPositions.size(); j++) {
@@ -49,6 +54,7 @@ public class MapLoader {
                 if(string.charAt(i) == 'S') spikes.add(new Spike(currentPosition));
                 if(string.charAt(i) == 'H') hero = new Hero(currentPosition);
                 if(string.charAt(i) == 'E') endLevel = new EndLevel(currentPosition);
+                if(string.charAt(i) == 'C') powerUps.add(new PowerUp(currentPosition, new FreezeStrategy()));
             }
         }
     }
@@ -59,5 +65,6 @@ public class MapLoader {
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
     public List<String> getGlobalPositions() {return this.globalPositions;}
+    public List<PowerUp> getPowerUps() { return this.powerUps; }
 
 }

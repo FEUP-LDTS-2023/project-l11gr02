@@ -65,10 +65,12 @@ public class HeroController extends AbstractController<Arena>{
         return "";
     }
 
+    //return element
     private String checkCollision(Position position){
         if(getModel().isEnd(position)) return "end";
         if(getModel().hasItemAtPosition(getModel().getBats(),position)) return "bat";
         if(getModel().hasItemAtPosition(getModel().getSpikes(),position)) return "spike";
+        if(getModel().hasItemAtPosition(getModel().getPowerUps(),position)) getModel().getPowerUp(position).getStrategy().execute(getModel());
         return "";
     }
 
