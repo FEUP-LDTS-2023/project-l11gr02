@@ -1,10 +1,7 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
-import com.dra.tombmask.model.Bat;
-import com.dra.tombmask.model.Hero;
-import com.dra.tombmask.model.Position;
+import com.dra.tombmask.model.*;
 import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
@@ -18,7 +15,7 @@ public class HeroController extends AbstractController<Arena>{
         super(arena);
     }
 
-    public String moveHero(){
+    public Element moveHero(){
         Hero hero = getModel().getHero();
         int x = hero.getPosition().getX();
         int y = hero.getPosition().getY();
@@ -29,7 +26,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
+                if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case DOWN:
@@ -38,7 +35,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
+                if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case LEFT:
@@ -47,7 +44,7 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
+                if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
 
                 hero.setPosition(new Position(x,y));
                 break;
@@ -57,22 +54,21 @@ public class HeroController extends AbstractController<Arena>{
                     hero.setDirection(DIRECTION.IDLE);
                     break;
                 }
-                if(!checkCollision(new Position(x, y)).isEmpty()) return checkCollision(new Position(x,y));
+                if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
                 hero.setPosition(new Position(x,y));
                 break;
             case IDLE:
                 break;
         }
-        return "";
+        return null;
     }
 
-    //return element
-    private String checkCollision(Position position){
-        if(getModel().isEnd(position)) return "end";
-        if(getModel().hasItemAtPosition(getModel().getBats(),position)) return "bat";
-        if(getModel().hasItemAtPosition(getModel().getSpikes(),position)) return "spike";
-        if(getModel().hasItemAtPosition(getModel().getPowerUps(),position)) getModel().getPowerUp(position).getStrategy().execute(getModel());
-        return "";
+    private Element checkCollision(Position position){
+        if(getModel().getElementAtPosition(position) instanceof PowerUp){
+            getModel().getPowerUpAtPosition(position).getStrategy().execute(getModel());
+            return null;
+        }
+        return getModel().getElementAtPosition(position);
     }
 
     @Override
@@ -95,9 +91,7 @@ public class HeroController extends AbstractController<Arena>{
                 getModel().getHero().setDirection(DIRECTION.RIGHT);
                 break;
         }
-        if(Objects.equals(moveHero(), "bat")) game.setState(null);
-        if(Objects.equals(moveHero(),"spike")) game.setState(null);
-        else if(Objects.equals(moveHero(), "end")) {
+        if(moveHero() instanceof EndLevel) {
             game.setCurrentArena(game.currentArena + 1);
             try {
                 String path = "./src/main/resources/levels/level"+game.currentArena;
@@ -105,6 +99,9 @@ public class HeroController extends AbstractController<Arena>{
             }catch (IOException e){
                 game.setState(null);
             }
+        }
+        else if(moveHero() instanceof Bat || moveHero() instanceof Spike){
+            game.setState(null);
         }
     }
 }
