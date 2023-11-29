@@ -3,8 +3,10 @@ import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Menu;
+import com.dra.tombmask.model.Store;
 import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.state.MenuState;
+import com.dra.tombmask.state.StoreState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.MENU_OPTION;
 
@@ -38,7 +40,7 @@ public class MenuController extends AbstractController<Menu>{
                 game.setState(new GameState(new Arena(60,30,path)));
             }
             case STORE ->{
-                game.setState(new MenuState());
+                game.setState(new StoreState(new Store()));
             }
             case EXIT -> game.setState(null);
         }

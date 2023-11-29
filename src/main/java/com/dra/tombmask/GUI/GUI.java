@@ -20,8 +20,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class GUI {
-    static int HEIGHT = 12;
-    static int WIDTH = 30;
+    static public int HEIGHT = 17;
+    static public int WIDTH = 30;
 
     private Screen screen;
 
@@ -72,11 +72,17 @@ public class GUI {
         textGraphics.putString(terminalPosition, element.getSymbol());
     }
 
-    public void drawWall(Wall wall, GUI gui){
+    public void drawWall(Wall wall, GUI gui) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
         TerminalPosition terminalPosition = new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY());
-        textGraphics.putString(terminalPosition," ");
+        textGraphics.putString(terminalPosition, " ");
+    }
+
+    public void drawBox(int x,int y,String message) {
+        drawText(x,y,"-".repeat(message.length() + 2));
+        drawText(x,y + 1,"|" + message + "|");
+        drawText(x,y + 2,"-".repeat(message.length()+2));
     }
 
     public void drawSelectable(int x, int y, String message, boolean isSelected) throws IOException {
