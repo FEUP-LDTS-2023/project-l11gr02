@@ -13,7 +13,7 @@ import java.io.IOException;
 public class MenuState implements AbstractState {
     private final MenuController menuController;
     private final MainMenuView mainMenuView;
-    public MenuState() throws IOException {
+    public MenuState() {
         Menu menu = new Menu();
         menuController = new MenuController(menu);
         mainMenuView = new MainMenuView(menu);

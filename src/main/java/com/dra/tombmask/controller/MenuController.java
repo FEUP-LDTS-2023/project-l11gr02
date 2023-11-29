@@ -4,6 +4,7 @@ import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Menu;
 import com.dra.tombmask.state.GameState;
+import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.MENU_OPTION;
 
@@ -25,9 +26,21 @@ public class MenuController extends AbstractController<Menu>{
                 getModel().downMenu();
                 break;
             case ENTER:
-                String path = "src/main/resources/levels/level"+game.currentArena;
-                if(getModel().isSelected(MENU_OPTION.PLAY)) { game.setState(new GameState(new Arena(60, 30, path))); }
-                else { game.setState(null); }
+                consumeOption(game);
+                break;
+        }
+    }
+
+    private void consumeOption(Game game) throws IOException {
+        String path = "src/main/resources/levels/level"+ game.currentArena;
+        switch (getModel().getCurrentOption()){
+            case PLAY -> {
+                game.setState(new GameState(new Arena(60,30,path)));
+            }
+            case STORE ->{
+                game.setState(new MenuState());
+            }
+            case EXIT -> game.setState(null);
         }
     }
 }
