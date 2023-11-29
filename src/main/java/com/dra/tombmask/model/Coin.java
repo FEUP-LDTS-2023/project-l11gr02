@@ -6,9 +6,21 @@ import java.util.List;
 public class Coin extends Element implements Collectable{
     public Coin(int x, int y){
         super(x,y);
+        this.collected_coins = 0;
+        this.setSymbol("c");
     }
     public Coin(Position position) {
         super(position.getX(),position.getY());
+        this.collected_coins = 0;
+        this.setSymbol("c");
+    }
+
+    public void collect_coin(){
+        collected_coins++;
+    }
+
+    public int getCollected_coins() {
+        return collected_coins;
     }
 
     public String toString() {

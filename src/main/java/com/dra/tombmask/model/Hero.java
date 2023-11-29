@@ -11,9 +11,14 @@ public class Hero extends Element{
     public Hero(Position position) {
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
+<<<<<<< HEAD
         this.collected_coins = 0;
         this.collected_stars = 0;
         this.collected_points = 0;
+=======
+        this.setColor("#FFFF00");
+        this.setSymbol("h");
+>>>>>>> d0cde73 (Set Properties into Elements)
     }
 
     public DIRECTION getDirection(){ return direction; }
