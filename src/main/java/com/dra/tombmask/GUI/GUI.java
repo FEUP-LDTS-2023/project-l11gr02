@@ -64,9 +64,10 @@ public class GUI {
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()),"b");
     }
 
-    public void drawHero(Position position) {
+    public void drawHero(Position position, Boolean isShielded) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        String color = !isShielded ? "#FFFF00" : "#FF0000";
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "h");
     }
 

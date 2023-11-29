@@ -10,12 +10,15 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class HeroController extends AbstractController<Arena>{
+    private final Hero hero = getModel().getHero();
     public HeroController(Arena arena){
         super(arena);
     }
 
     public Element moveHero(){
-        Hero hero = getModel().getHero();
+        if(hero.isShielded()){
+            hero.setShieldedTime(hero.getShieldedTime() - 0.08);
+        }
         int x = hero.getPosition().getX();
         int y = hero.getPosition().getY();
         switch (hero.getDirection()){
@@ -74,20 +77,20 @@ public class HeroController extends AbstractController<Arena>{
     public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
         switch (action){
             case UP:
-                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
-                getModel().getHero().setDirection(DIRECTION.UP);
+                if(hero.getDirection() != DIRECTION.IDLE) break;
+                hero.setDirection(DIRECTION.UP);
                 break;
             case DOWN:
-                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
-                getModel().getHero().setDirection(DIRECTION.DOWN);
+                if(hero.getDirection() != DIRECTION.IDLE) break;
+                hero.setDirection(DIRECTION.DOWN);
                 break;
             case LEFT:
-                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
-                getModel().getHero().setDirection(DIRECTION.LEFT);
+                if(hero.getDirection() != DIRECTION.IDLE) break;
+                hero.setDirection(DIRECTION.LEFT);
                 break;
             case RIGHT:
-                if(getModel().getHero().getDirection() != DIRECTION.IDLE) break;
-                getModel().getHero().setDirection(DIRECTION.RIGHT);
+                if(hero.getDirection() != DIRECTION.IDLE) break;
+                hero.setDirection(DIRECTION.RIGHT);
                 break;
         }
         if(moveHero() instanceof EndLevel) {
@@ -98,8 +101,13 @@ public class HeroController extends AbstractController<Arena>{
                 game.setState(null);
             }
         }
-        else if(moveHero() instanceof Bat || moveHero() instanceof Spike){
-            game.setState(null);
+        else if((moveHero() instanceof Bat || moveHero() instanceof Spike)){
+            if(hero.isShielded()){
+                hero.setShieldedTime(0.0);
+            }
+            else{
+                game.setState(null);
+            }
         }
     }
 }

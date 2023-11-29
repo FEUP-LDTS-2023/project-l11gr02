@@ -2,6 +2,7 @@ package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
 import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.powerups.ShieldStrategy;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -75,9 +76,14 @@ public class MapLoader {
                         this.endLevel = endLevel;
                         globalElements.add(endLevel);
                     case 'F':
-                        PowerUp powerUp = new PowerUp(currentPosition, new FreezeStrategy());
-                        powerUps.add(powerUp);
-                        globalElements.add(powerUp);
+                        PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
+                        powerUps.add(freeze);
+                        globalElements.add(freeze);
+                        break;
+                    case 'G':
+                        PowerUp shield = new PowerUp(currentPosition, new ShieldStrategy());
+                        powerUps.add(shield);
+                        globalElements.add(shield);
                         break;
                 }
             }
