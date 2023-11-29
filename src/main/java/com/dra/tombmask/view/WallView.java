@@ -10,8 +10,6 @@ import com.googlecode.lanterna.screen.Screen;
 
 public class WallView implements ElementView<Wall>{
     public void draw(Wall wall, GUI gui){
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
-        textGraphics.putString(new TerminalPosition(wall.getPosition().getX(),wall.getPosition().getY())," ");
+        gui.drawWall(wall,gui);
     }
 }

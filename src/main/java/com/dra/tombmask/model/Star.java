@@ -6,9 +6,13 @@ import java.util.List;
 public class Star extends Element implements Collectable{
     public Star(int x, int y){
         super(x,y);
+        this.collected_stars = 0;
+        this.setSymbol("S");
     }
     public Star(Position position){
         super(position.getX(),position.getY());
+        this.collected_stars = 0;
+        this.setSymbol("S");
     }
 
     @Override

@@ -57,10 +57,17 @@ public class ArenaViewTest {
     public void drawHeroTest() {
         gameView.drawGame(gui,new Hero(new Position(1,3)),new HeroView());
 <<<<<<< HEAD
+<<<<<<< HEAD
         Mockito.verify(gui,Mockito.times(1)).drawElement(new Hero(new Position(1,3)),gui);
 =======
         //Mockito.verify(gui,Mockito.times(1)).drawHero(new Position(1,3));
 >>>>>>> 12f73b6 (successfull refactor and implementation of collectable as well as the tests)
+=======
+        //Mockito.verify(gui,Mockito.times(1)).drawHero(new Position(1,3));
+=======
+        Mockito.verify(gui,Mockito.times(1)).drawElement(new Hero(new Position(1,3)),gui);
+>>>>>>> d0cde73 (Set Properties into Elements)
+>>>>>>> 41bc302 (Set Properties into Elements)
     }
     @Test
     public void drawSpikeTest() {

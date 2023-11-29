@@ -9,8 +9,6 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 public class SpikeView implements ElementView<Spike>{
     @Override
     public void draw(Spike spike, GUI gui) {
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        TerminalPosition terminalPosition = new TerminalPosition(spike.getPosition().getX(),spike.getPosition().getY());
-        textGraphics.putString(terminalPosition, "t");
+        gui.drawElement(spike,gui);
     }
 }
