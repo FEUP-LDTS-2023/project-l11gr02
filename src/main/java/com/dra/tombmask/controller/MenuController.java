@@ -16,8 +16,6 @@ public class MenuController extends AbstractController<Menu>{
     public MenuController(Menu menu){
         super(menu);
     }
-
-
     @Override
     public void executeState(Game game, ACTION action) throws IOException {
         switch (action){
@@ -32,7 +30,6 @@ public class MenuController extends AbstractController<Menu>{
                 break;
         }
     }
-
     private void consumeOption(Game game) throws IOException {
         String path = "src/main/resources/levels/level"+ game.currentArena;
         switch (getModel().getCurrentOption()){
