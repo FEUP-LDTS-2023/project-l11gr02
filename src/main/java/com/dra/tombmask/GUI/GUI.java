@@ -58,7 +58,7 @@ public class GUI {
         screen.doResizeIfNecessary();
         return screen;
     }
-    
+
     public void drawText(int x,int y,String message) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));

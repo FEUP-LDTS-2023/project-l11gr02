@@ -32,6 +32,9 @@ public class Arena {
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
         this.powerUps = loader.getPowerUps();
+        this.coins = loader.getCoins();
+        this.stars = loader.getStars();
+        this.points = loader.getPoints();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -42,6 +45,9 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
+        this.coins = new ArrayList<>();
+        this.points = new ArrayList<>();
+        this.stars = new ArrayList<>();
         this.powerUps = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
     }
@@ -156,35 +162,5 @@ public class Arena {
             if (wall.getPosition().equals(position))
                 return false;
         return true;
-    }
-
-    public <T>void remove_Collectable(T obj){
-        if(obj instanceof Coin){
-            Iterator<Coin> iterator = coins.iterator();
-            while (iterator.hasNext()) {
-                Coin coin = iterator.next();
-                if (coin.getPosition().equals(((Coin) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
-        else if(obj instanceof Star){
-            Iterator<Star> iterator = stars.iterator();
-            while (iterator.hasNext()) {
-                Star star = iterator.next();
-                if (star.getPosition().equals(((Star) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
-        else if(obj instanceof Point){
-            Iterator<Point> iterator = points.iterator();
-            while (iterator.hasNext()) {
-                Point point = iterator.next();
-                if (point.getPosition().equals(((Point) obj).getPosition())) {
-                    iterator.remove();
-                }
-            }
-        }
     }
 }

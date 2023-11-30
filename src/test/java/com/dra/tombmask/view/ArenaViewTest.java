@@ -56,7 +56,11 @@ public class ArenaViewTest {
     @Test
     public void drawHeroTest() {
         gameView.drawGame(gui,new Hero(new Position(1,3)),new HeroView());
+<<<<<<< HEAD
         Mockito.verify(gui,Mockito.times(1)).drawElement(new Hero(new Position(1,3)),gui);
+=======
+        //Mockito.verify(gui,Mockito.times(1)).drawHero(new Position(1,3));
+>>>>>>> 12f73b6 (successfull refactor and implementation of collectable as well as the tests)
     }
     @Test
     public void drawSpikeTest() {
