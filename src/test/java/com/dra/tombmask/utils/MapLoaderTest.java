@@ -15,8 +15,8 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MapLoaderTest {
-    static private final String pathLevel1 = "./docs/level1";
-    static private final String pathLevel3 = "./docs/level3";
+    static private final String pathLevel1 = "./src/main/resources/levels/level1";
+    static private final String pathLevel3 = "./src/main/resources/levels/level3";
     @Test
     public void openFileTest() throws IOException {
         String upperWall = "WWWWWWWWWW";

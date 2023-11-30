@@ -18,32 +18,43 @@ public class VerifyCollisionTest {
     private List<Coin> coins;
     private List<Star> stars;
     private List<Point> points;
-    /*
-    @BeforeEach
-    public void setup() throws IOException {
-        this.arena = new Arena(30,30,"docs/level1");
-    }*/
 
     @Test
     public void isBat() throws IOException{
-        this.arena = new Arena(30,30,"docs/level1");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
         Position position = new Position(7,2);
 
-        Assertions.assertEquals(true,arena.hasItemAtPosition(arena.getBats(),position));
+        boolean tmp = false;
+
+        for(Bat bat : arena.getBats()){
+            if(bat.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(true,tmp);
     }
 
     @Test
     public void isSpike() throws IOException{
-        this.arena = new Arena(30,30,"docs/level3");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level3");
 
         Position position = new Position(1,2);
 
-        Assertions.assertEquals(false,arena.hasItemAtPosition(arena.getSpikes(),position));
+        boolean tmp = false;
+
+        for(Spike spike : arena.getSpikes()){
+            if(spike.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(false,tmp);
     }
 
     @Test
     public void isCoin() throws IOException{
-        this.arena = new Arena(30,30,"docs/level1");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
         coins = new ArrayList<>();
         coins.add(new Coin(3,2));
 
@@ -51,12 +62,20 @@ public class VerifyCollisionTest {
 
         Position position = new Position(3,2);
 
-        Assertions.assertEquals(true,arena.hasItemAtPosition(arena.getCoins(),position));
+        boolean tmp = false;
+
+        for(Coin coin : arena.getCoins()){
+            if(coin.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(true,tmp);
     }
 
     @Test
     public void isStar() throws IOException{
-        this.arena = new Arena(30,30,"docs/level2");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level2");
         stars = new ArrayList<>();
         stars.add(new Star(3,2));
 
@@ -64,12 +83,20 @@ public class VerifyCollisionTest {
 
         Position position = new Position(3,3);
 
-        Assertions.assertEquals(false,arena.hasItemAtPosition(arena.getStars(),position));
+        boolean tmp = false;
+
+        for(Star star : arena.getStars()){
+            if(star.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(false,tmp);
     }
 
     @Test
     public void isPoint() throws IOException{
-        this.arena = new Arena(30,30,"docs/level2");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level2");
         points = new ArrayList<>();
         points.add(new Point(4,4));
 
@@ -77,21 +104,37 @@ public class VerifyCollisionTest {
 
         Position position = new Position(4,4);
 
-        Assertions.assertEquals(true,arena.hasItemAtPosition(arena.getPoints(),position));
+        boolean tmp = false;
+
+        for(Point point : arena.getPoints()){
+            if(point.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(true,tmp);
     }
 
     @Test
     public void isWall() throws IOException{
-        this.arena = new Arena(30,30,"docs/level1");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
 
         Position position = new Position(4,4);
 
-        Assertions.assertEquals(false,arena.hasItemAtPosition(arena.getWalls(),position));
+        boolean tmp = false;
+
+        for(Wall wall : arena.getWalls()){
+            if(wall.getPosition().equals(position)){
+                tmp = true;
+            }
+        }
+
+        Assertions.assertEquals(false,tmp);
     }
 
     @Test
     public void isEnd() throws IOException{
-        this.arena = new Arena(30,30,"docs/level1");
+        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
         Position position = new Position(8,8);
 
         Assertions.assertEquals(true,arena.isEnd(position));
