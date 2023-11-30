@@ -1,6 +1,8 @@
 package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.powerups.ShieldStrategy;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +19,8 @@ public class MapLoader {
     private final List<Wall> walls;
     private final List<Spike> spikes;
     private final List<String> globalPositions;
+    private final List<PowerUp> powerUps;
+    private final List<Element> globalElements;
 
     public MapLoader(String path) throws IOException {
         this.hero = new Hero(new Position(0, 0));
@@ -25,6 +29,8 @@ public class MapLoader {
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
+        this.powerUps = new ArrayList<>();
+        this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
     }
 
@@ -44,11 +50,42 @@ public class MapLoader {
             String string = globalPositions.get(j);
             for(int i = 0 ; i < string.length(); i++) {
                 Position currentPosition = new Position(i,j);
-                if(string.charAt(i) == 'W') walls.add(new Wall(currentPosition));
-                if(string.charAt(i) == 'B') bats.add(new Bat(currentPosition, random.nextBoolean()));
-                if(string.charAt(i) == 'S') spikes.add(new Spike(currentPosition));
-                if(string.charAt(i) == 'H') hero = new Hero(currentPosition);
-                if(string.charAt(i) == 'E') endLevel = new EndLevel(currentPosition);
+                switch (string.charAt(i)){
+                    case 'W':
+                        Wall wall = new Wall(currentPosition);
+                        walls.add(wall);
+                        globalElements.add(wall);
+                        break;
+                    case 'B':
+                        Bat bat = new Bat(currentPosition, random.nextBoolean());
+                        bats.add(bat);
+                        globalElements.add(bat);
+                        break;
+                    case 'S':
+                        Spike spike = new Spike(currentPosition);
+                        spikes.add(spike);
+                        globalElements.add(spike);
+                        break;
+                    case 'H':
+                        Hero hero = new Hero(currentPosition);
+                        this.hero = hero;
+                        globalElements.add(hero);
+                        break;
+                    case 'E':
+                        EndLevel endLevel = new EndLevel(currentPosition);
+                        this.endLevel = endLevel;
+                        globalElements.add(endLevel);
+                    case 'F':
+                        PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
+                        powerUps.add(freeze);
+                        globalElements.add(freeze);
+                        break;
+                    case 'G':
+                        PowerUp shield = new PowerUp(currentPosition, new ShieldStrategy());
+                        powerUps.add(shield);
+                        globalElements.add(shield);
+                        break;
+                }
             }
         }
     }
@@ -58,6 +95,8 @@ public class MapLoader {
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
-    public List<String> getGlobalPositions() {return this.globalPositions;}
+    public List<String> getGlobalPositions() {return this.globalPositions; }
+    public List<Element> getGlobalElements() { return this.globalElements; }
+    public List<PowerUp> getPowerUps() { return this.powerUps; }
 
 }

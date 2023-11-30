@@ -19,6 +19,8 @@ public class Arena {
     private List<Coin> coins;
     private List<Star> stars;
     private List<Point> points;
+    private List<PowerUp> powerUps;
+    private List<Element> globalElements;
 
     public Arena(int width, int height, String path) throws IOException {
         MapLoader loader = new MapLoader(path);
@@ -29,6 +31,8 @@ public class Arena {
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
+        this.powerUps = loader.getPowerUps();
+        this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
         this.width = width;
@@ -38,6 +42,8 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
+        this.powerUps = new ArrayList<>();
+        this.globalElements = new ArrayList<Element>();
     }
 
     public int getWidth() {
@@ -61,6 +67,14 @@ public class Arena {
 
     public List<Bat> getBats() {
         return bats;
+    }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
     }
 
     public void setBats(List<Bat> bats) {
@@ -115,13 +129,22 @@ public class Arena {
         this.points = points;
     }
 
-    public <T extends Element> boolean hasItemAtPosition(List<T> items, Position position) {
-        for (T item : items) {
-            if (item.getPosition().equals(position)) {
-                return true;
+    public Element getElementAtPosition(Position position) {
+        for (Element e : globalElements) {
+            if (e.getPosition().equals(position)) {
+                return e;
             }
         }
-        return false;
+        return null;
+    }
+
+    public PowerUp getPowerUpAtPosition(Position position) {
+        for(PowerUp p : powerUps){
+            if(p.getPosition().equals(position)){
+                return p;
+            }
+        }
+        return null;
     }
 
     public boolean isEnd(Position position){
