@@ -8,6 +8,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class BatView implements ElementView<Bat>{
     public void draw(Bat bat, GUI gui){
-        gui.drawElement(bat,gui);
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+        TerminalPosition terminalPosition = new TerminalPosition(bat.getPosition().getX(),bat.getPosition().getY());
+        textGraphics.putString(terminalPosition,"b");
     }
 }

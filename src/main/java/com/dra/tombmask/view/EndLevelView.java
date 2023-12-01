@@ -4,6 +4,7 @@ import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.EndLevel;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
+
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class EndLevelView implements ElementView<EndLevel>{
