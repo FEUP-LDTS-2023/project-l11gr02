@@ -16,6 +16,7 @@ public class Hero extends Element{
         this.collected_points = 0;
         this.setColor("#FFFF00");
         this.setSymbol("h");
+
     }
 
     public DIRECTION getDirection(){ return direction; }
