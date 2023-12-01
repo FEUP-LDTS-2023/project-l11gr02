@@ -37,9 +37,10 @@ public class StoreTests {
     }
     @Test
     public void buyMaskTest() {
+        store.setCurrentCoins(100000000);
         int currentCoins = store.getCurrentCoins();
         store.buyMask("NINJA");
         assertTrue(store.getOwnedMasks().contains("NINJA"));
-        assertEquals(currentCoins-1500,store.getCurrentCoins());
+        assertEquals(currentCoins-2000,store.getCurrentCoins());
     }
 }

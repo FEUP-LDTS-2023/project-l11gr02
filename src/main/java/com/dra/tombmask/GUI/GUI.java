@@ -79,9 +79,9 @@ public class GUI {
         textGraphics.putString(terminalPosition, " ");
     }
 
-    public void drawBox(int x,int y,String message) {
+    public void drawBoxSelectable(int x,int y,String message,boolean isSelected) throws IOException {
         drawText(x,y,"-".repeat(message.length() + 2));
-        drawText(x,y + 1,"|" + message + "|");
+        drawSelectable(x-2,y + 1,"|" + message + "|",isSelected);
         drawText(x,y + 2,"-".repeat(message.length()+2));
     }
 
@@ -123,4 +123,5 @@ public class GUI {
     public void close() throws IOException {
         screen.close();
     }
+
 }

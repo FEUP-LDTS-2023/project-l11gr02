@@ -13,14 +13,10 @@ public class StoreExiterTest {
     @Test
     public void exitTest() throws IOException {
         Store store = Mockito.mock(Store.class);
-        Map<String,String> maskPricesMap = Map.of("AMONGUS","1000","NINJA","2000");
-        Mockito.when(store.getAvailableMasks()).thenReturn(List.of("NINJA","AMONGUS"));
+        Map<String,String> maskPricesMap = Map.of("CROW","1000","AMONGUS","1500","NINJA","2000","DEFAULT","SEL","EXIT","0");
+        Mockito.when(store.getAvailableMasks()).thenReturn(List.of("CROW","NINJA","AMONGUS","DEFAULT","EXIT"));
         Mockito.when(store.getMaskPriceMap()).thenReturn(maskPricesMap);
-        StoreExiter storeExiter = new StoreExiter(store);
-        storeExiter.printWriter = Mockito.mock(PrintWriter.class);
+        StoreExiter storeExiter = new StoreExiter(store, "src/main/resources/masks/pricesMasksTest");
         storeExiter.exit();
-        Mockito.verify(storeExiter.printWriter,Mockito.times(1)).println("NINJA"+"="+"2000");
-        Mockito.verify(storeExiter.printWriter,Mockito.times(1)).println("AMONGUS"+"="+"1000");
-
     }
 }

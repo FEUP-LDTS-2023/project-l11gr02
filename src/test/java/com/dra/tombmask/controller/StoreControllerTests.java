@@ -4,12 +4,11 @@ package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Store;
 import com.dra.tombmask.utils.ACTION;
-import com.dra.tombmask.utils.StoreExiterTest;
+import com.dra.tombmask.utils.StoreExiter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,10 +17,10 @@ public class StoreControllerTests {
     private Game game;
     private StoreController storeController;
     @BeforeEach
-    public void setup() throws IOException, FontFormatException {
+    public void setup() throws IOException {
         store = Mockito.mock(Store.class);
-        game = new Game();
-        storeController = new StoreController(store);
+        game = Mockito.mock(Game.class);
+        storeController = new StoreController(store, Mockito.mock(StoreExiter.class));
     }
     @Test
     public void onceUpTest() throws IOException, InterruptedException {

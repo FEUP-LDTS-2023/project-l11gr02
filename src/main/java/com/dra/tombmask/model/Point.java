@@ -19,7 +19,7 @@ public class Point extends Element implements Collectable{
 
     @Override
     public void collect(Position position, Arena arena, Hero hero) {
-        hero.setCollected_points(hero.getCollected_points()+1);
+        Hero.setCollected_points(Hero.getCollected_points()+1);
         List<Point> new_points = new ArrayList<>();
         for(Point point : arena.getPoints()){
             if(!point.getPosition().equals(position)){

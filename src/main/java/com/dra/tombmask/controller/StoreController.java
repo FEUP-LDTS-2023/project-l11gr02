@@ -11,7 +11,12 @@ public class StoreController extends AbstractController<Store>{
     public StoreExiter storeExiter;
     public StoreController(Store model) throws IOException {
         super(model);
-        storeExiter = new StoreExiter(model);
+        storeExiter = new StoreExiter(model, Store.pathPricesMasks);
+    }
+
+    public StoreController(Store model,StoreExiter storeExiter) {
+        super(model);
+        this.storeExiter = storeExiter;
     }
 
     @Override

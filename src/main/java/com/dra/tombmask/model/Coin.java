@@ -19,7 +19,7 @@ public class Coin extends Element implements Collectable{
 
     @Override
     public void collect(Position position, Arena arena, Hero hero) {
-        hero.setCollected_coins(hero.getCollected_coins()+1);
+        Hero.setCollected_coins(Hero.getCollected_coins()+1);
         List<Coin> new_coins = new ArrayList<>();
         for(Coin coin : arena.getCoins()){
             if(!coin.getPosition().equals(position)){

@@ -28,7 +28,7 @@ public class Store {
         this.ownedMasks = new ArrayList<>();
         this.selectedMask = "";
         this.currentIndex = 0;
-        this.currentCoins = 0;
+        this.currentCoins = Hero.getCollected_coins();
         loadMasks(pathPricesMasks);
         loadSymbols();
     }
@@ -39,7 +39,7 @@ public class Store {
         this.ownedMasks = new ArrayList<>();
         this.selectedMask = "";
         this.currentIndex = 0;
-        this.currentCoins = 0;
+        this.currentCoins = Hero.getCollected_coins();
         loadMasks(path);
         loadSymbols();
     }
@@ -84,6 +84,8 @@ public class Store {
     public Map<String,String> getMaskPriceMap() {return this.maskPriceMap;}
     public int getCurrentCoins() {return this.currentCoins;}
     public int getCurrentIndex() {return this.currentIndex;}
+
+    public void setCurrentCoins(int coins) {this.currentCoins = coins;}
 
     public void selectMask(String mask) {
         String selectedMask = getSelectedMask();

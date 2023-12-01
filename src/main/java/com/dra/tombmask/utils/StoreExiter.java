@@ -9,16 +9,17 @@ import java.io.PrintWriter;
 public class StoreExiter {
 
     private final Store store;
-    private final FileWriter fileWriter;
-
     public PrintWriter printWriter;
 
-    public StoreExiter(Store model) throws IOException {
+    public String path;
+
+    public StoreExiter(Store model, String path) throws IOException {
         this.store = model;
-        this.fileWriter = new FileWriter(Store.pathPricesMasks);
-        this.printWriter = new PrintWriter(fileWriter);
+        this.path = path;
     }
     public void exit() throws IOException {
+        FileWriter fileWriter = new FileWriter(path);
+        this.printWriter = new PrintWriter(fileWriter);
         for(String mask : store.getAvailableMasks()){
             printWriter.println(mask + "=" + store.getMaskPriceMap().get(mask));
         }
