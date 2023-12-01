@@ -10,10 +10,10 @@ import com.dra.tombmask.view.StoreView;
 import java.io.IOException;
 
 public class StoreState implements AbstractState {
-    private final StoreController storeController;
-    private final StoreView storeView;
+    public StoreController storeController;
+    public StoreView storeView;
 
-    public StoreState(Store store) {
+    public StoreState(Store store) throws IOException {
         storeController = new StoreController(store);
         storeView = new StoreView(store);
     }

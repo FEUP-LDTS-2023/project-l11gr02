@@ -29,11 +29,22 @@ public class Store {
         this.selectedMask = "";
         this.currentIndex = 0;
         this.currentCoins = 0;
-        loadMasks();
+        loadMasks(pathPricesMasks);
         loadSymbols();
     }
-    private void loadMasks() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(pathPricesMasks))));
+    public Store(String path) throws IOException {
+        this.availableMasks = new ArrayList<>();
+        this.maskPriceMap = new HashMap<>();
+        this.maskSymbolMap = new HashMap<>();
+        this.ownedMasks = new ArrayList<>();
+        this.selectedMask = "";
+        this.currentIndex = 0;
+        this.currentCoins = 0;
+        loadMasks(path);
+        loadSymbols();
+    }
+    private void loadMasks(String path) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(path))));
         String line;
         while((line = bufferedReader.readLine()) != null) {
             List<String> splitLine = List.of(line.split("="));
@@ -72,6 +83,7 @@ public class Store {
     public String getSelectedMask() {return this.selectedMask;}
     public Map<String,String> getMaskPriceMap() {return this.maskPriceMap;}
     public int getCurrentCoins() {return this.currentCoins;}
+    public int getCurrentIndex() {return this.currentIndex;}
 
     public void selectMask(String mask) {
         String selectedMask = getSelectedMask();
