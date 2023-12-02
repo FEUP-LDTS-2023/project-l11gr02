@@ -32,14 +32,10 @@ public class GUI {
 
     public Screen getScreen() {
         return this.screen;
-
+    }
     public GUI(Screen screen) throws IOException, FontFormatException {
         this.screen = screen;
     }
-    public Screen getScreen() {
-        return this.screen;
-    }
-
     public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
@@ -64,17 +60,12 @@ public class GUI {
         screen.doResizeIfNecessary();
         return screen;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> f17299f (Refactor View Classes)
     public void drawText(int x,int y,String message) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(x,y,message);
     }
 
-<<<<<<< HEAD
     public void drawElement(Element element,GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString(element.getColor()));
@@ -95,8 +86,6 @@ public class GUI {
         drawText(x,y + 2,"-".repeat(message.length()+2));
     }
 
-=======
->>>>>>> f17299f (Refactor View Classes)
     public void drawSelectable(int x, int y, String message, boolean isSelected) throws IOException {
         if(isSelected) {
             TextGraphics textGraphics = screen.newTextGraphics();
