@@ -1,21 +1,26 @@
 plugins {
     id 'java'
     id 'application'
+    id 'info.solidsoft.pitest' version '1.7.4'
 }
 
 group = 'com.dra.tombmask'
 version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 16
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-
+    //testImplementation platform('org.junit:junit-bom:5.10.0')
+    //testImplementation 'org.junit:junit-bom:5.10.0'
+    //testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testImplementation 'junit:junit:4.13.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'org.mockito:mockito-core:3.7.7'
-
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
 }
 
@@ -23,6 +28,16 @@ test {
     useJUnitPlatform()
 }
 
-application{
+application {
     mainClass = 'com.dra.tombmask.App'
 }
+
+pitest {
+    junit5PluginVersion = '0.12'
+    pitestVersion = '1.7.4'
+    verbose = true
+}
+
+
+
+

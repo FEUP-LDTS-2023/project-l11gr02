@@ -28,6 +28,10 @@ public class GUI {
         this.screen = createScreen(terminal);
     }
 
+    public GUI(Screen screen) throws IOException, FontFormatException {
+        this.screen = screen;
+    }
+
     public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
