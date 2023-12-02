@@ -32,6 +32,9 @@ public class GUI {
 
     public Screen getScreen() {
         return this.screen;
+
+    public GUI(Screen screen) throws IOException, FontFormatException {
+        this.screen = screen;
     }
 
     public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {

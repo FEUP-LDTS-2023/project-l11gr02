@@ -11,10 +11,6 @@ import java.util.List;
 
 public class VerifyCollisionTest {
     private Arena arena;
-    private List<Bat> bats;
-    private List<Wall> walls;
-    private List<Spike> spikes;
-    private EndLevel end;
     private List<Coin> coins;
     private List<Star> stars;
     private List<Point> points;
