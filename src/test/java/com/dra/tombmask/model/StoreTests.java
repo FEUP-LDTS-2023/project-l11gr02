@@ -43,4 +43,12 @@ public class StoreTests {
         assertTrue(store.getOwnedMasks().contains("NINJA"));
         assertEquals(currentCoins-2000,store.getCurrentCoins());
     }
+    @Test
+    public void buyMask2Test() {
+        store.setCurrentCoins(2000);
+        int currentCoins = store.getCurrentCoins();
+        store.buyMask("NINJA");
+        assertTrue(store.getOwnedMasks().contains("NINJA"));
+        assertEquals(0,store.getCurrentCoins());
+    }
 }

@@ -13,7 +13,7 @@ public class StoreExiter {
 
     public String path;
 
-    public StoreExiter(Store model, String path) throws IOException {
+    public StoreExiter(Store model, String path){
         this.store = model;
         this.path = path;
     }

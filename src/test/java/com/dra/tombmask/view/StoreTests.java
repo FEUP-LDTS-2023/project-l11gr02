@@ -3,13 +3,16 @@ package com.dra.tombmask.view;
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.Store;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class StoreTets {
+import static org.mockito.ArgumentMatchers.eq;
+
+public class StoreTests {
     @Test
     public void drawStore() throws IOException {
         GUI gui = Mockito.mock(GUI.class);
@@ -21,5 +24,10 @@ public class StoreTets {
         StoreView storeView = new StoreView(store);
         storeView.drawModel(gui);
         Mockito.verify(gui,Mockito.times(1)).drawText(10,1,"STORE");
+        Mockito.verify(gui,Mockito.times(1)).drawText(GUI.WIDTH - 7,1,"0");
+        Mockito.verify(gui,Mockito.times(availableMasks.size())).drawBoxSelectable(
+                5,Mockito.any(Integer.class),Mockito.any(String.class),Mockito.any(boolean.class));
+        Mockito.verify(gui,Mockito.times(1)).drawSelectable(
+                eq(GUI.WIDTH - ("EXIT".length()+ 3)),eq(GUI.HEIGHT-1),eq("EXIT"),Mockito.any(boolean.class));
     }
 }
