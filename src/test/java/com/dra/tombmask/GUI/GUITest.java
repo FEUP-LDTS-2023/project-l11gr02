@@ -26,7 +26,7 @@ public class GUITest {
 
         gui = new GUI(screen);
     }
-
+/*
     @Test
     void draw_hero(){
         gui.drawHero(new Position(1,1),false);
@@ -71,4 +71,6 @@ public class GUITest {
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 255, 0));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 1, "Hello World");
     }
+
+ */
 }

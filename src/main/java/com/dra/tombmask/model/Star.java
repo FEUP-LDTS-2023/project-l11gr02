@@ -6,14 +6,16 @@ import java.util.List;
 public class Star extends Element implements Collectable{
     public Star(int x, int y){
         super(x,y);
+        this.setSymbol("S");
     }
     public Star(Position position){
         super(position.getX(),position.getY());
+        this.setSymbol("S");
     }
 
     @Override
     public void collect(Position position, Arena arena, Hero hero) {
-        hero.setCollected_stars(hero.getCollected_stars()+1);
+        Hero.setCollected_stars(Hero.getCollected_stars()+1);
         List<Star> new_stars = new ArrayList<>();
         for(Star star : arena.getStars()){
             if(!star.getPosition().equals(position)){

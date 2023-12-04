@@ -1,8 +1,4 @@
 package com.dra.tombmask.model;
-import com.dra.tombmask.model.Arena;
-import com.dra.tombmask.model.Coin;
-import com.dra.tombmask.model.Point;
-import com.dra.tombmask.model.Star;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -54,34 +50,34 @@ public class RemoveCollectableTest {
         Assertions.assertEquals(expected2,arena.getHero().getCollected_coins());
     }
 
-        @Test
-        public void collect_star(){
-            List<Star> expected = new ArrayList<>();
-            int expected2 = 2;
-            expected.add(new Star(1,3));
+    @Test
+    public void collect_star(){
+        List<Star> expected = new ArrayList<>();
+        int expected2 = 2;
+        expected.add(new Star(1,3));
 
-            Star star1_to_remove = new Star(2,2);
-            Star star2_to_remove = new Star(0,5);
+        Star star1_to_remove = new Star(2,2);
+        Star star2_to_remove = new Star(0,5);
 
-            star1_to_remove.collect(star1_to_remove.getPosition(),arena,arena.getHero());
-            star2_to_remove.collect(star2_to_remove.getPosition(),arena,arena.getHero());
+        star1_to_remove.collect(star1_to_remove.getPosition(),arena,arena.getHero());
+        star2_to_remove.collect(star2_to_remove.getPosition(),arena,arena.getHero());
 
-            Assertions.assertEquals(expected,arena.getStars());
-            Assertions.assertEquals(expected2,arena.getHero().getCollected_stars());
-        }
-
-        @Test
-        public void collect_point(){
-            List<Point> expected = new ArrayList<>();
-            int expected2 = 1;
-            expected.add(new Point(0,7));
-            expected.add(new Point(1,4));
-
-            Point point_to_remove = new Point(2,3);
-
-            point_to_remove.collect(point_to_remove.getPosition(),arena,arena.getHero());
-
-            Assertions.assertEquals(expected,arena.getPoints());
-            Assertions.assertEquals(expected2,arena.getHero().getCollected_points());
-        }
+        Assertions.assertEquals(expected,arena.getStars());
+        Assertions.assertEquals(expected2,arena.getHero().getCollected_stars());
     }
+
+    @Test
+    public void collect_point(){
+        List<Point> expected = new ArrayList<>();
+        int expected2 = 1;
+        expected.add(new Point(0,7));
+        expected.add(new Point(1,4));
+
+        Point point_to_remove = new Point(2,3);
+
+        point_to_remove.collect(point_to_remove.getPosition(),arena,arena.getHero());
+
+        Assertions.assertEquals(expected,arena.getPoints());
+        Assertions.assertEquals(expected2,arena.getHero().getCollected_points());
+    }
+}
