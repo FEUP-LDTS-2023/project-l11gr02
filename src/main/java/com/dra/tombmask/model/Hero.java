@@ -3,17 +3,14 @@ package com.dra.tombmask.model;
 import com.dra.tombmask.utils.DIRECTION;
 
 public class Hero extends Element{
-    private int collected_coins;
-    private int collected_stars;
-    private int collected_points;
+    public static int collected_coins = 0;
+    public static int collected_stars = 0;
+    public static int collected_points = 0;
     private DIRECTION direction;
     private double shieldedTime = 0;
     public Hero(Position position) {
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
-        this.collected_coins = 0;
-        this.collected_stars = 0;
-        this.collected_points = 0;
     }
 
     public DIRECTION getDirection(){ return direction; }
@@ -27,7 +24,7 @@ public class Hero extends Element{
         return collected_points;
     }
 
-    public int getCollected_coins() {
+    public static int getCollected_coins() {
         return collected_coins;
     }
 

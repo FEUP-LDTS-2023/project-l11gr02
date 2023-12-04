@@ -76,6 +76,11 @@ public class GUI {
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "t");
     }
 
+    public void drawCoin(Position position) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "o");
+    }
+
     public void drawEndLevel(Position position) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.putString(new TerminalPosition(position.getX(), position.getY()), "e");
@@ -125,4 +130,6 @@ public class GUI {
     public void close() throws IOException {
         screen.close();
     }
+
+    public Screen getScreen() { return screen; }
 }
