@@ -14,7 +14,7 @@ public class Star extends Element implements Collectable{
     }
 
     @Override
-    public void collect(Position position, Arena arena, Hero hero) {
+    public void collect(Position position, Arena arena) {
         Hero.setCollected_stars(Hero.getCollected_stars()+1);
         List<Star> new_stars = new ArrayList<>();
         for(Star star : arena.getStars()){

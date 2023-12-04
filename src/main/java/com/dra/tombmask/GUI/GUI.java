@@ -65,7 +65,7 @@ public class GUI {
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         textGraphics.putString(x,y,message);
     }
-
+    /*
     public void drawElement(Element element,GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString(element.getColor()));
@@ -78,7 +78,7 @@ public class GUI {
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#993399"));
         TerminalPosition terminalPosition = new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY());
         textGraphics.putString(terminalPosition, " ");
-    }
+    }*/
 
     public void drawBoxSelectable(int x,int y,String message,boolean isSelected) throws IOException {
         drawText(x,y,"-".repeat(message.length() + 2));

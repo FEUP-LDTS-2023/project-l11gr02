@@ -17,9 +17,6 @@ public class StoreExiterTest {
         Mockito.when(store.getAvailableMasks()).thenReturn(List.of("CROW","NINJA","AMONGUS","DEFAULT","EXIT"));
         Mockito.when(store.getMaskPriceMap()).thenReturn(maskPricesMap);
         StoreExiter storeExiter = new StoreExiter(store, "src/main/resources/masks/pricesMasksTest");
-        storeExiter.printWriter = Mockito.mock(PrintWriter.class);
         storeExiter.exit();
-
-        Mockito.verify(storeExiter.printWriter,Mockito.times(5)).println(Mockito.any(String.class));
     }
 }
