@@ -14,13 +14,14 @@ public class Hero extends Element{
     }
 
     public DIRECTION getDirection(){ return direction; }
+  
     public void setDirection(DIRECTION direction) { this.direction = direction; }
 
-    public int getCollected_stars() {
+    public static int getCollected_stars() {
         return collected_stars;
     }
 
-    public int getCollected_points() {
+    public static int getCollected_points() {
         return collected_points;
     }
 
@@ -28,16 +29,16 @@ public class Hero extends Element{
         return collected_coins;
     }
 
-    public void setCollected_coins(int collected_coins) {
-        this.collected_coins = collected_coins;
+    public static void setCollected_coins(int collected_coins) {
+        Hero.collected_coins = collected_coins;
     }
 
-    public void setCollected_points(int collected_points) {
-        this.collected_points = collected_points;
+    public static void setCollected_points(int collected_points) {
+        Hero.collected_points = collected_points;
     }
 
-    public void setCollected_stars(int collected_stars) {
-        this.collected_stars = collected_stars;
+    public static void setCollected_stars(int collected_stars) {
+        Hero.collected_stars = collected_stars;
     }
 
     public double getShieldedTime() {

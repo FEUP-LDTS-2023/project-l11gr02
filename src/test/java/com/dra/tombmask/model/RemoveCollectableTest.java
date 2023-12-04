@@ -1,8 +1,4 @@
 package com.dra.tombmask.model;
-import com.dra.tombmask.model.Arena;
-import com.dra.tombmask.model.Coin;
-import com.dra.tombmask.model.Point;
-import com.dra.tombmask.model.Star;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,4 +27,4 @@ public class RemoveCollectableTest {
     @Test
     public void collect_point(){
     }
-    }
+}

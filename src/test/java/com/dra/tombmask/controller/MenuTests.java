@@ -16,24 +16,31 @@ public class MenuTests {
     public void movingSelectionMenuTest() {
         Menu menu = new Menu();
         menu.upMenu();
-        assertEquals(MENU_OPTION.PLAY,menu.getCurrentOption());
-        menu.downMenu();
         assertEquals(MENU_OPTION.EXIT,menu.getCurrentOption());
         menu.downMenu();
-        menu.upMenu();
         assertEquals(MENU_OPTION.PLAY,menu.getCurrentOption());
         menu.downMenu();
+        assertEquals(MENU_OPTION.STORE,menu.getCurrentOption());
         menu.downMenu();
-        assertEquals(MENU_OPTION.EXIT,menu.getCurrentOption());
+        menu.downMenu();
+        assertEquals(MENU_OPTION.PLAY,menu.getCurrentOption());
     }
     @Test
     public void isSelectedTest() {
         Menu menu = new Menu();
+        assertFalse(menu.isSelected(MENU_OPTION.STORE));
         assertFalse(menu.isSelected(MENU_OPTION.EXIT));
         assertTrue(menu.isSelected(MENU_OPTION.PLAY));
 
         menu.downMenu();
+        assertTrue(menu.isSelected(MENU_OPTION.STORE));
+        assertFalse(menu.isSelected(MENU_OPTION.PLAY));
+        assertFalse(menu.isSelected(MENU_OPTION.EXIT));
+
+        menu.downMenu();
         assertTrue(menu.isSelected(MENU_OPTION.EXIT));
         assertFalse(menu.isSelected(MENU_OPTION.PLAY));
+        assertFalse(menu.isSelected(MENU_OPTION.STORE));
+
     }
 }
