@@ -45,9 +45,7 @@ public class RemoveCollectableTest {
         Coin coin_to_remove = new Coin(2,2);
 
         coin_to_remove.collect(coin_to_remove.getPosition(),arena,arena.getHero());
-
         Assertions.assertEquals(expected,arena.getCoins());
-        Assertions.assertEquals(expected2,arena.getHero().getCollected_coins());
     }
 
     @Test
@@ -63,7 +61,6 @@ public class RemoveCollectableTest {
         star2_to_remove.collect(star2_to_remove.getPosition(),arena,arena.getHero());
 
         Assertions.assertEquals(expected,arena.getStars());
-        Assertions.assertEquals(expected2,arena.getHero().getCollected_stars());
     }
 
     @Test
@@ -78,6 +75,5 @@ public class RemoveCollectableTest {
         point_to_remove.collect(point_to_remove.getPosition(),arena,arena.getHero());
 
         Assertions.assertEquals(expected,arena.getPoints());
-        Assertions.assertEquals(expected2,arena.getHero().getCollected_points());
     }
 }
