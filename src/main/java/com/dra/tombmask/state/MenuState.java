@@ -11,8 +11,8 @@ import com.dra.tombmask.view.MainMenuView;
 import java.io.IOException;
 
 public class MenuState implements AbstractState {
-    private final MenuController menuController;
-    private final MainMenuView mainMenuView;
+    public MenuController menuController;
+    public MainMenuView mainMenuView;
     public MenuState() throws IOException {
         Menu menu = new Menu();
         menuController = new MenuController(menu);

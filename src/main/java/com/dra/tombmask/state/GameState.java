@@ -10,8 +10,8 @@ import com.dra.tombmask.view.GameView;
 import java.io.IOException;
 
 public class GameState implements AbstractState{
-    private final ArenaController arenaController;
-    private final GameView gameViewer;
+    public ArenaController arenaController;
+    public GameView gameViewer;
     public GameState(Arena arena) throws IOException {
         arenaController = new ArenaController(arena);
         gameViewer = new GameView(arena);
