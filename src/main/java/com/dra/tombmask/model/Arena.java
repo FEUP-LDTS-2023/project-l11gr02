@@ -10,15 +10,12 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
     private Hero hero;
     private EndLevel endLevel;
     private List<Bat> bats;
     private List<Wall> walls;
     private List<Spike> spikes;
-    private List<Coin> coins;
-    private List<Star> stars;
-    private List<Point> points;
+    private List<Collectable> collectables;
     private List<PowerUp> powerUps;
     private List<Element> globalElements;
 
@@ -31,10 +28,7 @@ public class Arena {
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
-        this.powerUps = loader.getPowerUps();
-        this.coins = loader.getCoins();
-        this.stars = loader.getStars();
-        this.points = loader.getPoints();
+        this.collectables = loader.getCollectables();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -45,10 +39,7 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
-        this.coins = new ArrayList<>();
-        this.points = new ArrayList<>();
-        this.stars = new ArrayList<>();
-        this.powerUps = new ArrayList<>();
+        this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
     }
 
@@ -73,14 +64,6 @@ public class Arena {
 
     public List<Bat> getBats() {
         return bats;
-    }
-
-    public List<PowerUp> getPowerUps() {
-        return powerUps;
-    }
-
-    public void setPowerUps(List<PowerUp> powerUps) {
-        this.powerUps = powerUps;
     }
 
     public void setBats(List<Bat> bats) {
@@ -111,43 +94,10 @@ public class Arena {
         this.endLevel = end;
     }
 
-    public List<Coin> getCoins() {
-        return coins;
-    }
-
-    public void setCoins(List<Coin> coins) {
-        this.coins = coins;
-    }
-
-    public List<Star> getStars() {
-        return stars;
-    }
-
-    public void setStars(List<Star> stars) {
-        this.stars = stars;
-    }
-
-    public List<Point> getPoints() {
-        return points;
-    }
-
-    public void setPoints(List<Point> points) {
-        this.points = points;
-    }
-
     public Element getElementAtPosition(Position position) {
         for (Element e : globalElements) {
             if (e.getPosition().equals(position)) {
                 return e;
-            }
-        }
-        return null;
-    }
-
-    public PowerUp getPowerUpAtPosition(Position position) {
-        for(PowerUp p : powerUps){
-            if(p.getPosition().equals(position)){
-                return p;
             }
         }
         return null;
@@ -163,4 +113,7 @@ public class Arena {
                 return false;
         return true;
     }
+
+    public List<Element> getGlobalElements(){ return globalElements; }
+    public void setGlobalElements(List<Element> globalElements){ this.globalElements = globalElements; }
 }
