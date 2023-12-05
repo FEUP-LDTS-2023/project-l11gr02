@@ -5,11 +5,15 @@ import com.dra.tombmask.model.Position;
 import com.dra.tombmask.model.Wall;
 import com.dra.tombmask.utils.ACTION;
 import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,6 +22,7 @@ import java.awt.*;
 import java.io.IOException;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 public class GUITest {
     private Screen screen;
@@ -97,7 +102,19 @@ public class GUITest {
     }
 
     @Test
-    void draw_selectable1() throws IOException{
+    public void draw_boxSelectable() throws IOException{
+        gui.drawBoxSelectable(3,3,"Clicked",true);
+
+        Mockito.verify(textGraphics, Mockito.times(4)).setForegroundColor(new TextColor.RGB(255, 255, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(3, 3, "---------");
+        Mockito.verify(textGraphics, Mockito.times(4)).setForegroundColor(new TextColor.RGB(255, 255, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(1, 4, "> ");
+        Mockito.verify(textGraphics, Mockito.times(4)).setForegroundColor(new TextColor.RGB(255, 255, 0));
+        Mockito.verify(textGraphics, Mockito.times(1)).putString(3, 5, "---------");
+    }
+
+    @Test
+    public void draw_selectable1() throws IOException{
         gui.drawSelectable(1,1, "Hello World",true);
 
         Mockito.verify(textGraphics, Mockito.times(2)).setForegroundColor(new TextColor.RGB(255, 255, 0));
@@ -105,10 +122,15 @@ public class GUITest {
     }
 
     @Test
-    void draw_selectable2() throws IOException{
+    public void draw_selectable2() throws IOException{
         gui.drawSelectable(1,1, "Hello World",false);
 
         Mockito.verify(textGraphics, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 255, 0));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(3, 1, "Hello World");
+    }
+
+    @Test
+    public void screenTest(){
+        Assertions.assertEquals(screen,gui.getScreen());
     }
 }
