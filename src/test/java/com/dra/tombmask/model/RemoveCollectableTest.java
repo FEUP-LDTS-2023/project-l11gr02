@@ -8,20 +8,12 @@ import java.util.List;
 
 public class RemoveCollectableTest {
     private Arena arena;
-    private List<Coin> coins;
-    private List<Star> stars;
-    private List<Point> points;
 
     @BeforeEach
     public void setup() throws IOException {
         arena = new Arena(30,30,"src/main/resources/levels/level1");
 
-        coins = new ArrayList<>();
-        coins.add(new Coin(1,1));
-        coins.add(new Coin(2,2));
-        coins.add(new Coin(0,3));
-
-        stars = new ArrayList<>();
+        /*stars = new ArrayList<>();
         stars.add(new Star(0,5));
         stars.add(new Star(1,3));
         stars.add(new Star(2,2));
@@ -31,54 +23,73 @@ public class RemoveCollectableTest {
         points.add(new Point(1,4));
         points.add(new Point(2,3));
 
-        arena.setCoins(coins);
         arena.setStars(stars);
-        arena.setPoints(points);
+        arena.setCollectables(points);*/
     }
 
     @Test
     public void collect_coin(){
-        List<Coin> expected = new ArrayList<>();
-        int expected2 = 1;
+        List<Collectable> expected = new ArrayList<>();
         expected.add(new Coin(1,1));
-        expected.add(new Coin(0,3));
+        expected.add(new Coin(8,1));
 
-        Coin coin_to_remove = new Coin(2,2);
+        Coin coin_to_remove = new Coin(1,8);
 
-        coin_to_remove.collect(coin_to_remove.getPosition(),arena);
+        coin_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getCoins());
-        //Assertions.assertEquals(expected2,Hero.getCollected_coins());
+        Assertions.assertEquals(expected,arena.getCollectables());
     }
 
     @Test
     public void collect_star(){
-        List<Star> expected = new ArrayList<>();
-        int expected2 = 2;
+        List<Collectable> collectables = new ArrayList<>();
+        collectables.add(new Star(0,5));
+        collectables.add(new Coin(1,1));
+        collectables.add(new Star(1,3));
+        collectables.add(new Coin(1,8));
+        collectables.add(new Star(2,2));
+        collectables.add(new Coin(8,1));
+
+        arena.setCollectables(collectables);
+
+        List<Collectable> expected = new ArrayList<>();
+        expected.add(new Coin(1,1));
         expected.add(new Star(1,3));
+        expected.add(new Coin(1,8));
+        expected.add(new Coin(8,1));
 
         Star star1_to_remove = new Star(2,2);
         Star star2_to_remove = new Star(0,5);
 
-        star1_to_remove.collect(star1_to_remove.getPosition(),arena);
-        star2_to_remove.collect(star2_to_remove.getPosition(),arena);
+        star1_to_remove.collect(arena);
+        star2_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getStars());
-        //Assertions.assertEquals(expected2,Hero.getCollected_stars());
+        Assertions.assertEquals(expected,arena.getCollectables());
     }
 
     @Test
     public void collect_point(){
-        List<Point> expected = new ArrayList<>();
-        int expected2 = 1;
+        List<Collectable> collectables = new ArrayList<>();
+        collectables.add(new Point(0,7));
+        collectables.add(new Coin(1,1));
+        collectables.add(new Point(1,4));
+        collectables.add(new Coin(1,8));
+        collectables.add(new Point(2,3));
+        collectables.add(new Coin(8,1));
+
+        arena.setCollectables(collectables);
+
+        List<Collectable> expected = new ArrayList<>();
         expected.add(new Point(0,7));
+        expected.add(new Coin(1,1));
         expected.add(new Point(1,4));
+        expected.add(new Coin(1,8));
+        expected.add(new Coin(8,1));
 
         Point point_to_remove = new Point(2,3);
 
-        point_to_remove.collect(point_to_remove.getPosition(),arena);
+        point_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getPoints());
-        //Assertions.assertEquals(expected2,Hero.getCollected_points());
+        Assertions.assertEquals(expected,arena.getCollectables());
     }
 }

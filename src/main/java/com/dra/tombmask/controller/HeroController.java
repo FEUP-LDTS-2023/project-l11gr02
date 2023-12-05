@@ -68,12 +68,15 @@ public class HeroController extends AbstractController<Arena>{
 
     private Element checkCollision(Position position){
         if(getModel().getElementAtPosition(position) instanceof PowerUp){
-            getModel().getPowerUpAtPosition(position).getStrategy().execute(getModel());
+            ((PowerUp) getModel().getElementAtPosition(position)).getStrategy().execute(getModel());
+            return null;
+        }
+        else if(getModel().getElementAtPosition(position) instanceof Collectable){
+            ((Collectable) getModel().getElementAtPosition(position)).collect(getModel());
             return null;
         }
         return getModel().getElementAtPosition(position);
     }
-
     @Override
     public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
         switch (action){

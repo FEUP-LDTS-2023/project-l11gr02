@@ -3,7 +3,7 @@ package com.dra.tombmask.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Star extends Element implements Collectable{
+public class Star extends Collectable{
     public Star(int x, int y){
         super(x,y);
         this.setSymbol("S");
@@ -14,15 +14,15 @@ public class Star extends Element implements Collectable{
     }
 
     @Override
-    public void collect(Position position, Arena arena) {
+    public void collect(Arena arena) {
         Hero.setCollected_stars(Hero.getCollected_stars()+1);
-        List<Star> new_stars = new ArrayList<>();
-        for(Star star : arena.getStars()){
-            if(!star.getPosition().equals(position)){
-                new_stars.add(star);
+        List<Collectable> new_collectables = new ArrayList<>();
+        for(Collectable collectable : arena.getCollectables()){
+            if(!collectable.getPosition().equals(this.getPosition())){
+                new_collectables.add(collectable);
             }
         }
-        arena.setStars(new_stars);
+        arena.setCollectables(new_collectables);
     }
 
     public String toString() {

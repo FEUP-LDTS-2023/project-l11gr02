@@ -3,7 +3,7 @@ package com.dra.tombmask.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coin extends Element implements Collectable{
+public class Coin extends Collectable{
     public Coin(int x, int y){
         super(x,y);
         this.setSymbol("c");
@@ -18,14 +18,14 @@ public class Coin extends Element implements Collectable{
     }
 
     @Override
-    public void collect(Position position, Arena arena) {
+    public void collect(Arena arena) {
         Hero.setCollected_coins(Hero.getCollected_coins()+1);
-        List<Coin> new_coins = new ArrayList<>();
-        for(Coin coin : arena.getCoins()){
-            if(!coin.getPosition().equals(position)){
-                new_coins.add(coin);
+        List<Collectable> new_collectables = new ArrayList<>();
+        for(Collectable collectable : arena.getCollectables()){
+            if(!collectable.getPosition().equals(this.getPosition())){
+                new_collectables.add(collectable);
             }
         }
-        arena.setCoins(new_coins);
+        arena.setCollectables(new_collectables);
     }
 }

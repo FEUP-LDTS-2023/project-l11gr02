@@ -18,9 +18,7 @@ public class MapLoader {
     private final List<Bat> bats;
     private final List<Wall> walls;
     private final List<Spike> spikes;
-    private final List<Coin> coins;
-    private final List<Star> stars;
-    private final List<Point> points;
+    private final List<Collectable> collectables;
     private final List<String> globalPositions;
     private final List<PowerUp> powerUps;
     private final List<Element> globalElements;
@@ -33,9 +31,7 @@ public class MapLoader {
         this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
         this.powerUps = new ArrayList<>();
-        this.coins = new ArrayList<>();
-        this.points = new ArrayList<>();
-        this.stars = new ArrayList<>();
+        this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
     }
@@ -93,17 +89,17 @@ public class MapLoader {
                         break;
                     case 'o':
                         Coin coin = new Coin(currentPosition);
-                        coins.add(coin);
+                        collectables.add(coin);
                         globalElements.add(coin);
                         break;
                     case '.':
                         Point point = new Point(currentPosition);
-                        points.add(point);
+                        collectables.add(point);
                         globalElements.add(point);
                         break;
                     case '*':
                         Star star = new Star(currentPosition);
-                        stars.add(star);
+                        collectables.add(star);
                         globalElements.add(star);
                         break;
                 }
@@ -119,8 +115,6 @@ public class MapLoader {
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
     public List<PowerUp> getPowerUps() { return this.powerUps; }
-    public List<Coin> getCoins() {return this.coins;}
-    public List<Star> getStars() {return this.stars;}
-    public List<Point> getPoints() {return this.points;}
+    public List<Collectable> getCollectables() {return this.collectables;}
 
 }
