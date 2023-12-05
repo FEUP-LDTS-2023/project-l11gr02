@@ -17,9 +17,8 @@ public class HeroController extends AbstractController<Arena>{
     }
 
     public Element moveHero(){
-        if(hero.isShielded()){
-            hero.setShieldedTime(hero.getShieldedTime() - 0.08);
-        }
+        if(hero.isShielded()) hero.setShieldedTime(hero.getShieldedTime() - 0.08);
+        if(hero.isMagnet()) hero.setMagnetTime(hero.getMagnetTime() - 0.08);
         int x = hero.getPosition().getX();
         int y = hero.getPosition().getY();
         switch (hero.getDirection()){
@@ -48,7 +47,6 @@ public class HeroController extends AbstractController<Arena>{
                     break;
                 }
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-
                 hero.setPosition(new Position(x,y));
                 break;
             case RIGHT:
@@ -78,6 +76,17 @@ public class HeroController extends AbstractController<Arena>{
         return getModel().getElementAtPosition(position);
     }
 
+    private void collectAdjacentCoins(){
+        int heroX = hero.getPosition().getX();
+        int heroY = hero.getPosition().getY();
+        for(int x = heroX - 1; x <= heroX + 1; x++){
+            for(int y = heroY - 1; y <= heroY + 1; y++){
+                Element e = getModel().getElementAtPosition(new Position(x,y));
+                if(e instanceof Collectable) ((Collectable) e).collect(getModel());
+            }
+        }
+    }
+
     @Override
     public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
         switch (action){
@@ -98,6 +107,7 @@ public class HeroController extends AbstractController<Arena>{
                 hero.setDirection(DIRECTION.RIGHT);
                 break;
         }
+        if(hero.isMagnet()) collectAdjacentCoins();
         if(moveHero() instanceof EndLevel) {
             game.setCurrentArena(game.currentArena + 1);
             try {

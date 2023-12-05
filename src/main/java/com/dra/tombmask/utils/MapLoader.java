@@ -1,6 +1,7 @@
 package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.powerups.CoinMagnetStrategy;
 import com.dra.tombmask.powerups.FreezeStrategy;
 import com.dra.tombmask.powerups.ShieldStrategy;
 
@@ -20,7 +21,6 @@ public class MapLoader {
     private final List<Spike> spikes;
     private final List<Collectable> collectables;
     private final List<String> globalPositions;
-    private final List<PowerUp> powerUps;
     private final List<Element> globalElements;
 
     public MapLoader(String path) throws IOException {
@@ -30,7 +30,6 @@ public class MapLoader {
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
-        this.powerUps = new ArrayList<>();
         this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
@@ -79,12 +78,10 @@ public class MapLoader {
                         globalElements.add(endLevel);
                     case 'F':
                         PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
-                        powerUps.add(freeze);
                         globalElements.add(freeze);
                         break;
                     case 'G':
                         PowerUp shield = new PowerUp(currentPosition, new ShieldStrategy());
-                        powerUps.add(shield);
                         globalElements.add(shield);
                         break;
                     case 'o':
@@ -102,6 +99,10 @@ public class MapLoader {
                         collectables.add(star);
                         globalElements.add(star);
                         break;
+                    case 'M':
+                        PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
+                        globalElements.add(magnet);
+                        break;
                 }
             }
         }
@@ -114,7 +115,6 @@ public class MapLoader {
     public List<Spike> getSpikes() {return this.spikes;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
-    public List<PowerUp> getPowerUps() { return this.powerUps; }
     public List<Collectable> getCollectables() {return this.collectables;}
 
 }
