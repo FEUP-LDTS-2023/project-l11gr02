@@ -29,7 +29,6 @@ public class Arena {
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
-        this.powerUps = loader.getPowerUps();
         this.collectables = loader.getCollectables();
         this.globalElements = loader.getGlobalElements();
     }
@@ -41,7 +40,6 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
-        this.powerUps = new ArrayList<>();
         this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
     }

@@ -16,13 +16,8 @@ public class Star extends Collectable{
     @Override
     public void collect(Arena arena) {
         Hero.setCollected_stars(Hero.getCollected_stars()+1);
-        List<Collectable> new_collectables = new ArrayList<>();
-        for(Collectable collectable : arena.getCollectables()){
-            if(!collectable.getPosition().equals(this.getPosition())){
-                new_collectables.add(collectable);
-            }
-        }
-        arena.setCollectables(new_collectables);
+        arena.getCollectables().remove(this);
+        arena.getGlobalElements().remove(this);
     }
 
     public String toString() {

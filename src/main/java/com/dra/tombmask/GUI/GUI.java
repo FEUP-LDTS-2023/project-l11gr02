@@ -20,8 +20,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class GUI {
-    static public int HEIGHT = 17;
-    static public int WIDTH = 30;
+    static public int HEIGHT = 15;
+    static public int WIDTH = 25;
 
     private Screen screen;
 

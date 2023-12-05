@@ -20,12 +20,7 @@ public class Coin extends Collectable{
     @Override
     public void collect(Arena arena) {
         Hero.setCollected_coins(Hero.getCollected_coins()+1);
-        List<Collectable> new_collectables = new ArrayList<>();
-        for(Collectable collectable : arena.getCollectables()){
-            if(!collectable.getPosition().equals(this.getPosition())){
-                new_collectables.add(collectable);
-            }
-        }
-        arena.setCollectables(new_collectables);
+        arena.getCollectables().remove(this);
+        arena.getGlobalElements().remove(this);
     }
 }
