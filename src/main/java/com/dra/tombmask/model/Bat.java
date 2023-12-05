@@ -12,13 +12,13 @@ public class Bat extends Element{
     public Bat(int x, int y, Boolean currentDirection){
         super(x,y);
         this.direction = !currentDirection ? DIRECTION.LEFT : DIRECTION.RIGHT;
-        this.setColor("#636261");
-        this.setSymbol("b");
+        //this.setColor("#636261");
+        //this.setSymbol("b");
     }
     public Bat(Position position, Boolean currentDirection) {
         super(position.getX(), position.getY());
-        this.setColor("#636261");
-        this.setSymbol("b");
+        //this.setColor("#636261");
+        //this.setSymbol("b");
         this.direction = !currentDirection ? DIRECTION.LEFT : DIRECTION.RIGHT;
     }
 

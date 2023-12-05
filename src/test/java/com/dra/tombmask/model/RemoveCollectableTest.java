@@ -12,19 +12,6 @@ public class RemoveCollectableTest {
     @BeforeEach
     public void setup() throws IOException {
         arena = new Arena(30,30,"src/main/resources/levels/level1");
-
-        /*stars = new ArrayList<>();
-        stars.add(new Star(0,5));
-        stars.add(new Star(1,3));
-        stars.add(new Star(2,2));
-
-        points = new ArrayList<>();
-        points.add(new Point(0,7));
-        points.add(new Point(1,4));
-        points.add(new Point(2,3));
-
-        arena.setStars(stars);
-        arena.setCollectables(points);*/
     }
 
     @Test

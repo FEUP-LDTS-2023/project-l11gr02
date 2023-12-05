@@ -89,14 +89,6 @@ public class Arena {
         this.spikes = spikes;
     }
 
-    public EndLevel getEnd() {
-        return endLevel;
-    }
-
-    public void setEnd(EndLevel end) {
-        this.endLevel = end;
-    }
-
     public List<Collectable> getCollectables() {
         return collectables;
     }

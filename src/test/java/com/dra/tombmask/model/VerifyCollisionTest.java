@@ -25,7 +25,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
@@ -126,6 +126,6 @@ public class VerifyCollisionTest {
         this.arena = new Arena(30,30,"src/main/resources/levels/level1");
         Position position = new Position(8,8);
 
-        Assertions.assertEquals(true,arena.isEnd(position));
+        Assertions.assertTrue(arena.isEnd(position));
     }
 }
