@@ -16,7 +16,6 @@ public class Arena {
     private List<Wall> walls;
     private List<Spike> spikes;
     private List<Collectable> collectables;
-    private List<PowerUp> powerUps;
     private List<Element> globalElements;
 
     public Arena(int width, int height, String path) throws IOException {
