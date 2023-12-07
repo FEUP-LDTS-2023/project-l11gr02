@@ -23,6 +23,8 @@ public class GameView extends AbstractView<Arena>{
         drawGame(gui, getModel().getSpikes(), new SpikeView());
         drawGame(gui, getModel().getEndLevel(), new EndLevelView());
         drawGame(gui, getModel().getGlobalElements(), new CollectableView());
+        drawGame(gui, getModel().getDartTraps(), new DartTrapView());
+        drawGame(gui, getModel().getDarts(), new DartView());
     }
 
     public  <T> void drawGame(GUI gui, T element,ElementView<T> viewer){

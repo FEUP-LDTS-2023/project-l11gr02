@@ -4,7 +4,6 @@ import com.dra.tombmask.utils.MapLoader;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Arena {
@@ -15,7 +14,8 @@ public class Arena {
     private List<Bat> bats;
     private List<Wall> walls;
     private List<Spike> spikes;
-    private List<Collectable> collectables;
+    private List<DartTrap> dartTraps;
+    private List<Dart> darts;
     private List<Element> globalElements;
 
     public Arena(int width, int height, String path) throws IOException {
@@ -26,8 +26,9 @@ public class Arena {
         this.hero = loader.getHero();
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
+        this.dartTraps = loader.getDartTraps();
+        this.darts = new ArrayList<>();
         this.spikes = loader.getSpikes();
-        this.collectables = loader.getCollectables();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -38,7 +39,8 @@ public class Arena {
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
-        this.collectables = new ArrayList<>();
+        this.dartTraps = new ArrayList<>();
+        this.darts = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
     }
 
@@ -81,6 +83,14 @@ public class Arena {
         return spikes;
     }
 
+    public List<DartTrap> getDartTraps() { return dartTraps; }
+
+    public void setDartTraps(List<DartTrap> dartTraps) { this.dartTraps = dartTraps; }
+
+    public List<Dart> getDarts() { return darts; }
+
+    public void setDarts(List<Dart> darts) { this.darts = darts; }
+
     public void setSpikes(List<Spike> spikes) {
         this.spikes = spikes;
     }
@@ -107,8 +117,8 @@ public class Arena {
     }
 
     public boolean isEmpty(Position position) {
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
+        for (Element element : globalElements)
+            if (element.getPosition().equals(position) && (element instanceof Wall || element instanceof DartTrap))
                 return false;
         return true;
     }

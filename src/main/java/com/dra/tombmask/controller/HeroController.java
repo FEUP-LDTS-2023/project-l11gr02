@@ -8,8 +8,6 @@ import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
 
 public class HeroController extends AbstractController<Arena>{
     private final Hero hero = getModel().getHero();
@@ -76,7 +74,6 @@ public class HeroController extends AbstractController<Arena>{
             ((Collectable) getModel().getElementAtPosition(position)).collect(getModel());
             return null;
         }
-        System.out.println(getModel().getElementAtPosition(position));
         return getModel().getElementAtPosition(position);
     }
 
@@ -122,7 +119,7 @@ public class HeroController extends AbstractController<Arena>{
                 game.setCurrentArena(1);
             }
         }
-        else if((moveHero() instanceof Bat || moveHero() instanceof Spike)){
+        else if((moveHero() instanceof Bat || moveHero() instanceof Spike || moveHero() instanceof Dart)){
             if(hero.isShielded()){
                 hero.setShieldedTime(0.0);
             }

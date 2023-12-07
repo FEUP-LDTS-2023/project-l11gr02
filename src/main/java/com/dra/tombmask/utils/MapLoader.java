@@ -19,7 +19,7 @@ public class MapLoader {
     private final List<Bat> bats;
     private final List<Wall> walls;
     private final List<Spike> spikes;
-    private final List<Collectable> collectables;
+    private final List<DartTrap> dartTraps;
     private final List<String> globalPositions;
     private final List<Element> globalElements;
 
@@ -29,8 +29,8 @@ public class MapLoader {
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
+        this.dartTraps = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
-        this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
     }
@@ -84,22 +84,24 @@ public class MapLoader {
                         break;
                     case 'o':
                         Coin coin = new Coin(currentPosition);
-                        collectables.add(coin);
                         globalElements.add(coin);
                         break;
                     case '.':
                         Point point = new Point(currentPosition);
-                        collectables.add(point);
                         globalElements.add(point);
                         break;
                     case '*':
                         Star star = new Star(currentPosition);
-                        collectables.add(star);
                         globalElements.add(star);
                         break;
                     case 'M':
                         PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
                         globalElements.add(magnet);
+                        break;
+                    case 'T':
+                        DartTrap trap = new DartTrap(currentPosition, DIRECTION.LEFT);
+                        dartTraps.add(trap);
+                        globalElements.add(trap);
                         break;
                 }
             }
@@ -111,8 +113,8 @@ public class MapLoader {
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
+    public List<DartTrap> getDartTraps() {return this.dartTraps;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
-    public List<Collectable> getCollectables() {return this.collectables;}
 
 }

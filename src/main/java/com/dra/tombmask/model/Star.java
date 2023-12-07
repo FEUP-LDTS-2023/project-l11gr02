@@ -14,7 +14,7 @@ public class Star extends Collectable{
     }
     @Override
     public void collect(Arena arena) {
-        arena.getHero().setCollected_stars(arena.getHero().getCollected_stars()+1);
+        Hero.setCollected_stars(Hero.getCollected_stars()+1);
         arena.getGlobalElements().remove(this);
     }
 }

@@ -14,7 +14,7 @@ public class Coin extends Collectable {
     }
     @Override
     public void collect(Arena arena) {
-        arena.getHero().setCollected_coins(arena.getHero().getCollected_coins()+1);
+        Hero.setCollected_coins(Hero.getCollected_coins()+1);
         arena.getGlobalElements().remove(this);
     }
 }

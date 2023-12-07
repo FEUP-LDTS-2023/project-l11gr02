@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class Element {
     private Position position;
-
     private String color;
     private String symbol;
 

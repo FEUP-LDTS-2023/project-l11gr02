@@ -18,6 +18,7 @@ public enum ElementsSymbol {
     pointCollectable("."),
     coinCollectable("o"),
     wallElement("w"),
+    dartTrap("q"),
     spikeElement("w"),
     endLevelElement("e");
     public final String symbol;

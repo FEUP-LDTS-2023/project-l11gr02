@@ -14,7 +14,7 @@ public class Point extends Collectable{
     }
     @Override
     public void collect(Arena arena) {
-        arena.getHero().setCollected_points(arena.getHero().getCollected_points()+1);
+        Hero.setCollected_points(Hero.getCollected_points()+1);
         arena.getGlobalElements().remove(this);
     }
 }
