@@ -69,9 +69,7 @@ public class MapLoader {
                         globalElements.add(spike);
                         break;
                     case 'H':
-                        Hero hero = new Hero(currentPosition);
-                        this.hero = hero;
-                        globalElements.add(hero);
+                        this.hero = new Hero(currentPosition);
                         break;
                     case 'E':
                         EndLevel endLevel = new EndLevel(currentPosition);
@@ -114,7 +112,6 @@ public class MapLoader {
     public List<Spike> getSpikes() {return this.spikes;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
-    public List<PowerUp> getPowerUps() { return this.powerUps; }
     public List<Collectable> getCollectables() {return this.collectables;}
 
 }
