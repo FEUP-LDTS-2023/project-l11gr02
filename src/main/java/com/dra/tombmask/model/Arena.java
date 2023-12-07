@@ -30,6 +30,7 @@ public class Arena {
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
         this.collectables = loader.getCollectables();
+        this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -41,6 +42,7 @@ public class Arena {
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.collectables = new ArrayList<>();
+        this.powerUps = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
     }
 
@@ -93,6 +95,14 @@ public class Arena {
 
     public void setCollectables(List<Collectable> collectables) {
         this.collectables = collectables;
+    }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
     }
 
     public Element getElementAtPosition(Position position) {

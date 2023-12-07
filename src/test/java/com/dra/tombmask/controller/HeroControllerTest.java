@@ -1,0 +1,286 @@
+package com.dra.tombmask.controller;
+
+import com.dra.tombmask.Game;
+import com.dra.tombmask.model.*;
+import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.state.GameState;
+import com.dra.tombmask.state.MenuState;
+import com.dra.tombmask.utils.ACTION;
+import com.dra.tombmask.utils.DIRECTION;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class HeroControllerTest {
+    Arena arena;
+    HeroController heroController;
+    Hero hero;
+    @BeforeEach
+    public void setup(){
+        arena = new Arena(30,30);
+        heroController = new HeroController(arena);
+    }
+
+    @Test
+    public void moveHeroUpTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.UP);
+        hero.setShieldedTime(10);
+
+        Assertions.assertTrue(arena.isEmpty(new Position(4, 3)));
+        Assertions.assertEquals(DIRECTION.UP,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(new Position(4, 3), hero.getPosition());
+        Assertions.assertEquals(9.92,hero.getShieldedTime());
+    }
+
+    @Test
+    public void moveHeroUpBlockedTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.UP);
+
+        List<Wall> walls = new ArrayList<>();
+        walls.add(new Wall(4,3));
+        arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(new Wall(4,3));
+        arena.setGlobalElements(elements);
+
+        Assertions.assertFalse(arena.isEmpty(new Position(4, 3)));
+        Assertions.assertEquals(DIRECTION.UP,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(DIRECTION.IDLE, hero.getDirection());
+        Assertions.assertEquals(new Wall(new Position(4,3)),heroController.checkCollision(new Position(4,3)));
+    }
+
+    @Test
+    public void moveHeroDownTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.DOWN);
+
+        Assertions.assertTrue(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertEquals(DIRECTION.DOWN,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(new Position(4, 5), hero.getPosition());
+    }
+
+    @Test
+    public void moveHeroDownBlockedTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.DOWN);
+
+        List<Wall> walls = new ArrayList<>();
+        walls.add(new Wall(4,5));
+        arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(new Wall(4,5));
+        arena.setGlobalElements(elements);
+
+        Assertions.assertFalse(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertEquals(DIRECTION.DOWN,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(DIRECTION.IDLE, hero.getDirection());
+        Assertions.assertEquals(new Wall(new Position(4,5)),heroController.checkCollision(new Position(4,5)));
+    }
+
+    @Test
+    public void moveHeroLeftTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.LEFT);
+
+        Assertions.assertTrue(arena.isEmpty(new Position(3, 4)));
+        Assertions.assertEquals(DIRECTION.LEFT,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(new Position(3, 4), hero.getPosition());
+    }
+
+    @Test
+    public void moveHeroLeftBlockedTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.LEFT);
+
+        List<Wall> walls = new ArrayList<>();
+        walls.add(new Wall(3,4));
+        arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(new Wall(3,4));
+        arena.setGlobalElements(elements);
+
+        Assertions.assertFalse(arena.isEmpty(new Position(3, 4)));
+        Assertions.assertEquals(DIRECTION.LEFT,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(DIRECTION.IDLE, hero.getDirection());
+        Assertions.assertEquals(new Wall(new Position(3,4)),heroController.checkCollision(new Position(3,4)));
+    }
+
+    @Test
+    public void moveHeroRightTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.RIGHT);
+
+        Assertions.assertTrue(arena.isEmpty(new Position(5, 4)));
+        Assertions.assertEquals(DIRECTION.RIGHT,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(new Position(5, 4), hero.getPosition());
+    }
+
+    @Test
+    public void moveHeroRightBlockedTest(){
+        hero =  arena.getHero();
+        hero.setPosition(new Position(4,4));
+        hero.setDirection(DIRECTION.RIGHT);
+
+        List<Wall> walls = new ArrayList<>();
+        walls.add(new Wall(5,4));
+        arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(new Wall(5,4));
+        arena.setGlobalElements(elements);
+
+        Assertions.assertFalse(arena.isEmpty(new Position(5, 4)));
+        Assertions.assertEquals(DIRECTION.RIGHT,hero.getDirection());
+        heroController.moveHero();
+        Assertions.assertEquals(DIRECTION.IDLE, hero.getDirection());
+        Assertions.assertEquals(new Wall(new Position(5,4)),heroController.checkCollision(new Position(5,4)));
+    }
+
+    @Test
+    public void checkCollisionPowerupTest(){
+        HeroController h = Mockito.mock(HeroController.class);
+
+        List<PowerUp> powerups = new ArrayList<>();
+        powerups.add(new PowerUp(new Position(2,3),new FreezeStrategy()));
+        arena.setPowerUps(powerups);
+
+        h.checkCollision(new Position(2,3));
+        for(Bat bat : arena.getBats()){
+            Assertions.assertEquals(5,bat.getTimeout());
+        }
+        //Assertions.assertNull(heroController.checkCollision(new Position(2,3)));
+    }
+    /*
+    @Test
+    public void checkCollisionCollectableTest(){
+        List<Collectable> collectables = new ArrayList<>();
+        collectables.add(new Coin(new Position(1,1)));
+        arena.setCollectables(collectables);
+
+        heroController.checkCollision(new Position(1,1));
+
+        Assertions.assertEquals(1,Hero.getCollected_coins());
+        //Assertions.assertNull(heroController.checkCollision(new Position(1,1)));
+    }*/
+
+    @Test
+    public void executeStateUpTest() throws IOException, InterruptedException {
+        hero = arena.getHero();
+        Game game = Mockito.mock(Game.class);
+        Mockito.when(game.getCurrentArena()).thenReturn(1);
+        hero.setPosition(new Position(2,2));
+        hero.setDirection(DIRECTION.IDLE);
+
+        EndLevel e = new EndLevel(2,1);
+        arena.setEndLevel(e);
+
+        List<Element> elements =new ArrayList<>();
+        elements.add(e);
+        arena.setGlobalElements(elements);
+
+        heroController.executeState(game, ACTION.UP);
+
+        Assertions.assertEquals(DIRECTION.UP,hero.getDirection());
+        Assertions.assertTrue(heroController.moveHero() instanceof EndLevel);
+        Mockito.when(game.getCurrentArena()).thenReturn(2);
+        Mockito.when(game.getState()).thenReturn(new GameState(new Arena(30,30,"./src/main/resources/levels/level2")));
+    }
+
+    @Test
+    public void executeStateDownTest() throws IOException, InterruptedException {
+        hero = arena.getHero();
+        Game game = Mockito.mock(Game.class);
+        hero.setPosition(new Position(2,2));
+        hero.setDirection(DIRECTION.IDLE);
+        hero.setShieldedTime(10);
+
+        Bat bat = new Bat(new Position(2,3), true);
+        List<Bat> bats = new ArrayList<>();
+        bats.add(bat);
+        arena.setBats(bats);
+
+        List<Element> elements =new ArrayList<>();
+        elements.add(bat);
+        arena.setGlobalElements(elements);
+
+        heroController.executeState(game, ACTION.DOWN);
+
+        Assertions.assertEquals(DIRECTION.DOWN,hero.getDirection());
+        Assertions.assertTrue(heroController.moveHero() instanceof Bat);
+        Assertions.assertEquals(0.0,hero.getShieldedTime());
+    }
+
+    @Test
+    public void executeStateLeftTest() throws IOException, InterruptedException {
+        hero = arena.getHero();
+        Game game = Mockito.mock(Game.class);
+        hero.setPosition(new Position(2,2));
+        hero.setDirection(DIRECTION.IDLE);
+        hero.setShieldedTime(0);
+
+        Spike spike = new Spike(new Position(1,2));
+        List<Spike> spikes = new ArrayList<>();
+        spikes.add(spike);
+        arena.setSpikes(spikes);
+
+        List<Element> elements =new ArrayList<>();
+        elements.add(spike);
+        arena.setGlobalElements(elements);
+
+        heroController.executeState(game, ACTION.LEFT);
+
+        Assertions.assertEquals(DIRECTION.LEFT,hero.getDirection());
+        Assertions.assertTrue(heroController.moveHero() instanceof Spike);
+        Assertions.assertFalse(hero.isShielded());
+    }
+
+    @Test
+    public void executeStateRightTest() throws IOException, InterruptedException {
+        hero = arena.getHero();
+        Game game = Mockito.mock(Game.class);
+        hero.setPosition(new Position(2,2));
+        hero.setDirection(DIRECTION.IDLE);
+        hero.setShieldedTime(10);
+
+        Spike spike = new Spike(new Position(3,2));
+        List<Spike> spikes = new ArrayList<>();
+        spikes.add(spike);
+        arena.setSpikes(spikes);
+
+        List<Element> elements =new ArrayList<>();
+        elements.add(spike);
+        arena.setGlobalElements(elements);
+
+        heroController.executeState(game, ACTION.RIGHT);
+
+        Assertions.assertEquals(DIRECTION.RIGHT,hero.getDirection());
+        Assertions.assertTrue(heroController.moveHero() instanceof Spike);
+        Assertions.assertEquals(0.0,hero.getShieldedTime());
+    }
+}
