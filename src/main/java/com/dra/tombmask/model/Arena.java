@@ -19,9 +19,11 @@ public class Arena {
     private List<Collectable> collectables;
     private List<PowerUp> powerUps;
     private List<Element> globalElements;
+    private String path;
 
     public Arena(int width, int height, String path) throws IOException {
         MapLoader loader = new MapLoader(path);
+        this.path = path;
         this.width = width;
         this.height = height;
         this.bats = loader.getBats();
@@ -44,6 +46,10 @@ public class Arena {
         this.collectables = new ArrayList<>();
         this.powerUps = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public int getWidth() {

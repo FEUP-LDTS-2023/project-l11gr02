@@ -22,4 +22,16 @@ public class GameState implements AbstractState{
         arenaController.executeState(game, action);
         gameViewer.draw(gui);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        GameState gameState = (GameState) obj;
+
+        return gameState.arenaController.getModel().getWidth() == arenaController.getModel().getWidth()
+                && gameState.arenaController.getModel().getHeight() == arenaController.getModel().getHeight()
+                && gameState.arenaController.getModel().getPath().equals(arenaController.getModel().getPath());
+    }
 }

@@ -30,8 +30,8 @@ public class MenuController extends AbstractController<Menu>{
                 break;
         }
     }
-    private void consumeOption(Game game) throws IOException {
-        String path = "src/main/resources/levels/level"+ game.currentArena;
+    public void consumeOption(Game game) throws IOException {
+        String path = "src/main/resources/levels/level"+ game.getCurrentArena();
         switch (getModel().getCurrentOption()){
             case PLAY -> {
                 game.setState(new GameState(new Arena(60,30,path)));
