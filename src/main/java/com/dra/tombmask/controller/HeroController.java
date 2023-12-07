@@ -59,6 +59,8 @@ public class HeroController extends AbstractController<Arena>{
                 hero.setPosition(new Position(x,y));
                 break;
             case IDLE:
+                if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
+                hero.setPosition(new Position(x,y));
                 break;
         }
         return null;
@@ -73,6 +75,7 @@ public class HeroController extends AbstractController<Arena>{
             ((Collectable) getModel().getElementAtPosition(position)).collect(getModel());
             return null;
         }
+        System.out.println(getModel().getElementAtPosition(position));
         return getModel().getElementAtPosition(position);
     }
 

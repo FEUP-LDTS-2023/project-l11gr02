@@ -68,9 +68,7 @@ public class MapLoader {
                         globalElements.add(spike);
                         break;
                     case 'H':
-                        Hero hero = new Hero(currentPosition);
-                        this.hero = hero;
-                        globalElements.add(hero);
+                        this.hero = new Hero(currentPosition);
                         break;
                     case 'E':
                         EndLevel endLevel = new EndLevel(currentPosition);
