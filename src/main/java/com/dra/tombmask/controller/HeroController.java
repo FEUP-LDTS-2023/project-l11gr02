@@ -3,6 +3,7 @@ package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.*;
 import com.dra.tombmask.state.GameState;
+import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
@@ -117,7 +118,8 @@ public class HeroController extends AbstractController<Arena>{
                 String path = "./src/main/resources/levels/level"+game.currentArena;
                 game.setState(new GameState(new Arena(60, 30,path)));
             }catch (IOException e){
-                game.setState(null);
+                game.setState(new MenuState());
+                game.setCurrentArena(1);
             }
         }
         else if((moveHero() instanceof Bat || moveHero() instanceof Spike)){
@@ -125,7 +127,7 @@ public class HeroController extends AbstractController<Arena>{
                 hero.setShieldedTime(0.0);
             }
             else{
-                game.setState(null);
+                game.setState(new MenuState());
             }
         }
     }
