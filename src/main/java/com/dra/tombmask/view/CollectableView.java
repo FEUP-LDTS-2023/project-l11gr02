@@ -2,6 +2,7 @@ package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.utils.ElementsSymbol;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -13,15 +14,15 @@ public class CollectableView implements ElementView<Element> {
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         if(element instanceof Coin){
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), "o");
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.coinCollectable.symbol);
         }
         else if(element instanceof Point){
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ".");
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.pointCollectable.symbol);
         }
         else if(element instanceof Star){
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), "*");
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
     }
 }
