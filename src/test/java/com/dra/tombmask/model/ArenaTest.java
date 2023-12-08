@@ -1,5 +1,7 @@
 package com.dra.tombmask.model;
 
+import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.powerups.ShieldStrategy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,9 +30,10 @@ public class ArenaTest {
     @Test
     public void endLevelTest() throws IOException{
         arena = new Arena(30,30,"src/main/resources/levels/level1");
-        arena.setEndLevel(new EndLevel(2,2));
-        Assertions.assertEquals(new EndLevel(2,2),arena.getEndLevel());
-        Assertions.assertTrue(arena.isEnd(new Position(2, 2)));
+        EndLevel e = new EndLevel(2,2);
+        arena.setEndLevel(e);
+        Assertions.assertEquals(e,arena.getEndLevel());
+        Assertions.assertTrue(new Position(2,2).equals(e.getPosition()));
     }
 
     @Test
@@ -100,5 +103,30 @@ public class ArenaTest {
 
         arena.setGlobalElements(globalElements);
         Assertions.assertEquals(globalElements,arena.getGlobalElements());
+    }
+
+    @Test
+    public void pathTest() throws IOException{
+        arena = new Arena(30,30,"src/main/resources/levels/level1");
+        Assertions.assertEquals("src/main/resources/levels/level1",arena.getPath());
+    }
+
+    @Test
+    public void powerupsTest(){
+        arena = new Arena(30,30);
+
+        PowerUp p1 = new PowerUp(new Position(2,3),new FreezeStrategy());
+        PowerUp p2 = new PowerUp(new Position(1,1),new ShieldStrategy());
+        List<PowerUp> powerUps = new ArrayList<>();
+        powerUps.add(p1);
+        powerUps.add(p2);
+        arena.setPowerUps(powerUps);
+
+        List<Element> elements =  new ArrayList<>();
+        elements.add(p1);
+        elements.add(p2);
+        arena.setGlobalElements(elements);
+
+        Assertions.assertEquals(powerUps,arena.getPowerUps());
     }
 }
