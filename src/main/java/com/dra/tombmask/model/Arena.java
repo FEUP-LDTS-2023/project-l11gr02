@@ -108,6 +108,7 @@ public class Arena {
 
     public void setPowerUps(List<PowerUp> powerUps) {
         this.powerUps = powerUps;
+    }
 
     public Element getElementAtPosition(Position position) {
         for (Element e : globalElements) {
