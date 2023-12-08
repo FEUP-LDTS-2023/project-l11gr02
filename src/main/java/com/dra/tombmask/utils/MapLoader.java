@@ -98,10 +98,41 @@ public class MapLoader {
                         PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
                         globalElements.add(magnet);
                         break;
-                    case 'T':
-                        DartTrap trap = new DartTrap(currentPosition, DIRECTION.LEFT);
-                        dartTraps.add(trap);
-                        globalElements.add(trap);
+                    case 'R':
+                        DartTrap trapRight = new DartTrap(currentPosition, DIRECTION.RIGHT);
+                        dartTraps.add(trapRight);
+                        globalElements.add(trapRight);
+                        break;
+                    case 'L':
+                        DartTrap trapLeft = new DartTrap(currentPosition, DIRECTION.LEFT);
+                        dartTraps.add(trapLeft);
+                        globalElements.add(trapLeft);
+                        break;
+                    case 'U':
+                        DartTrap trapUp = new DartTrap(currentPosition, DIRECTION.UP);
+                        dartTraps.add(trapUp);
+                        globalElements.add(trapUp);
+                        break;
+                    case 'D':
+                        DartTrap trapDown = new DartTrap(currentPosition, DIRECTION.DOWN);
+                        dartTraps.add(trapDown);
+                        globalElements.add(trapDown);
+                        break;
+                    case '1':
+                        Trampoline trampolineTopLeft = new Trampoline(currentPosition, CORNER.TOPLEFT);
+                        globalElements.add(trampolineTopLeft);
+                        break;
+                    case '2':
+                        Trampoline trampolineTopRight = new Trampoline(currentPosition, CORNER.TOPRIGHT);
+                        globalElements.add(trampolineTopRight);
+                        break;
+                    case '3':
+                        Trampoline trampolineBotLeft = new Trampoline(currentPosition, CORNER.BOTLEFT);
+                        globalElements.add(trampolineBotLeft);
+                        break;
+                    case '4':
+                        Trampoline trampolineBotRight = new Trampoline(currentPosition, CORNER.BOTRIGHT);
+                        globalElements.add(trampolineBotRight);
                         break;
                 }
             }

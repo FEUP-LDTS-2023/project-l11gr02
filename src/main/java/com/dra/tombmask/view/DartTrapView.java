@@ -12,6 +12,6 @@ public class DartTrapView implements ElementView<DartTrap>{
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         TerminalPosition terminalPosition = new TerminalPosition(trap.getPosition().getX(), trap.getPosition().getY());
-        textGraphics.putString(terminalPosition, ElementsSymbol.dartTrap.symbol);
+        textGraphics.putString(terminalPosition, ElementsSymbol.getTrapDirection(trap.getDirection()));
     }
 }
