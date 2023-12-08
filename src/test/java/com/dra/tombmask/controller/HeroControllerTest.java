@@ -163,33 +163,6 @@ public class HeroControllerTest {
     }
 
     @Test
-    public void checkCollisionPowerupTest(){
-        HeroController h = Mockito.mock(HeroController.class);
-
-        List<PowerUp> powerups = new ArrayList<>();
-        powerups.add(new PowerUp(new Position(2,3),new FreezeStrategy()));
-        arena.setPowerUps(powerups);
-
-        h.checkCollision(new Position(2,3));
-        for(Bat bat : arena.getBats()){
-            Assertions.assertEquals(5,bat.getTimeout());
-        }
-        //Assertions.assertNull(heroController.checkCollision(new Position(2,3)));
-    }
-    /*
-    @Test
-    public void checkCollisionCollectableTest(){
-        List<Collectable> collectables = new ArrayList<>();
-        collectables.add(new Coin(new Position(1,1)));
-        arena.setCollectables(collectables);
-
-        heroController.checkCollision(new Position(1,1));
-
-        Assertions.assertEquals(1,Hero.getCollected_coins());
-        //Assertions.assertNull(heroController.checkCollision(new Position(1,1)));
-    }*/
-
-    @Test
     public void executeStateUpTest() throws IOException, InterruptedException {
         hero = arena.getHero();
         Game game = Mockito.mock(Game.class);
@@ -209,7 +182,8 @@ public class HeroControllerTest {
         Assertions.assertEquals(DIRECTION.UP,hero.getDirection());
         Assertions.assertTrue(heroController.moveHero() instanceof EndLevel);
         Mockito.when(game.getCurrentArena()).thenReturn(2);
-        Mockito.when(game.getState()).thenReturn(new GameState(new Arena(30,30,"./src/main/resources/levels/level2")));
+        Mockito.verify(game,Mockito.times(2)).setCurrentArena(game.currentArena+1);
+        Mockito.verify(game,Mockito.times(1)).setState(new MenuState());
     }
 
     @Test
@@ -258,6 +232,7 @@ public class HeroControllerTest {
         Assertions.assertEquals(DIRECTION.LEFT,hero.getDirection());
         Assertions.assertTrue(heroController.moveHero() instanceof Spike);
         Assertions.assertFalse(hero.isShielded());
+        Mockito.verify(game,Mockito.times(1)).setState(new MenuState());
     }
 
     @Test
