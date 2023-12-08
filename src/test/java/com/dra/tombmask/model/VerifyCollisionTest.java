@@ -49,7 +49,7 @@ public class VerifyCollisionTest {
     public void isCoin() throws IOException{
         this.arena = new Arena(30,30,"src/main/resources/levels/level1");
 
-        Position position = new Position(1,8);
+        Position position = new Position(1,4);
 
         boolean tmp = false;
 

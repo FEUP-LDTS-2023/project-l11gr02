@@ -81,7 +81,7 @@ public class ArenaTest {
         arena = new Arena(30,30,"src/main/resources/levels/level1");
         Position position1 = new Position(1,1);
         Position position2 = new Position(2,3);
-        Assertions.assertEquals(new Coin(1,1),arena.getElementAtPosition(position1));
+        Assertions.assertEquals(new Point(1,1),arena.getElementAtPosition(position1));
         Assertions.assertNull(arena.getElementAtPosition(position2));
     }
 

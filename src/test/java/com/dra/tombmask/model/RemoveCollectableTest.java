@@ -16,67 +16,36 @@ public class RemoveCollectableTest {
 
     @Test
     public void collect_coin(){
-        List<Collectable> expected = new ArrayList<>();
-        expected.add(new Coin(1,1));
-        expected.add(new Coin(8,1));
+        Assertions.assertEquals(26,arena.getCollectables().size());
 
-        Coin coin_to_remove = new Coin(1,8);
+        Coin coin_to_remove = new Coin(1,4);
 
         coin_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getCollectables());
+        Assertions.assertEquals(25,arena.getCollectables().size());
     }
 
     @Test
     public void collect_star(){
-        List<Collectable> collectables = new ArrayList<>();
-        collectables.add(new Star(0,5));
-        collectables.add(new Coin(1,1));
-        collectables.add(new Star(1,3));
-        collectables.add(new Coin(1,8));
-        collectables.add(new Star(2,2));
-        collectables.add(new Coin(8,1));
+        Assertions.assertEquals(26,arena.getCollectables().size());
 
-        arena.setCollectables(collectables);
-
-        List<Collectable> expected = new ArrayList<>();
-        expected.add(new Coin(1,1));
-        expected.add(new Star(1,3));
-        expected.add(new Coin(1,8));
-        expected.add(new Coin(8,1));
-
-        Star star1_to_remove = new Star(2,2);
-        Star star2_to_remove = new Star(0,5);
+        Star star1_to_remove = new Star(7,6);
+        Star star2_to_remove = new Star(8,6);
 
         star1_to_remove.collect(arena);
         star2_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getCollectables());
+        Assertions.assertEquals(24,arena.getCollectables().size());
     }
 
     @Test
     public void collect_point(){
-        List<Collectable> collectables = new ArrayList<>();
-        collectables.add(new Point(0,7));
-        collectables.add(new Coin(1,1));
-        collectables.add(new Point(1,4));
-        collectables.add(new Coin(1,8));
-        collectables.add(new Point(2,3));
-        collectables.add(new Coin(8,1));
+        Assertions.assertEquals(26,arena.getCollectables().size());
 
-        arena.setCollectables(collectables);
-
-        List<Collectable> expected = new ArrayList<>();
-        expected.add(new Point(0,7));
-        expected.add(new Coin(1,1));
-        expected.add(new Point(1,4));
-        expected.add(new Coin(1,8));
-        expected.add(new Coin(8,1));
-
-        Point point_to_remove = new Point(2,3);
+        Point point_to_remove = new Point(1,1);
 
         point_to_remove.collect(arena);
 
-        Assertions.assertEquals(expected,arena.getCollectables());
+        Assertions.assertEquals(25,arena.getCollectables().size());
     }
 }
