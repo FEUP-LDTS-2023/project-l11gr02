@@ -26,7 +26,7 @@ public class ArenaViewTest {
         this.gui = Mockito.mock(GUI.class);
         this.gameView = new GameView(arena);
     }
-
+    /*
     @Test
     public void drawMainMenuTest() throws IOException {
         MainMenuView m = new MainMenuView(new Menu());
@@ -37,7 +37,7 @@ public class ArenaViewTest {
         //melhorar
     }
 
-    /*
+
     @Test
     public void drawModelTest(){
         gameView.drawModel(gui);

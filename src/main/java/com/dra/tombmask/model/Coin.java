@@ -18,4 +18,9 @@ public class Coin extends Collectable{
         arena.getCollectables().remove(this);
         arena.getGlobalElements().remove(this);
     }
+
+    @Override
+    public String toString() {
+        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
+    }
 }
