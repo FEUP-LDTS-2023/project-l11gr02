@@ -30,6 +30,7 @@ public class MapLoader {
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
+        this.powerUps = new ArrayList<>();
         this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
@@ -113,6 +114,7 @@ public class MapLoader {
     public List<Spike> getSpikes() {return this.spikes;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
+    public List<PowerUp> getPowerUps() { return this.powerUps; }
     public List<Collectable> getCollectables() {return this.collectables;}
 
 }

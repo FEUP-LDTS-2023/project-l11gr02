@@ -3,7 +3,7 @@ package com.dra.tombmask.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coin extends Collectable {
+public class Coin extends Collectable{
     public Coin(int x, int y){
         super(x,y);
         this.setSymbol("c");
@@ -14,7 +14,8 @@ public class Coin extends Collectable {
     }
     @Override
     public void collect(Arena arena) {
-        arena.getHero().setCollected_coins(arena.getHero().getCollected_coins()+1);
+        Hero.setCollected_coins(Hero.getCollected_coins()+1);
+        arena.getCollectables().remove(this);
         arena.getGlobalElements().remove(this);
     }
 }

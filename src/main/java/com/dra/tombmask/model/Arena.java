@@ -16,10 +16,13 @@ public class Arena {
     private List<Wall> walls;
     private List<Spike> spikes;
     private List<Collectable> collectables;
+    private List<PowerUp> powerUps;
     private List<Element> globalElements;
+    private String path;
 
     public Arena(int width, int height, String path) throws IOException {
         MapLoader loader = new MapLoader(path);
+        this.path = path;
         this.width = width;
         this.height = height;
         this.bats = loader.getBats();
@@ -28,6 +31,7 @@ public class Arena {
         this.walls = loader.getWalls();
         this.spikes = loader.getSpikes();
         this.collectables = loader.getCollectables();
+        this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -39,7 +43,12 @@ public class Arena {
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.collectables = new ArrayList<>();
+        this.powerUps = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public int getWidth() {
@@ -85,13 +94,20 @@ public class Arena {
         this.spikes = spikes;
     }
 
-    public EndLevel getEnd() {
-        return endLevel;
+    public List<Collectable> getCollectables() {
+        return collectables;
     }
 
-    public void setEnd(EndLevel end) {
-        this.endLevel = end;
+    public void setCollectables(List<Collectable> collectables) {
+        this.collectables = collectables;
     }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
 
     public Element getElementAtPosition(Position position) {
         for (Element e : globalElements) {

@@ -67,7 +67,7 @@ public class HeroController extends AbstractController<Arena>{
         return null;
     }
 
-    private Element checkCollision(Position position){
+    public Element checkCollision(Position position){
         if(getModel().getElementAtPosition(position) instanceof PowerUp){
             ((PowerUp) getModel().getElementAtPosition(position)).getStrategy().execute(getModel());
             return null;

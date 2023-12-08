@@ -21,6 +21,11 @@ public class Game {
         this.state = state;
     }
     public void setCurrentArena(int i) { this.currentArena = i; }
+
+    public int getCurrentArena() {
+        return currentArena;
+    }
+
     public AbstractState getState(){
         return state;
     }
