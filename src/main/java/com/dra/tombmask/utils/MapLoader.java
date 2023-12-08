@@ -20,6 +20,7 @@ public class MapLoader {
     private final List<Wall> walls;
     private final List<Spike> spikes;
     private final List<Collectable> collectables;
+    private final List<PowerUp> powerUps;
     private final List<String> globalPositions;
     private final List<Element> globalElements;
 
