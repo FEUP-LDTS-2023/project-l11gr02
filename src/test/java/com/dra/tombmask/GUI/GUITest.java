@@ -11,6 +11,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.screen.TerminalScreen;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import org.junit.jupiter.api.Assertions;
@@ -132,5 +134,16 @@ public class GUITest {
     @Test
     public void screenTest(){
         Assertions.assertEquals(screen,gui.getScreen());
+    }
+
+    @Test
+    public void refreshClearAndCloseTest() throws IOException {
+        gui.refresh();
+        gui.close();
+        gui.clear();
+
+        Mockito.verify(screen,Mockito.times(1)).refresh();
+        Mockito.verify(screen,Mockito.times(1)).close();
+        Mockito.verify(screen,Mockito.times(1)).clear();
     }
 }

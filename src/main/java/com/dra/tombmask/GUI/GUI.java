@@ -14,6 +14,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.groupcdg.pitest.annotations.CoverageIgnore;
+import com.groupcdg.pitest.annotations.DoNotMutate;
 
 import java.awt.*;
 import java.io.File;
@@ -36,6 +38,8 @@ public class GUI {
     public GUI(Screen screen) throws IOException, FontFormatException {
         this.screen = screen;
     }
+
+    @DoNotMutate
     public Terminal createTerminal(int WIDTH, int HEIGHT, AWTTerminalFontConfiguration fontConfiguration) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
@@ -44,6 +48,7 @@ public class GUI {
         return terminalFactory.createTerminal();
     }
 
+    @DoNotMutate
     public AWTTerminalFontConfiguration loadFont() throws IOException, FontFormatException {
         File file = new File("./src/main/resources/fonts/font.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT,file);
@@ -53,6 +58,7 @@ public class GUI {
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
+    @DoNotMutate
     public Screen createScreen(Terminal terminal) throws IOException {
         screen = new TerminalScreen(terminal);
         screen.setCursorPosition(null);
@@ -80,7 +86,6 @@ public class GUI {
         }
         drawText(x+2,y,message);
     }
-
 
     public KeyStroke getUserInput() throws IOException {
         return screen.pollInput();
