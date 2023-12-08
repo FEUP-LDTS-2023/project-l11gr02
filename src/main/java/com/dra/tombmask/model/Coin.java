@@ -8,15 +8,10 @@ public class Coin extends Collectable{
         super(x,y);
         this.setSymbol("c");
     }
-    public Coin(Position position) {
+    public Coin(Position position){
         super(position.getX(),position.getY());
         this.setSymbol("c");
     }
-
-    public String toString() {
-        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
-    }
-
     @Override
     public void collect(Arena arena) {
         Hero.setCollected_coins(Hero.getCollected_coins()+1);

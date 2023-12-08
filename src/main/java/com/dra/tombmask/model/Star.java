@@ -12,7 +12,6 @@ public class Star extends Collectable{
         super(position.getX(),position.getY());
         this.setSymbol("S");
     }
-
     @Override
     public void collect(Arena arena) {
         Hero.setCollected_stars(Hero.getCollected_stars()+1);

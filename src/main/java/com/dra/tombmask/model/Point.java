@@ -12,11 +12,6 @@ public class Point extends Collectable{
         super(position.getX(), position.getY());
         this.setSymbol("p");
     }
-
-    public String toString() {
-        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
-    }
-
     @Override
     public void collect(Arena arena) {
         Hero.setCollected_points(Hero.getCollected_points()+1);

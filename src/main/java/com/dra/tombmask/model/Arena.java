@@ -10,7 +10,6 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-
     private Hero hero;
     private EndLevel endLevel;
     private List<Bat> bats;
@@ -109,7 +108,6 @@ public class Arena {
 
     public void setPowerUps(List<PowerUp> powerUps) {
         this.powerUps = powerUps;
-    }
 
     public Element getElementAtPosition(Position position) {
         for (Element e : globalElements) {

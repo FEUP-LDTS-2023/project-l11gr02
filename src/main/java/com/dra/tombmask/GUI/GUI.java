@@ -22,7 +22,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class GUI {
-    static public int HEIGHT = 15;
+    static public int HEIGHT = 17;
     static public int WIDTH = 25;
 
     private Screen screen;
@@ -54,7 +54,7 @@ public class GUI {
         Font font = Font.createFont(Font.TRUETYPE_FONT,file);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN,40);
+        Font loadedFont = font.deriveFont(Font.PLAIN,35);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
@@ -115,5 +115,4 @@ public class GUI {
     public void close() throws IOException {
         screen.close();
     }
-
 }

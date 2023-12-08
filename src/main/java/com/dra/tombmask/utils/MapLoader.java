@@ -1,6 +1,7 @@
 package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.powerups.CoinMagnetStrategy;
 import com.dra.tombmask.powerups.FreezeStrategy;
 import com.dra.tombmask.powerups.ShieldStrategy;
 
@@ -20,7 +21,6 @@ public class MapLoader {
     private final List<Spike> spikes;
     private final List<Collectable> collectables;
     private final List<String> globalPositions;
-    private final List<PowerUp> powerUps;
     private final List<Element> globalElements;
 
     public MapLoader(String path) throws IOException {
@@ -69,9 +69,7 @@ public class MapLoader {
                         globalElements.add(spike);
                         break;
                     case 'H':
-                        Hero hero = new Hero(currentPosition);
-                        this.hero = hero;
-                        globalElements.add(hero);
+                        this.hero = new Hero(currentPosition);
                         break;
                     case 'E':
                         EndLevel endLevel = new EndLevel(currentPosition);
@@ -79,12 +77,10 @@ public class MapLoader {
                         globalElements.add(endLevel);
                     case 'F':
                         PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
-                        powerUps.add(freeze);
                         globalElements.add(freeze);
                         break;
                     case 'G':
                         PowerUp shield = new PowerUp(currentPosition, new ShieldStrategy());
-                        powerUps.add(shield);
                         globalElements.add(shield);
                         break;
                     case 'o':
@@ -101,6 +97,10 @@ public class MapLoader {
                         Star star = new Star(currentPosition);
                         collectables.add(star);
                         globalElements.add(star);
+                        break;
+                    case 'M':
+                        PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
+                        globalElements.add(magnet);
                         break;
                 }
             }

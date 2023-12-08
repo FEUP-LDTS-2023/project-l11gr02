@@ -8,14 +8,14 @@ public class Hero extends Element{
     public static int collected_points = 0;
     private DIRECTION direction;
     private double shieldedTime = 0;
+    private double magnetTime = 0;
     public Hero(Position position) {
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
-        this.setColor("#FFFF00");
-        this.setSymbol("h");
     }
 
     public DIRECTION getDirection(){ return direction; }
+  
     public void setDirection(DIRECTION direction) { this.direction = direction; }
 
     public static int getCollected_stars() {
@@ -49,8 +49,19 @@ public class Hero extends Element{
     public Boolean isShielded(){
         return shieldedTime > 0;
     }
+    public Boolean isMagnet(){
+        return magnetTime > 0;
+    }
 
     public void setShieldedTime(double shieldedTime) {
         this.shieldedTime = shieldedTime;
+    }
+
+    public double getMagnetTime() {
+        return magnetTime;
+    }
+
+    public void setMagnetTime(double magnetTime) {
+        this.magnetTime = magnetTime;
     }
 }
