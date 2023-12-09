@@ -1,10 +1,8 @@
 package com.dra.tombmask.utils;
 
-import com.dra.tombmask.model.Bat;
-import com.dra.tombmask.model.Position;
-import com.dra.tombmask.model.Spike;
-import com.dra.tombmask.model.Wall;
+import com.dra.tombmask.model.*;
 import com.dra.tombmask.utils.MapLoader;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -84,5 +82,41 @@ public class MapLoaderTest {
         for(Spike spike : mapLoader.getSpikes()) {
             assert expectedSpikePositions.contains(spike.getPosition());
         }
+    }
+
+    @Test
+    public void magnetTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel1);
+
+        Position position = new Position(1,2);
+        List<Position> expectedMagnet = new ArrayList<>();
+        expectedMagnet.add(new Position(1,2));
+
+        boolean tmp = false;
+        for(PowerUp powerUp: mapLoader.getPowerUps()){
+            if(powerUp.getPosition().equals(position)) tmp = true;
+        }
+
+        Assertions.assertTrue(tmp);
+    }
+
+    @Test
+    public void getSpikesTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel3);
+
+        List<Spike> expected = new ArrayList<>();
+        expected.add(new Spike(21,0));
+        expected.add(new Spike(22,1));
+        expected.add(new Spike(22,5));
+        expected.add(new Spike(21,6));
+
+        Assertions.assertEquals(expected,mapLoader.getSpikes());
+    }
+
+    @Test
+    public void getWallsTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel1);
+
+        Assertions.assertEquals(37,mapLoader.getWalls().size());
     }
 }

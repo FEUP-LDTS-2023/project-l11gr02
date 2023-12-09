@@ -101,6 +101,7 @@ public class MapLoader {
                         break;
                     case 'M':
                         PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
+                        powerUps.add(magnet);
                         globalElements.add(magnet);
                         break;
                 }
