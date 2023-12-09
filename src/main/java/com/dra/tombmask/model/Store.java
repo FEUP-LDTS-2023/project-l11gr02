@@ -13,7 +13,7 @@ public class Store {
 
     private final List<String> availableMasks;
     private final Map<String,String> maskPriceMap;
-    private final Map<String,String> maskSymbolMap;
+    public final Map<String,String> maskSymbolMap;
     private String selectedMask;
     private final List<String> ownedMasks;
     private int currentIndex;
@@ -32,6 +32,7 @@ public class Store {
         this.currentCoins = Hero.getCollected_coins();
         loadMasks(pathPricesMasks);
         loadSymbols();
+        HeroView.heroSymbol = maskSymbolMap.get(selectedMask);
     }
     public Store(String path) throws IOException {
         this.availableMasks = new ArrayList<>();
@@ -43,6 +44,7 @@ public class Store {
         this.currentCoins = Hero.getCollected_coins();
         loadMasks(path);
         loadSymbols();
+        HeroView.heroSymbol = maskSymbolMap.get(selectedMask);
     }
     private void loadMasks(String path) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(path))));
