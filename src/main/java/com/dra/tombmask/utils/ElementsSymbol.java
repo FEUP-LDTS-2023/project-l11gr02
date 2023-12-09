@@ -1,5 +1,11 @@
 package com.dra.tombmask.utils;
 
+import com.dra.tombmask.model.PowerUp;
+import com.dra.tombmask.powerups.CoinMagnetStrategy;
+import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.powerups.PowerUpStrategy;
+import com.dra.tombmask.powerups.ShieldStrategy;
+
 import java.util.Objects;
 
 public enum ElementsSymbol {
@@ -12,12 +18,13 @@ public enum ElementsSymbol {
     crowShieldedHero("d"),
     amongusHero("a"),
     amongusShieldedHero("z"),
-    shieldPowerUp("s"),
+    shieldPowerUp("g"),
     freezePowerUp("f"),
     trampolineTR("y"),
     trampolineTL("x"),
     trampolineBL("t"),
     trampolineBR("u"),
+    magnetPowerUp("m"),
     starCollectable("*"),
     pointCollectable("."),
     coinCollectable("o"),
@@ -38,7 +45,6 @@ public enum ElementsSymbol {
         if(Objects.equals(crowHero.symbol,value)) return crowShieldedHero.symbol;
         return defaultShieldedHero.symbol;
     }
-
     public static String getTrapDirection(DIRECTION direction){
         switch (direction){
             case LEFT -> {
@@ -56,8 +62,8 @@ public enum ElementsSymbol {
         }
         return "";
     }
-    public static String getTrampolineCorner(CORNER corner){
-        switch (corner){
+    public static String getTrampolineCorner(CORNER corner) {
+        switch (corner) {
             case TOPLEFT -> {
                 return trampolineTL.symbol;
             }
@@ -71,6 +77,12 @@ public enum ElementsSymbol {
                 return trampolineBR.symbol;
             }
         }
+        return "";
+    }
+    public static String getPowerUp(PowerUp powerUp){
+        if(powerUp.getStrategy() instanceof FreezeStrategy) return freezePowerUp.symbol;
+        if(powerUp.getStrategy() instanceof ShieldStrategy) return shieldPowerUp.symbol;
+        if(powerUp.getStrategy() instanceof CoinMagnetStrategy) return magnetPowerUp.symbol;
         return "";
     }
 }

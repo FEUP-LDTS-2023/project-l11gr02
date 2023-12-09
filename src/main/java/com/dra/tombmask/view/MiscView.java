@@ -24,9 +24,13 @@ public class MiscView implements ElementView<Element> {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
-        else if(element instanceof Trampoline){
+        else if(element instanceof Trampoline) {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getTrampolineCorner(((Trampoline) element).getCorner()));
+        }
+        else if(element instanceof PowerUp){
+            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getPowerUp((PowerUp) element));
         }
     }
 }

@@ -74,6 +74,7 @@ public class MapLoader {
                         EndLevel endLevel = new EndLevel(currentPosition);
                         this.endLevel = endLevel;
                         globalElements.add(endLevel);
+                        break;
                     case 'F':
                         PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
                         globalElements.add(freeze);
