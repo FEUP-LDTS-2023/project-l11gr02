@@ -42,4 +42,11 @@ public class HeroTest {
         Assertions.assertEquals(10,hero.getShieldedTime());
         Assertions.assertTrue(hero.isShielded());
     }
+
+    @Test
+    public void magnetTest(){
+        hero.setMagnetTime(10);
+        Assertions.assertTrue(hero.isMagnet());
+        Assertions.assertEquals(10,hero.getMagnetTime());
+    }
 }
