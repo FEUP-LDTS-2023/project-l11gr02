@@ -54,12 +54,13 @@ public class MapLoaderTest {
         List<Position> expectedWallPositions = new ArrayList<>();
         for (int c = 0; c < 10; c++) {
             expectedWallPositions.add(new Position(c,0));
-            expectedWallPositions.add(new Position(c,10-1));
+            expectedWallPositions.add(new Position(c,9));
         }
-        for (int r = 0; r < 10 - 1; r++){
+        for (int r = 1; r < 9; r++){
             expectedWallPositions.add(new Position(0,r));
-            expectedWallPositions.add(new Position(10-1,r));
+            expectedWallPositions.add(new Position(9,r));
         }
+        expectedWallPositions.add(new Position(7,8));
         for(Wall wall : mapLoader.getWalls()) {
             assert expectedWallPositions.contains(wall.getPosition());
         }
@@ -75,10 +76,10 @@ public class MapLoaderTest {
             System.out.println();
         }
 
+        expectedSpikePositions.add(new Position(21,0));
         expectedSpikePositions.add(new Position(22,1));
-        expectedSpikePositions.add(new Position(22,2));
-        expectedSpikePositions.add(new Position(22,4));
         expectedSpikePositions.add(new Position(22,5));
+        expectedSpikePositions.add(new Position(21,6));
 
         for(Spike spike : mapLoader.getSpikes()) {
             assert expectedSpikePositions.contains(spike.getPosition());
