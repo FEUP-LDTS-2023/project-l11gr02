@@ -69,6 +69,7 @@ public class HeroController extends AbstractController<Arena>{
         Element element = getModel().getElementAtPosition(position);
         if(element instanceof PowerUp){
             ((PowerUp) element).getStrategy().execute(getModel());
+            getModel().getGlobalElements().remove(element);
             return null;
         }
         else if(element instanceof Collectable){
