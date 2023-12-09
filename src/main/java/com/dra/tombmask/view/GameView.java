@@ -1,7 +1,9 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
+import com.dra.tombmask.controller.HeroController;
 import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Hero;
 
 import java.util.List;
 
@@ -16,7 +18,8 @@ public class GameView extends AbstractView<Arena>{
         drawGame(gui, getModel().getHero() ,new HeroView()); // draw hero
         drawGame(gui, getModel().getBats(), new BatView()); // draw bat
         drawGame(gui, getModel().getSpikes(), new SpikeView());
-        drawGame(gui, getModel().getEndLevel(), new EndLevelView());
+        if(Hero.collected_stars == Arena.availableStars)
+            drawGame(gui, getModel().getEndLevel(), new EndLevelView());
         drawGame(gui, getModel().getGlobalElements(), new MiscView());
         drawGame(gui, getModel().getDartTraps(), new DartTrapView());
         drawGame(gui, getModel().getDarts(), new DartView());

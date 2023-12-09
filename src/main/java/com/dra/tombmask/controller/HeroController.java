@@ -10,9 +10,11 @@ import com.dra.tombmask.utils.DIRECTION;
 import java.io.IOException;
 
 public class HeroController extends AbstractController<Arena>{
+    private Arena arena;
     private final Hero hero = getModel().getHero();
     public HeroController(Arena arena){
         super(arena);
+        this.arena = arena;
     }
 
     public Element moveHero(){
@@ -80,6 +82,7 @@ public class HeroController extends AbstractController<Arena>{
             handleTrampolineCollision((Trampoline) element);
             return null;
         }
+        if(Hero.collected_stars != Arena.availableStars && element instanceof EndLevel) return null;
         return element;
     }
 
@@ -116,6 +119,7 @@ public class HeroController extends AbstractController<Arena>{
             }
         }
     }
+
 
     @Override
     public void executeState(Game game, ACTION action) throws IOException, InterruptedException {

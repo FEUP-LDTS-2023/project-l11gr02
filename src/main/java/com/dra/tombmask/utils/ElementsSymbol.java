@@ -29,10 +29,10 @@ public enum ElementsSymbol {
     pointCollectable("."),
     coinCollectable("o"),
     wallElement("w"),
-    dartTrapLeft("q"),
-    dartTrapRight("r"),
-    dartTrapUp("j"),
-    dartTrapDown("k"),
+    dartTrapLeft("r"),
+    dartTrapRight("q"),
+    dartTrapUp("k"),
+    dartTrapDown("j"),
     spikeElement("w"),
     endLevelElement("e");
     public final String symbol;

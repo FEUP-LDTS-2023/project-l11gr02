@@ -23,6 +23,8 @@ public class MapLoader {
     private final List<String> globalPositions;
     private final List<Element> globalElements;
 
+    private int availableStars;
+
     public MapLoader(String path) throws IOException {
         this.hero = new Hero(new Position(0, 0));
         this.endLevel = new EndLevel(0,0);
@@ -32,6 +34,7 @@ public class MapLoader {
         this.dartTraps = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
         this.globalElements = new ArrayList<>();
+        this.availableStars = 0;
         createPositions(globalPositions);
     }
 
@@ -45,7 +48,7 @@ public class MapLoader {
         return result;
     }
 
-    public void createPositions(List<String> globalPositions) {
+    public void createPositions(List<String> globalPositions) throws IOException {
         Random random = new Random();
         for(int j = 0; j < globalPositions.size(); j++) {
             String string = globalPositions.get(j);
@@ -93,6 +96,7 @@ public class MapLoader {
                         break;
                     case '*':
                         Star star = new Star(currentPosition);
+                        availableStars++;
                         globalElements.add(star);
                         break;
                     case 'M':
@@ -145,6 +149,7 @@ public class MapLoader {
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
+    public int getAvailableStars() {return this.availableStars;}
     public List<DartTrap> getDartTraps() {return this.dartTraps;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }

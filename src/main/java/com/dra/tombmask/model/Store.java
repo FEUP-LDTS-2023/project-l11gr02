@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
 
+import static java.lang.Math.max;
+
+
 public class Store {
 
     private final List<String> availableMasks;
@@ -50,7 +53,7 @@ public class Store {
         while((line = bufferedReader.readLine()) != null) {
             List<String> splitLine = List.of(line.split("="));
             if(splitLine.get(0).equals("CURRENT_COINS")) {
-                this.currentCoins = Integer.parseInt(splitLine.get(1));
+                this.currentCoins = max(Integer.parseInt(splitLine.get(1)),this.currentCoins);
                 continue;
             }
             if(Objects.equals(splitLine.get(1), "SEL")) this.selectedMask = splitLine.get(0);
