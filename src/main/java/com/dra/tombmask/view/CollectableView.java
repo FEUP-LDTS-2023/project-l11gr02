@@ -9,9 +9,10 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class CollectableView implements ElementView<Element> {
 
+
+
     @Override
-    public void draw(Element element, GUI gui) {
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+    public void draw(Element element, GUI gui,TextGraphics textGraphics) {
         if(element instanceof Coin){
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.coinCollectable.symbol);
@@ -24,5 +25,11 @@ public class CollectableView implements ElementView<Element> {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
+    }
+
+    @Override
+    public void draw(Element element, GUI gui) {
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+        draw(element,gui,textGraphics);
     }
 }
