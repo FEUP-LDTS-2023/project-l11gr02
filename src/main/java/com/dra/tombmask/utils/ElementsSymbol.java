@@ -20,11 +20,19 @@ public enum ElementsSymbol {
     amongusShieldedHero("z"),
     shieldPowerUp("g"),
     freezePowerUp("f"),
+    trampolineTR("y"),
+    trampolineTL("x"),
+    trampolineBL("t"),
+    trampolineBR("u"),
     magnetPowerUp("m"),
     starCollectable("*"),
     pointCollectable("."),
     coinCollectable("o"),
     wallElement("w"),
+    dartTrapLeft("q"),
+    dartTrapRight("r"),
+    dartTrapUp("j"),
+    dartTrapDown("k"),
     spikeElement("w"),
     endLevelElement("e");
     public final String symbol;
@@ -37,7 +45,40 @@ public enum ElementsSymbol {
         if(Objects.equals(crowHero.symbol,value)) return crowShieldedHero.symbol;
         return defaultShieldedHero.symbol;
     }
-
+    public static String getTrapDirection(DIRECTION direction){
+        switch (direction){
+            case LEFT -> {
+                return dartTrapLeft.symbol;
+            }
+            case RIGHT -> {
+                return dartTrapRight.symbol;
+            }
+            case UP -> {
+                return dartTrapUp.symbol;
+            }
+            case DOWN -> {
+                return dartTrapDown.symbol;
+            }
+        }
+        return "";
+    }
+    public static String getTrampolineCorner(CORNER corner) {
+        switch (corner) {
+            case TOPLEFT -> {
+                return trampolineTL.symbol;
+            }
+            case TOPRIGHT -> {
+                return trampolineTR.symbol;
+            }
+            case BOTLEFT -> {
+                return trampolineBL.symbol;
+            }
+            case BOTRIGHT -> {
+                return trampolineBR.symbol;
+            }
+        }
+        return "";
+    }
     public static String getPowerUp(PowerUp powerUp){
         if(powerUp.getStrategy() instanceof FreezeStrategy) return freezePowerUp.symbol;
         if(powerUp.getStrategy() instanceof ShieldStrategy) return shieldPowerUp.symbol;

@@ -13,6 +13,6 @@ public class HeroView implements ElementView<Hero>{
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         TerminalPosition terminalPosition = new TerminalPosition(hero.getPosition().getX(),hero.getPosition().getY());
-        textGraphics.putString(terminalPosition, !hero.isShielded() ? heroSymbol : ElementsSymbol.batEnemy.getShielded(heroSymbol));
+        textGraphics.putString(terminalPosition, !hero.isShielded() ? heroSymbol : ElementsSymbol.getShielded(heroSymbol));
     }
 }

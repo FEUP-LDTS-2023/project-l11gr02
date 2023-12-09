@@ -1,6 +1,5 @@
 package com.dra.tombmask.controller;
 
-import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Bat;

@@ -1,6 +1,6 @@
 package com.dra.tombmask.model;
 
-public class Spike extends Element{
+public class Spike extends Hazard{
     public Spike(int x, int y){
         super(x,y);
         this.setSymbol("s");

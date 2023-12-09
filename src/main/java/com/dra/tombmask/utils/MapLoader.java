@@ -19,8 +19,7 @@ public class MapLoader {
     private final List<Bat> bats;
     private final List<Wall> walls;
     private final List<Spike> spikes;
-    private final List<Collectable> collectables;
-    private final List<PowerUp> powerUps;
+    private final List<DartTrap> dartTraps;
     private final List<String> globalPositions;
     private final List<Element> globalElements;
 
@@ -30,9 +29,8 @@ public class MapLoader {
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
+        this.dartTraps = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
-        this.powerUps = new ArrayList<>();
-        this.collectables = new ArrayList<>();
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
     }
@@ -87,22 +85,55 @@ public class MapLoader {
                         break;
                     case 'o':
                         Coin coin = new Coin(currentPosition);
-                        collectables.add(coin);
                         globalElements.add(coin);
                         break;
                     case '.':
                         Point point = new Point(currentPosition);
-                        collectables.add(point);
                         globalElements.add(point);
                         break;
                     case '*':
                         Star star = new Star(currentPosition);
-                        collectables.add(star);
                         globalElements.add(star);
                         break;
                     case 'M':
                         PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
                         globalElements.add(magnet);
+                        break;
+                    case 'R':
+                        DartTrap trapRight = new DartTrap(currentPosition, DIRECTION.RIGHT);
+                        dartTraps.add(trapRight);
+                        globalElements.add(trapRight);
+                        break;
+                    case 'L':
+                        DartTrap trapLeft = new DartTrap(currentPosition, DIRECTION.LEFT);
+                        dartTraps.add(trapLeft);
+                        globalElements.add(trapLeft);
+                        break;
+                    case 'U':
+                        DartTrap trapUp = new DartTrap(currentPosition, DIRECTION.UP);
+                        dartTraps.add(trapUp);
+                        globalElements.add(trapUp);
+                        break;
+                    case 'D':
+                        DartTrap trapDown = new DartTrap(currentPosition, DIRECTION.DOWN);
+                        dartTraps.add(trapDown);
+                        globalElements.add(trapDown);
+                        break;
+                    case '1':
+                        Trampoline trampolineTopLeft = new Trampoline(currentPosition, CORNER.TOPLEFT);
+                        globalElements.add(trampolineTopLeft);
+                        break;
+                    case '2':
+                        Trampoline trampolineTopRight = new Trampoline(currentPosition, CORNER.TOPRIGHT);
+                        globalElements.add(trampolineTopRight);
+                        break;
+                    case '3':
+                        Trampoline trampolineBotLeft = new Trampoline(currentPosition, CORNER.BOTLEFT);
+                        globalElements.add(trampolineBotLeft);
+                        break;
+                    case '4':
+                        Trampoline trampolineBotRight = new Trampoline(currentPosition, CORNER.BOTRIGHT);
+                        globalElements.add(trampolineBotRight);
                         break;
                 }
             }
@@ -114,9 +145,7 @@ public class MapLoader {
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
+    public List<DartTrap> getDartTraps() {return this.dartTraps;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
-    public List<PowerUp> getPowerUps() { return this.powerUps; }
-    public List<Collectable> getCollectables() {return this.collectables;}
-
 }

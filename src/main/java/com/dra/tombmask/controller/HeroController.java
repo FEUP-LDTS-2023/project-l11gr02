@@ -8,8 +8,6 @@ import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
 
 public class HeroController extends AbstractController<Arena>{
     private final Hero hero = getModel().getHero();
@@ -67,18 +65,44 @@ public class HeroController extends AbstractController<Arena>{
         return null;
     }
 
-    public Element checkCollision(Position position){
+    private Element checkCollision(Position position){
         Element element = getModel().getElementAtPosition(position);
         if(element instanceof PowerUp){
             ((PowerUp) element).getStrategy().execute(getModel());
-            getModel().getGlobalElements().remove(element);
             return null;
         }
         else if(element instanceof Collectable){
             ((Collectable) element).collect(getModel());
             return null;
         }
-        return getModel().getElementAtPosition(position);
+        else if(element instanceof Trampoline){
+            handleTrampolineCollision((Trampoline) element);
+            return null;
+        }
+        return element;
+    }
+
+    private void handleTrampolineCollision(Trampoline trampoline){
+        DIRECTION heroDirection = getModel().getHero().getDirection();
+        DIRECTION newHeroDirection;
+        switch (trampoline.getCorner()){
+            case TOPRIGHT:
+                newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.DOWN : DIRECTION.LEFT;
+                getModel().getHero().setDirection(newHeroDirection);
+                break;
+            case TOPLEFT:
+                newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.DOWN : DIRECTION.RIGHT;
+                getModel().getHero().setDirection(newHeroDirection);
+                break;
+            case BOTRIGHT:
+                newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.UP : DIRECTION.LEFT;
+                getModel().getHero().setDirection(newHeroDirection);
+                break;
+            case BOTLEFT:
+                newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.UP : DIRECTION.RIGHT;
+                getModel().getHero().setDirection(newHeroDirection);
+                break;
+        }
     }
 
     private void collectAdjacentCoins(){
@@ -123,7 +147,7 @@ public class HeroController extends AbstractController<Arena>{
                 game.setCurrentArena(1);
             }
         }
-        else if((moveHero() instanceof Bat || moveHero() instanceof Spike)){
+        else if((moveHero() instanceof Bat || moveHero() instanceof Spike || moveHero() instanceof Dart)){
             if(hero.isShielded()){
                 hero.setShieldedTime(0.0);
             }

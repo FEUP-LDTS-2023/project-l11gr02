@@ -5,7 +5,7 @@ import com.dra.tombmask.utils.DIRECTION;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bat extends Element{
+public class Bat extends Hazard{
     private double timeout = 0;
 
     private DIRECTION direction;
