@@ -17,9 +17,11 @@ public class Arena {
     private List<DartTrap> dartTraps;
     private List<Dart> darts;
     private List<Element> globalElements;
+    private String path;
 
     public Arena(int width, int height, String path) throws IOException {
         MapLoader loader = new MapLoader(path);
+        this.path = path;
         this.width = width;
         this.height = height;
         this.bats = loader.getBats();
@@ -42,6 +44,10 @@ public class Arena {
         this.dartTraps = new ArrayList<>();
         this.darts = new ArrayList<>();
         this.globalElements = new ArrayList<Element>();
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public int getWidth() {
@@ -93,14 +99,6 @@ public class Arena {
 
     public void setSpikes(List<Spike> spikes) {
         this.spikes = spikes;
-    }
-
-    public EndLevel getEnd() {
-        return endLevel;
-    }
-
-    public void setEnd(EndLevel end) {
-        this.endLevel = end;
     }
 
     public Element getElementAtPosition(Position position) {

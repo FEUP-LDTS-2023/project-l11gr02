@@ -17,4 +17,9 @@ public class Point extends Collectable{
         Hero.setCollected_points(Hero.getCollected_points()+1);
         arena.getGlobalElements().remove(this);
     }
+
+    @Override
+    public String toString() {
+        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
+    }
 }

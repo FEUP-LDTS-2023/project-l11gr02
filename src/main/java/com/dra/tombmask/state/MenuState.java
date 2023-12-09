@@ -11,8 +11,8 @@ import com.dra.tombmask.view.MainMenuView;
 import java.io.IOException;
 
 public class MenuState implements AbstractState {
-    private final MenuController menuController;
-    private final MainMenuView mainMenuView;
+    public MenuController menuController;
+    public MainMenuView mainMenuView;
     public MenuState() throws IOException {
         Menu menu = new Menu();
         menuController = new MenuController(menu);
@@ -23,5 +23,13 @@ public class MenuState implements AbstractState {
         ACTION action = gui.getAction(gui.getUserInput());
         menuController.executeState(game, action);
         mainMenuView.draw(gui);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        return true;
     }
 }

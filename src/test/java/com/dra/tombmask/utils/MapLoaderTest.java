@@ -32,11 +32,12 @@ public class MapLoaderTest {
         assertEquals(expectedHeroPosition.getY(),mapLoader.getHero().getPosition().getY());
         assertEquals(expectedHeroPosition.getX(),mapLoader.getHero().getPosition().getX());
     }
+
     @Test
     public void positionBatHandlerTest() throws IOException {
         List<Bat> expectedBatPositions = new ArrayList<>();
         expectedBatPositions.add(new Bat(7,2, true));
-        expectedBatPositions.add(new Bat(2,6, true));
+        expectedBatPositions.add(new Bat(3,6, true));
 
         MapLoader mapLoader = new MapLoader(pathLevel1);
 

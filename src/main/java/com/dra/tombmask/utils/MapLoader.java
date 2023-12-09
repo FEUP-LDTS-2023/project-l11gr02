@@ -147,5 +147,4 @@ public class MapLoader {
     public List<DartTrap> getDartTraps() {return this.dartTraps;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
-
 }

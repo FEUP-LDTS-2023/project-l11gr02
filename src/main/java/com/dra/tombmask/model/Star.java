@@ -17,4 +17,8 @@ public class Star extends Collectable{
         Hero.setCollected_stars(Hero.getCollected_stars()+1);
         arena.getGlobalElements().remove(this);
     }
+
+    public String toString() {
+        return "(" + getPosition().getX() + ", " + getPosition().getY() + ")";
+    }
 }

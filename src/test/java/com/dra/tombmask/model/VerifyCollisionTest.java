@@ -11,9 +11,6 @@ import java.util.List;
 
 public class VerifyCollisionTest {
     private Arena arena;
-    private List<Coin> coins;
-    private List<Star> stars;
-    private List<Point> points;
 
     @Test
     public void isBat() throws IOException{
@@ -28,7 +25,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
@@ -45,70 +42,66 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
     public void isCoin() throws IOException{
         this.arena = new Arena(30,30,"src/main/resources/levels/level1");
-        coins = new ArrayList<>();
-        coins.add(new Coin(3,2));
 
-        arena.setCoins(coins);
-
-        Position position = new Position(3,2);
+        Position position = new Position(1,4);
 
         boolean tmp = false;
 
-        for(Coin coin : arena.getCoins()){
-            if(coin.getPosition().equals(position)){
-                tmp = true;
+        for(Collectable collectable : arena.getCollectables()){
+            if(collectable.getPosition().equals(position)){
+                if(collectable instanceof Coin) tmp = true;
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
     public void isStar() throws IOException{
         this.arena = new Arena(30,30,"src/main/resources/levels/level2");
-        stars = new ArrayList<>();
+        List<Collectable> stars = new ArrayList<>();
         stars.add(new Star(3,2));
 
-        arena.setStars(stars);
+        arena.setCollectables(stars);
 
         Position position = new Position(3,3);
 
         boolean tmp = false;
 
-        for(Star star : arena.getStars()){
-            if(star.getPosition().equals(position)){
-                tmp = true;
+        for(Collectable collectable : arena.getCollectables()){
+            if(collectable.getPosition().equals(position)){
+                if(collectable instanceof Star) tmp = true;
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
     public void isPoint() throws IOException{
         this.arena = new Arena(30,30,"src/main/resources/levels/level2");
-        points = new ArrayList<>();
+        List<Collectable> points = new ArrayList<>();
         points.add(new Point(4,4));
 
-        arena.setPoints(points);
+        arena.setCollectables(points);
 
         Position position = new Position(4,4);
 
         boolean tmp = false;
 
-        for(Point point : arena.getPoints()){
-            if(point.getPosition().equals(position)){
-                tmp = true;
+        for(Collectable collectable : arena.getCollectables()){
+            if(collectable.getPosition().equals(position)){
+                if(collectable instanceof Point) tmp = true;
             }
         }
 
-        Assertions.assertEquals(true,tmp);
+        Assertions.assertTrue(tmp);
     }
 
     @Test
@@ -125,7 +118,7 @@ public class VerifyCollisionTest {
             }
         }
 
-        Assertions.assertEquals(false,tmp);
+        Assertions.assertFalse(tmp);
     }
 
     @Test
@@ -133,6 +126,6 @@ public class VerifyCollisionTest {
         this.arena = new Arena(30,30,"src/main/resources/levels/level1");
         Position position = new Position(8,8);
 
-        Assertions.assertEquals(true,arena.isEnd(position));
+        Assertions.assertTrue(arena.isEnd(position));
     }
 }
