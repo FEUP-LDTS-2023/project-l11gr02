@@ -7,7 +7,9 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class CollectableView implements ElementView<Element> {
+public class MiscView implements ElementView<Element> {
+
+
 
 
 
@@ -25,6 +27,14 @@ public class CollectableView implements ElementView<Element> {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
+        else if(element instanceof Trampoline) {
+            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getTrampolineCorner(((Trampoline) element).getCorner()));
+        }
+        else if(element instanceof PowerUp){
+            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getPowerUp((PowerUp) element));
+        }
     }
 
     @Override
@@ -32,4 +42,5 @@ public class CollectableView implements ElementView<Element> {
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         draw(element,gui,textGraphics);
     }
+
 }
