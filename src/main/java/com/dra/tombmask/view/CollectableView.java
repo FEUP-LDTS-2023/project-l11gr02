@@ -24,5 +24,9 @@ public class CollectableView implements ElementView<Element> {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
+        else if(element instanceof PowerUp){
+            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getPowerUp((PowerUp) element));
+        }
     }
 }
