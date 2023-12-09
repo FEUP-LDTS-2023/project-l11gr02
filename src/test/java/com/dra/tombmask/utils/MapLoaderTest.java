@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MapLoaderTest {
     static private final String pathLevel1 = "./src/main/resources/levels/level1";
     static private final String pathLevel3 = "./src/main/resources/levels/level3";
+    static private final String pathLevel8 = "./src/main/resources/levels/level8";
     @Test
     public void openFileTest() throws IOException {
         String upperWall = "WWWWWWWWWW";
@@ -86,11 +87,9 @@ public class MapLoaderTest {
 
     @Test
     public void magnetTest() throws IOException{
-        MapLoader mapLoader = new MapLoader(pathLevel1);
+        MapLoader mapLoader = new MapLoader(pathLevel8);
 
-        Position position = new Position(1,2);
-        List<Position> expectedMagnet = new ArrayList<>();
-        expectedMagnet.add(new Position(1,2));
+        Position position = new Position(2,11);
 
         boolean tmp = false;
         for(PowerUp powerUp: mapLoader.getPowerUps()){
