@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.eq;
 
 public class GameViewTest {
     @Test
-    public void drawSingle(){
+    public void drawSingle() throws IOException {
         Arena arena = new Arena(10,10);
         GameView gameView = new GameView(arena);
         GUI gui = Mockito.mock(GUI.class);
@@ -29,7 +29,7 @@ public class GameViewTest {
         Mockito.verify(wallView,Mockito.times(1)).draw(eq(wall),eq(gui));
     }
     @Test
-    public void drawList(){
+    public void drawList() throws IOException {
         Arena arena = new Arena(10,10);
         GameView gameView = new GameView(arena);
         GUI gui = Mockito.mock(GUI.class);

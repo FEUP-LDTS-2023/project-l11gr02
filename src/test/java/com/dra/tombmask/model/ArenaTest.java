@@ -78,7 +78,7 @@ public class ArenaTest {
 
     @Test
     public void getElementAtPositionTest() throws IOException{
-        arena = new Arena(30,30,"src/main/resources/levels/level1");
+        arena = new Arena(30,30,"src/main/resources/levels/testlevel");
         Position position1 = new Position(1,1);
         Position position2 = new Position(2,3);
         Assertions.assertEquals(new Point(1,1),arena.getElementAtPosition(position1));
@@ -87,14 +87,14 @@ public class ArenaTest {
 
     @Test
     public void isEmpty() throws IOException{
-        arena = new Arena(30,30,"src/main/resources/levels/level1");
+        arena = new Arena(30,30,"src/main/resources/levels/testlevel");
 
         Position position = new Position(2,3);
         Assertions.assertTrue(arena.isEmpty(position));
     }
 
     @Test
-    public void globalElementsTest(){
+    public void globalElementsTest() throws IOException {
         arena = new Arena(30,30);
         List<Element> globalElements = new ArrayList<>();
         globalElements.add(new Wall(0,0));
@@ -112,7 +112,7 @@ public class ArenaTest {
     }
 
     @Test
-    public void powerupsTest(){
+    public void powerupsTest() throws IOException {
         arena = new Arena(30,30);
 
         PowerUp p1 = new PowerUp(new Position(2,3),new FreezeStrategy());

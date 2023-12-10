@@ -21,7 +21,7 @@ public class ArenaViewTest {
     private GameView gameView;
 
     @BeforeEach
-    void setup() {
+    void setup() throws IOException {
         Arena arena = new Arena(10, 10);
         this.gui = Mockito.mock(GUI.class);
         this.gameView = new GameView(arena);
