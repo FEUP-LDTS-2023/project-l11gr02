@@ -102,6 +102,7 @@ public class Store {
             return;
         if(Integer.parseInt(maskPriceMap.get(mask)) <= currentCoins) {
             currentCoins -= Integer.parseInt(maskPriceMap.get(mask));
+            Hero.collected_coins = currentCoins;
             maskPriceMap.put(mask,"OWNED");
             ownedMasks.add(mask);
         }

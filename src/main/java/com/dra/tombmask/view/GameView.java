@@ -21,11 +21,11 @@ public class GameView extends AbstractView<Arena>{
         compositeDrawerView.draw(getModel().getGlobalElements(),new MiscView());
         compositeDrawerView.draw(getModel().getDartTraps(),new DartTrapView());
         compositeDrawerView.draw(getModel().getDarts(),new DartView());
-        gui.drawText(20, 15, "" + Hero.collected_coins);
     }
     @Override
     public void drawModel(GUI gui) throws IOException {
         CompositeDrawerView compositeDrawerView = new CompositeDrawerView(gui);
         drawModel(compositeDrawerView);
+        gui.drawText(20, 15, "" + Hero.collected_coins);
     }
 }
