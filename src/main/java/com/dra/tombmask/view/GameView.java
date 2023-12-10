@@ -1,38 +1,31 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.controller.HeroController;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.Hero;
 
 import java.io.IOException;
-import java.util.List;
 
 public class GameView extends AbstractView<Arena>{
     public GameView(Arena arena){
         super(arena);
     }
 
-    @Override
-    public void drawModel(GUI gui) throws IOException {
-        drawGame(gui, getModel().getWalls(), new WallView()); // draw walls
-        drawGame(gui, getModel().getHero() ,new HeroView()); // draw hero
-        drawGame(gui, getModel().getBats(), new BatView()); // draw bat
-        drawGame(gui, getModel().getSpikes(), new SpikeView());
+    public void drawModel(CompositeDrawerView compositeDrawerView) throws IOException {
+        compositeDrawerView.draw(getModel().getWalls(),new WallView());
+        compositeDrawerView.draw(getModel().getHero(), new HeroView());
+        compositeDrawerView.draw(getModel().getBats(), new BatView());
+        compositeDrawerView.draw(getModel().getSpikes(),new SpikeView());
         if(Hero.collected_stars == Arena.availableStars)
-            drawGame(gui, getModel().getEndLevel(), new EndLevelView());
-        drawGame(gui, getModel().getGlobalElements(), new MiscView());
-        drawGame(gui, getModel().getDartTraps(), new DartTrapView());
-        drawGame(gui, getModel().getDarts(), new DartView());
+            compositeDrawerView.draw(getModel().getEndLevel(),new EndLevelView());
+        compositeDrawerView.draw(getModel().getGlobalElements(),new MiscView());
+        compositeDrawerView.draw(getModel().getDartTraps(),new DartTrapView());
+        compositeDrawerView.draw(getModel().getDarts(),new DartView());
         gui.drawText(20, 15, "" + Hero.collected_coins);
     }
-
-    public  <T> void drawGame(GUI gui, T element,ElementView<T> viewer){
-        viewer.draw(element,gui);
-    }
-    public  <T> void drawGame(GUI gui, List<T> elements, ElementView<T> viewer){
-        for(T element: elements){
-            viewer.draw(element, gui);
-        }
+    @Override
+    public void drawModel(GUI gui) throws IOException {
+        CompositeDrawerView compositeDrawerView = new CompositeDrawerView(gui);
+        drawModel(compositeDrawerView);
     }
 }

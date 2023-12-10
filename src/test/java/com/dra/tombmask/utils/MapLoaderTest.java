@@ -16,6 +16,7 @@ public class MapLoaderTest {
     static private final String pathLevelTest = "./src/main/resources/levels/testlevel";
     static private final String pathLevel1 = "./src/main/resources/levels/level1";
     static private final String pathLevel3 = "./src/main/resources/levels/level3";
+    static private final String pathLevel6 = "./src/main/resources/levels/level6";
     static private final String pathLevel8 = "./src/main/resources/levels/level8";
     @Test
     public void openFileTest() throws IOException {
@@ -115,5 +116,32 @@ public class MapLoaderTest {
         MapLoader mapLoader = new MapLoader(pathLevel1);
 
         Assertions.assertEquals(31,mapLoader.getWalls().size());
+    }
+
+    @Test
+    public void getAvailableStarsTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel3);
+
+        Assertions.assertEquals(2,mapLoader.getAvailableStars());
+    }
+
+    @Test
+    public void getDartTrapsTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel1);
+
+        Assertions.assertEquals(2,mapLoader.getDartTraps().size());
+    }
+
+    @Test
+    public void shieldTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel6);
+
+        Position position = new Position(17,2);
+        boolean tmp = false;
+        for(PowerUp powerUp: mapLoader.getPowerUps()){
+            if(powerUp.getPosition().equals(position)) tmp = true;
+        }
+
+        Assertions.assertTrue(tmp);
     }
 }
