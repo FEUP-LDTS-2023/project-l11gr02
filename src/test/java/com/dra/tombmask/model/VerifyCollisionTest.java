@@ -14,8 +14,8 @@ public class VerifyCollisionTest {
 
     @Test
     public void isBat() throws IOException{
-        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
-        Position position = new Position(7,2);
+        this.arena = new Arena(30,30,"src/main/resources/levels/testlevel");
+        Position position = new Position(3,4);
 
         boolean tmp = false;
 
@@ -30,7 +30,7 @@ public class VerifyCollisionTest {
 
     @Test
     public void isSpike() throws IOException{
-        this.arena = new Arena(30,30,"src/main/resources/levels/level3");
+        this.arena = new Arena(30,30,"src/main/resources/levels/testlevel");
 
         Position position = new Position(1,2);
 
@@ -47,9 +47,9 @@ public class VerifyCollisionTest {
 
     @Test
     public void isCoin() throws IOException{
-        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
+        this.arena = new Arena(30,30,"src/main/resources/levels/testlevel");
 
-        Position position = new Position(1,4);
+        Position position = new Position(1,2);
 
         boolean tmp = false;
 
@@ -123,8 +123,8 @@ public class VerifyCollisionTest {
 
     @Test
     public void isEnd() throws IOException{
-        this.arena = new Arena(30,30,"src/main/resources/levels/level1");
-        Position position = new Position(8,8);
+        this.arena = new Arena(30,30,"src/main/resources/levels/testlevel");
+        Position position = new Position(8,6);
 
         Assertions.assertTrue(arena.isEnd(position));
     }

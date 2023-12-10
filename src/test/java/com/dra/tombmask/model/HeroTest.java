@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public class HeroTest {
     private Hero hero;
     @BeforeEach
-    public void setup(){
+    public void setup() throws IOException {
         hero = new Hero(new Position(1,1));
     }
 

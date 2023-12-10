@@ -13,20 +13,21 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MapLoaderTest {
+    static private final String pathLevelTest = "./src/main/resources/levels/testlevel";
     static private final String pathLevel1 = "./src/main/resources/levels/level1";
     static private final String pathLevel3 = "./src/main/resources/levels/level3";
     static private final String pathLevel8 = "./src/main/resources/levels/level8";
     @Test
     public void openFileTest() throws IOException {
         String upperWall = "WWWWWWWWWW";
-        MapLoader mapLoader = new MapLoader(pathLevel1);
+        MapLoader mapLoader = new MapLoader(pathLevelTest);
         assert mapLoader.getGlobalPositions().contains(upperWall);
     }
     @Test
     public void positionHandlerTest() throws IOException {
-        Position expectedHeroPosition = new Position(2,1);
+        Position expectedHeroPosition = new Position(3,1);
 
-        MapLoader mapLoader = new MapLoader(pathLevel1);
+        MapLoader mapLoader = new MapLoader(pathLevelTest);
 
         assertEquals(expectedHeroPosition.getY(),mapLoader.getHero().getPosition().getY());
         assertEquals(expectedHeroPosition.getX(),mapLoader.getHero().getPosition().getX());
@@ -35,10 +36,10 @@ public class MapLoaderTest {
     @Test
     public void positionBatHandlerTest() throws IOException {
         List<Bat> expectedBatPositions = new ArrayList<>();
-        expectedBatPositions.add(new Bat(7,2, true));
-        expectedBatPositions.add(new Bat(3,6, true));
+        expectedBatPositions.add(new Bat(4,3, true));
+        expectedBatPositions.add(new Bat(3,4, true));
 
-        MapLoader mapLoader = new MapLoader(pathLevel1);
+        MapLoader mapLoader = new MapLoader(pathLevelTest);
 
         for(int i = 0; i < expectedBatPositions.size(); i++) {
             Bat p1 = expectedBatPositions.get(i);
@@ -50,17 +51,17 @@ public class MapLoaderTest {
     @Test
     public void positionWallHandlerTest() throws IOException {
 
-        MapLoader mapLoader = new MapLoader(pathLevel1);
+        MapLoader mapLoader = new MapLoader(pathLevelTest);
         List<Position> expectedWallPositions = new ArrayList<>();
         for (int c = 0; c < 10; c++) {
             expectedWallPositions.add(new Position(c,0));
-            expectedWallPositions.add(new Position(c,9));
+            expectedWallPositions.add(new Position(c,7));
         }
-        for (int r = 1; r < 9; r++){
+        for (int r = 1; r < 7; r++){
             expectedWallPositions.add(new Position(0,r));
             expectedWallPositions.add(new Position(9,r));
         }
-        expectedWallPositions.add(new Position(7,8));
+        expectedWallPositions.add(new Position(7,6));
         for(Wall wall : mapLoader.getWalls()) {
             assert expectedWallPositions.contains(wall.getPosition());
         }
@@ -76,10 +77,8 @@ public class MapLoaderTest {
             System.out.println();
         }
 
-        expectedSpikePositions.add(new Position(21,0));
-        expectedSpikePositions.add(new Position(22,1));
-        expectedSpikePositions.add(new Position(22,5));
-        expectedSpikePositions.add(new Position(21,6));
+        expectedSpikePositions.add(new Position(23,5));
+        expectedSpikePositions.add(new Position(23,9));
 
         for(Spike spike : mapLoader.getSpikes()) {
             assert expectedSpikePositions.contains(spike.getPosition());
@@ -90,7 +89,7 @@ public class MapLoaderTest {
     public void magnetTest() throws IOException{
         MapLoader mapLoader = new MapLoader(pathLevel8);
 
-        Position position = new Position(2,11);
+        Position position = new Position(6,13);
 
         boolean tmp = false;
         for(PowerUp powerUp: mapLoader.getPowerUps()){
@@ -105,10 +104,8 @@ public class MapLoaderTest {
         MapLoader mapLoader = new MapLoader(pathLevel3);
 
         List<Spike> expected = new ArrayList<>();
-        expected.add(new Spike(21,0));
-        expected.add(new Spike(22,1));
-        expected.add(new Spike(22,5));
-        expected.add(new Spike(21,6));
+        expected.add(new Spike(23,5));
+        expected.add(new Spike(23,9));
 
         Assertions.assertEquals(expected,mapLoader.getSpikes());
     }
@@ -117,6 +114,6 @@ public class MapLoaderTest {
     public void getWallsTest() throws IOException{
         MapLoader mapLoader = new MapLoader(pathLevel1);
 
-        Assertions.assertEquals(37,mapLoader.getWalls().size());
+        Assertions.assertEquals(31,mapLoader.getWalls().size());
     }
 }

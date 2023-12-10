@@ -23,7 +23,7 @@ public class HeroControllerTest {
     HeroController heroController;
     Hero hero;
     @BeforeEach
-    public void setup(){
+    public void setup() throws IOException {
         arena = new Arena(30,30);
         heroController = new HeroController(arena);
     }

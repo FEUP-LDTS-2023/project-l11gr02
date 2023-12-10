@@ -8,13 +8,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.io.IOException;
+
 public class HeroViewTest {
     TextGraphics textGraphics;
     GUI gui;
     HeroView testView;
     Hero element;
     @BeforeEach
-    public void setup() {
+    public void setup() throws IOException {
         textGraphics = Mockito.mock(TextGraphics.class);
         gui = Mockito.mock(GUI.class);
         testView = new HeroView();
