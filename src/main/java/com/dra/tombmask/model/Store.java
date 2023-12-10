@@ -20,7 +20,6 @@ public class Store {
     private String selectedMask;
     private final List<String> ownedMasks;
     private int currentIndex;
-
     private int currentCoins;
     static public String pathPricesMasks = "src/main/resources/masks/pricesMasks";
     static public String pathSymbolsMasks ="src/main/resources/masks/symbolMasks";
@@ -90,7 +89,6 @@ public class Store {
     public Map<String,String> getMaskPriceMap() {return this.maskPriceMap;}
     public int getCurrentCoins() {return this.currentCoins;}
     public int getCurrentIndex() {return this.currentIndex;}
-
     public void setCurrentCoins(int coins) {this.currentCoins = coins;}
 
     public void selectMask(String mask) {
