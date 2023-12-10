@@ -17,8 +17,8 @@ public class HeroView implements ElementView<Hero>{
         Store store = new Store();
         heroSymbol = store.maskSymbolMap.get(store.getSelectedMask());
     }
-    public void draw(Hero hero, GUI gui){
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+
+    public void draw(Hero hero, GUI gui, TextGraphics textGraphics){
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         TerminalPosition terminalPosition = new TerminalPosition(hero.getPosition().getX(),hero.getPosition().getY());
         textGraphics.putString(terminalPosition, !hero.isShielded() ? heroSymbol : ElementsSymbol.getShielded(heroSymbol));
