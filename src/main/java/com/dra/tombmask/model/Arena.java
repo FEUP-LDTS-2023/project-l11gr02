@@ -107,11 +107,7 @@ public class Arena {
 
     public List<DartTrap> getDartTraps() { return dartTraps; }
 
-    public void setDartTraps(List<DartTrap> dartTraps) { this.dartTraps = dartTraps; }
-
     public List<Dart> getDarts() { return darts; }
-
-    public void setDarts(List<Dart> darts) { this.darts = darts; }
 
     public void setCollectables(List<Collectable> collectables) {
         this.collectables = collectables;

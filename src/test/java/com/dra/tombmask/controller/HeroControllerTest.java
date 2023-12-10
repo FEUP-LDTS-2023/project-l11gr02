@@ -23,11 +23,14 @@ import java.util.List;
 public class HeroControllerTest {
     Arena arena;
     HeroController heroController;
+
+    Game game;
     Hero hero;
     @BeforeEach
     public void setup() throws IOException {
         arena = new Arena(30,30);
         heroController = new HeroController(arena);
+        game = Mockito.mock(Game.class);
     }
 
     @Test
