@@ -14,7 +14,8 @@ public class MiscView implements ElementView<Element> {
 
 
     @Override
-    public void draw(Element element, GUI gui,TextGraphics textGraphics) {
+    public void draw(Element element, GUI gui) {
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         if(element instanceof Coin){
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.coinCollectable.symbol);
@@ -36,11 +37,4 @@ public class MiscView implements ElementView<Element> {
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getPowerUp((PowerUp) element));
         }
     }
-
-    @Override
-    public void draw(Element element, GUI gui) {
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        draw(element,gui,textGraphics);
-    }
-
 }
