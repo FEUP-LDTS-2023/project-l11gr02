@@ -3,9 +3,11 @@ package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.*;
 import com.dra.tombmask.powerups.FreezeStrategy;
+import com.dra.tombmask.powerups.PowerUpStrategy;
 import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
+import com.dra.tombmask.utils.CORNER;
 import com.dra.tombmask.utils.DIRECTION;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -175,6 +177,7 @@ public class HeroControllerTest {
         Assertions.assertEquals(9.92,hero.getMagnetTime());
     }
 
+
     @Test
     public void executeStateUpTest() throws IOException, InterruptedException {
         hero = arena.getHero();
@@ -310,5 +313,78 @@ public class HeroControllerTest {
         heroController.collectAdjacentCoins();
         Assertions.assertEquals(1,arena.getCollectables().size());
         Assertions.assertEquals(1,arena.getGlobalElements().size());
+    }
+
+    @Test
+    public void checkCollisionCollectableTest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        Coin coin = Mockito.mock(Coin.class);
+        Mockito.when(mockArena.getElementAtPosition(Mockito.any(Position.class))).thenReturn(coin);
+
+        heroController1.checkCollision(new Position(0,0));
+
+        Mockito.verify(coin,Mockito.times(1)).collect(Mockito.any(Arena.class));
+    }
+    @Test
+    public void checkCollisionPowerUpTest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        PowerUp powerUp = Mockito.mock(PowerUp.class);
+        PowerUpStrategy powerUpStrategy = Mockito.mock(PowerUpStrategy.class);
+        Mockito.when(mockArena.getElementAtPosition(Mockito.any(Position.class))).thenReturn(powerUp);
+        Mockito.when(powerUp.getStrategy()).thenReturn(powerUpStrategy);
+
+        heroController1.checkCollision(new Position(0,0));
+
+        Mockito.verify(powerUp,Mockito.times(1)).getStrategy();
+    }
+    @Test
+    public void handleTrampolineTOPLEFTCollisiontest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.TOPLEFT);
+        Hero hero1 = Mockito.mock(Hero.class);
+        Mockito.when(mockArena.getHero()).thenReturn(hero1);
+
+        heroController1.handleTrampolineCollision(trampoline);
+
+        Mockito.verify(hero1,Mockito.times(1)).setDirection(Mockito.any(DIRECTION.class));
+    }
+    @Test
+    public void handleTrampolineTOPRIGHTCollisiontest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.TOPRIGHT);
+        Hero hero1 = Mockito.mock(Hero.class);
+        Mockito.when(mockArena.getHero()).thenReturn(hero1);
+
+        heroController1.handleTrampolineCollision(trampoline);
+
+        Mockito.verify(hero1,Mockito.times(1)).setDirection(Mockito.any(DIRECTION.class));
+    }
+    @Test
+    public void handleTrampolineBOTLEFTCollisiontest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.BOTLEFT);
+        Hero hero1 = Mockito.mock(Hero.class);
+        Mockito.when(mockArena.getHero()).thenReturn(hero1);
+
+        heroController1.handleTrampolineCollision(trampoline);
+
+        Mockito.verify(hero1,Mockito.times(1)).setDirection(Mockito.any(DIRECTION.class));
+    }
+    @Test
+    public void handleTrampolineBOTRIGHTCollisiontest() {
+        Arena mockArena = Mockito.mock(Arena.class);
+        HeroController heroController1 = new HeroController(mockArena);
+        Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.BOTRIGHT);
+        Hero hero1 = Mockito.mock(Hero.class);
+        Mockito.when(mockArena.getHero()).thenReturn(hero1);
+
+        heroController1.handleTrampolineCollision(trampoline);
+
+        Mockito.verify(hero1,Mockito.times(1)).setDirection(Mockito.any(DIRECTION.class));
     }
 }
