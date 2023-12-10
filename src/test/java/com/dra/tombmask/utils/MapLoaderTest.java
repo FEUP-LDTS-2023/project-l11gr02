@@ -1,10 +1,8 @@
 package com.dra.tombmask.utils;
 
-import com.dra.tombmask.model.Bat;
-import com.dra.tombmask.model.Position;
-import com.dra.tombmask.model.Spike;
-import com.dra.tombmask.model.Wall;
+import com.dra.tombmask.model.*;
 import com.dra.tombmask.utils.MapLoader;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -17,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MapLoaderTest {
     static private final String pathLevel1 = "./src/main/resources/levels/level1";
     static private final String pathLevel3 = "./src/main/resources/levels/level3";
+    static private final String pathLevel8 = "./src/main/resources/levels/level8";
     @Test
     public void openFileTest() throws IOException {
         String upperWall = "WWWWWWWWWW";
@@ -55,12 +54,13 @@ public class MapLoaderTest {
         List<Position> expectedWallPositions = new ArrayList<>();
         for (int c = 0; c < 10; c++) {
             expectedWallPositions.add(new Position(c,0));
-            expectedWallPositions.add(new Position(c,10-1));
+            expectedWallPositions.add(new Position(c,9));
         }
-        for (int r = 0; r < 10 - 1; r++){
+        for (int r = 1; r < 9; r++){
             expectedWallPositions.add(new Position(0,r));
-            expectedWallPositions.add(new Position(10-1,r));
+            expectedWallPositions.add(new Position(9,r));
         }
+        expectedWallPositions.add(new Position(7,8));
         for(Wall wall : mapLoader.getWalls()) {
             assert expectedWallPositions.contains(wall.getPosition());
         }
@@ -76,13 +76,47 @@ public class MapLoaderTest {
             System.out.println();
         }
 
+        expectedSpikePositions.add(new Position(21,0));
         expectedSpikePositions.add(new Position(22,1));
-        expectedSpikePositions.add(new Position(22,2));
-        expectedSpikePositions.add(new Position(22,4));
         expectedSpikePositions.add(new Position(22,5));
+        expectedSpikePositions.add(new Position(21,6));
 
         for(Spike spike : mapLoader.getSpikes()) {
             assert expectedSpikePositions.contains(spike.getPosition());
         }
+    }
+
+    @Test
+    public void magnetTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel8);
+
+        Position position = new Position(2,11);
+
+        boolean tmp = false;
+        for(PowerUp powerUp: mapLoader.getPowerUps()){
+            if(powerUp.getPosition().equals(position)) tmp = true;
+        }
+
+        Assertions.assertTrue(tmp);
+    }
+
+    @Test
+    public void getSpikesTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel3);
+
+        List<Spike> expected = new ArrayList<>();
+        expected.add(new Spike(21,0));
+        expected.add(new Spike(22,1));
+        expected.add(new Spike(22,5));
+        expected.add(new Spike(21,6));
+
+        Assertions.assertEquals(expected,mapLoader.getSpikes());
+    }
+
+    @Test
+    public void getWallsTest() throws IOException{
+        MapLoader mapLoader = new MapLoader(pathLevel1);
+
+        Assertions.assertEquals(37,mapLoader.getWalls().size());
     }
 }

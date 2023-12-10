@@ -8,10 +8,15 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class DartTrapView implements ElementView<DartTrap>{
-    public void draw(DartTrap trap, GUI gui){
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+    @Override
+    public void draw(DartTrap trap, GUI gui, TextGraphics textGraphics) {
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         TerminalPosition terminalPosition = new TerminalPosition(trap.getPosition().getX(), trap.getPosition().getY());
         textGraphics.putString(terminalPosition, ElementsSymbol.getTrapDirection(trap.getDirection()));
+    }
+
+    public void draw(DartTrap trap, GUI gui){
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+        draw(trap,gui,textGraphics);
     }
 }
