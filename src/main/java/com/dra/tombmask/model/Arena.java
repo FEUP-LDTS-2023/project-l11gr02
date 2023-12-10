@@ -19,9 +19,12 @@ public class Arena {
     private List<Collectable> collectables;
     private List<PowerUp> powerUps;
     private List<Element> globalElements;
+    public static int availableStars;
     private String path;
 
     public Arena(int width, int height, String path) throws IOException {
+        Hero.collected_stars = 0;
+        Hero.collected_points = 0;
         MapLoader loader = new MapLoader(path);
         this.path = path;
         this.width = width;
@@ -33,11 +36,14 @@ public class Arena {
         this.dartTraps = loader.getDartTraps();
         this.darts = new ArrayList<>();
         this.spikes = loader.getSpikes();
+        this.availableStars = loader.getAvailableStars();
         this.collectables = loader.getCollectables();
         this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
     }
-    public Arena(int width,int height) {
+    public Arena(int width,int height) throws IOException {
+        Hero.collected_stars = 0;
+        Hero.collected_points = 0;
         this.width = width;
         this.height = height;
         this.bats = new ArrayList<>();
@@ -47,8 +53,11 @@ public class Arena {
         this.spikes = new ArrayList<>();
         this.dartTraps = new ArrayList<>();
         this.darts = new ArrayList<>();
+        this.availableStars = 0;
         this.globalElements = new ArrayList<Element>();
     }
+
+    public int getAvailableStars() {return this.availableStars;}
 
     public String getPath() {
         return path;

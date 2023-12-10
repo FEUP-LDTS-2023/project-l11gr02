@@ -2,6 +2,8 @@ package com.dra.tombmask.model;
 
 import com.dra.tombmask.utils.DIRECTION;
 
+import java.io.IOException;
+
 public class Hero extends Element{
     public static int collected_coins = 0;
     public static int collected_stars = 0;
@@ -9,9 +11,11 @@ public class Hero extends Element{
     private DIRECTION direction;
     private double shieldedTime = 0;
     private double magnetTime = 0;
-    public Hero(Position position) {
+    public Hero(Position position) throws IOException {
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
+        Store store = new Store();
+        Hero.collected_coins = store.getCurrentCoins();
     }
 
     public DIRECTION getDirection(){ return direction; }
