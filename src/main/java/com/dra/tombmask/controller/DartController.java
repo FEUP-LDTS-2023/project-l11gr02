@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DartController extends AbstractController<Arena>{
     public DartController(Arena arena) { super(arena); }
 
-    private void moveDart(Dart dart){
+    public void moveDart(Dart dart){
         int x = dart.getPosition().getX();
         int y = dart.getPosition().getY();
         switch (dart.getDirection()){

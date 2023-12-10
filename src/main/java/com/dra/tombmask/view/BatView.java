@@ -8,14 +8,10 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class BatView implements ElementView<Bat>{
-    public void draw(Bat bat, GUI gui,TextGraphics textGraphics){
+    public void draw(Bat bat, GUI gui){
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         TerminalPosition terminalPosition = new TerminalPosition(bat.getPosition().getX(),bat.getPosition().getY());
         textGraphics.putString(terminalPosition, ElementsSymbol.batEnemy.symbol);
     }
 
-    @Override
-    public void draw(Bat element, GUI gui) {
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        draw(element,gui,textGraphics);
-    }
 }

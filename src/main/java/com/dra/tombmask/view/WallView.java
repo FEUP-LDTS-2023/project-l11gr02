@@ -10,14 +10,9 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
 public class WallView implements ElementView<Wall>{
-    public void draw(Wall wall, GUI gui,TextGraphics textGraphics){
+    public void draw(Wall wall, GUI gui){
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#993399"));
         textGraphics.putString(new TerminalPosition(wall.getPosition().getX(),wall.getPosition().getY()), ElementsSymbol.wallElement.symbol);
-    }
-
-    @Override
-    public void draw(Wall element, GUI gui) {
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        draw(element,gui,textGraphics);
     }
 }

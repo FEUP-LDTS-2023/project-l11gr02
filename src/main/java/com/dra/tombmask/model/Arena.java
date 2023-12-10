@@ -36,7 +36,7 @@ public class Arena {
         this.dartTraps = loader.getDartTraps();
         this.darts = new ArrayList<>();
         this.spikes = loader.getSpikes();
-        this.availableStars = loader.getAvailableStars();
+        availableStars = loader.getAvailableStars();
         this.collectables = loader.getCollectables();
         this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
@@ -53,11 +53,11 @@ public class Arena {
         this.spikes = new ArrayList<>();
         this.dartTraps = new ArrayList<>();
         this.darts = new ArrayList<>();
-        this.availableStars = 0;
+        availableStars = 0;
         this.globalElements = new ArrayList<Element>();
     }
 
-    public int getAvailableStars() {return this.availableStars;}
+    public int getAvailableStars() {return availableStars;}
 
     public String getPath() {
         return path;
@@ -107,11 +107,7 @@ public class Arena {
 
     public List<DartTrap> getDartTraps() { return dartTraps; }
 
-    public void setDartTraps(List<DartTrap> dartTraps) { this.dartTraps = dartTraps; }
-
     public List<Dart> getDarts() { return darts; }
-
-    public void setDarts(List<Dart> darts) { this.darts = darts; }
 
     public void setCollectables(List<Collectable> collectables) {
         this.collectables = collectables;

@@ -9,12 +9,9 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class EndLevelView implements ElementView<EndLevel>{
     @Override
-    public void draw(EndLevel endLevel, GUI gui,TextGraphics textGraphics) {
+    public void draw(EndLevel endLevel, GUI gui) {
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         TerminalPosition terminalPosition = new TerminalPosition(endLevel.getPosition().getX(),endLevel.getPosition().getY());
         textGraphics.putString(terminalPosition, ElementsSymbol.endLevelElement.symbol);
-    }
-    public void draw(EndLevel endLevel, GUI gui){
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        draw(endLevel,gui,textGraphics);
     }
 }

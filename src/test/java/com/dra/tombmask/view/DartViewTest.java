@@ -1,25 +1,27 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.model.EndLevel;
+import com.dra.tombmask.model.Dart;
+import com.dra.tombmask.model.Position;
+import com.dra.tombmask.model.Spike;
+import com.dra.tombmask.utils.DIRECTION;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
-public class EndLevelViewTest {
+public class DartViewTest {
     TextGraphics textGraphics;
     GUI gui;
-    EndLevelView testView;
-    EndLevel element;
+    DartView testView;
+    Dart element;
     @BeforeEach
     public void setup() {
         textGraphics = Mockito.mock(TextGraphics.class);
         gui = Mockito.mock(GUI.class);
-        testView = new EndLevelView();
-        element = new EndLevel(0,0);
+        testView = new DartView();
+        element = new Dart(new Position(0,0), DIRECTION.DOWN);
     }
     @Test
     public void drawTest2() {
@@ -30,5 +32,4 @@ public class EndLevelViewTest {
 
         Mockito.verify(textGraphics,Mockito.times(1)).putString(Mockito.any(),Mockito.any());
     }
-
 }

@@ -9,14 +9,10 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class DartView implements ElementView<Dart>{
     @Override
-    public void draw(Dart dart, GUI gui, TextGraphics textGraphics) {
+    public void draw(Dart dart, GUI gui) {
+        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#90EE90"));
         TerminalPosition terminalPosition = new TerminalPosition(dart.getPosition().getX(), dart.getPosition().getY());
         textGraphics.putString(terminalPosition, ".");
-    }
-
-    public void draw(Dart dart, GUI gui){
-        TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        draw(dart,gui,textGraphics);
     }
 }

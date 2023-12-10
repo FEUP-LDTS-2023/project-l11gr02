@@ -85,25 +85,26 @@ public class HeroController extends AbstractController<Arena>{
         if(Hero.collected_stars != Arena.availableStars && element instanceof EndLevel) return null;
         return element;
     }
-    private void handleTrampolineCollision(Trampoline trampoline){
+    public void handleTrampolineCollision(Trampoline trampoline){
         DIRECTION heroDirection = getModel().getHero().getDirection();
+        Hero hero = getModel().getHero();
         DIRECTION newHeroDirection;
         switch (trampoline.getCorner()){
             case TOPRIGHT:
                 newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.DOWN : DIRECTION.LEFT;
-                getModel().getHero().setDirection(newHeroDirection);
+                hero.setDirection(newHeroDirection);
                 break;
             case TOPLEFT:
                 newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.DOWN : DIRECTION.RIGHT;
-                getModel().getHero().setDirection(newHeroDirection);
+                hero.setDirection(newHeroDirection);
                 break;
             case BOTRIGHT:
                 newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.UP : DIRECTION.LEFT;
-                getModel().getHero().setDirection(newHeroDirection);
+                hero.setDirection(newHeroDirection);
                 break;
             case BOTLEFT:
                 newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.UP : DIRECTION.RIGHT;
-                getModel().getHero().setDirection(newHeroDirection);
+                hero.setDirection(newHeroDirection);
                 break;
         }
     }
