@@ -24,6 +24,7 @@ public class GameView extends AbstractView<Arena>{
         drawGame(gui, getModel().getGlobalElements(), new MiscView());
         drawGame(gui, getModel().getDartTraps(), new DartTrapView());
         drawGame(gui, getModel().getDarts(), new DartView());
+        gui.drawText(20, 15, "" + Hero.collected_coins);
     }
 
     public  <T> void drawGame(GUI gui, T element,ElementView<T> viewer){
