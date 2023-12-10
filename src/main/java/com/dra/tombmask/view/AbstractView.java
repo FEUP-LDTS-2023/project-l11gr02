@@ -22,4 +22,5 @@ public abstract class AbstractView<T> {
     }
 
     public abstract void drawModel(GUI gui) throws IOException;
+
 }

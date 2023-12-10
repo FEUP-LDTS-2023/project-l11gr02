@@ -1,6 +1,5 @@
 package com.dra.tombmask.model;
 
-import com.dra.tombmask.utils.ElementsSymbol;
 import com.dra.tombmask.view.HeroView;
 
 import java.io.BufferedReader;
