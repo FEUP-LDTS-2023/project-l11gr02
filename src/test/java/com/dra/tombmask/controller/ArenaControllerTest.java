@@ -21,7 +21,7 @@ public class ArenaControllerTest {
         Arena arena = new Arena(30,30);
         ArenaController arenaController = new ArenaController(arena);
 
-        Bat bat = new Bat(new Position(2,3), true);
+        Bat bat = new Bat(new Position(3,4), true);
         List<Bat> bats = new ArrayList<>();
         bats.add(bat);
         arena.setBats(bats);
@@ -31,13 +31,13 @@ public class ArenaControllerTest {
         arena.setGlobalElements(elements);
 
         Hero hero = arena.getHero();
-        hero.setPosition(new Position(3,3));
+        hero.setPosition(new Position(4,4));
         hero.setDirection(DIRECTION.IDLE);
 
         arenaController.executeState(game, ACTION.UP);
 
-        Assertions.assertEquals(new Position(3,3),arena.getBats().get(0).getPosition());
-        Assertions.assertEquals(new Position(3,0),hero.getPosition());
+        Assertions.assertEquals(new Position(4,4),arena.getBats().get(0).getPosition());
+        Assertions.assertEquals(new Position(4,0),hero.getPosition());
     }
 
     @Test
