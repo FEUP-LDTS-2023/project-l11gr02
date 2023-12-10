@@ -48,9 +48,14 @@ public class BatControllerTest {
     public void moveBatBlockedRightTest(){
         bat = new Bat(5,5,true);
 
+        Wall wall = new Wall(6,5);
         List<Wall> walls = new ArrayList<>();
-        walls.add(new Wall(6,5));
+        walls.add(wall);
         arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(wall);
+        arena.setGlobalElements(elements);
 
         Assertions.assertFalse(arena.isEmpty(new Position(6, 5)));
         batController.moveBat(bat);
@@ -62,9 +67,14 @@ public class BatControllerTest {
     public void moveBatBlockedLeftTest(){
         bat = new Bat(5,5,false);
 
+        Wall wall = new Wall(4,5);
         List<Wall> walls = new ArrayList<>();
-        walls.add(new Wall(4,5));
+        walls.add(wall);
         arena.setWalls(walls);
+
+        List<Element> elements = new ArrayList<>();
+        elements.add(wall);
+        arena.setGlobalElements(elements);
 
         Assertions.assertFalse(arena.isEmpty(new Position(4, 5)));
         batController.moveBat(bat);

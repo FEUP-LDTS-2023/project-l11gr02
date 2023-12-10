@@ -20,6 +20,8 @@ public class MapLoader {
     private final List<Wall> walls;
     private final List<Spike> spikes;
     private final List<DartTrap> dartTraps;
+    private final List<Collectable> collectables;
+    private final List<PowerUp> powerUps;
     private final List<String> globalPositions;
     private final List<Element> globalElements;
 
@@ -30,6 +32,8 @@ public class MapLoader {
         this.spikes = new ArrayList<>();
         this.bats = new ArrayList<>();
         this.dartTraps = new ArrayList<>();
+        this.collectables = new ArrayList<>();
+        this.powerUps = new ArrayList<>();
         this.globalPositions = getGlobalPositions(path);
         this.globalElements = new ArrayList<>();
         createPositions(globalPositions);
@@ -77,26 +81,32 @@ public class MapLoader {
                         break;
                     case 'F':
                         PowerUp freeze = new PowerUp(currentPosition, new FreezeStrategy());
+                        powerUps.add(freeze);
                         globalElements.add(freeze);
                         break;
                     case 'G':
                         PowerUp shield = new PowerUp(currentPosition, new ShieldStrategy());
+                        powerUps.add(shield);
                         globalElements.add(shield);
                         break;
                     case 'o':
                         Coin coin = new Coin(currentPosition);
+                        collectables.add(coin);
                         globalElements.add(coin);
                         break;
                     case '.':
                         Point point = new Point(currentPosition);
+                        collectables.add(point);
                         globalElements.add(point);
                         break;
                     case '*':
                         Star star = new Star(currentPosition);
+                        collectables.add(star);
                         globalElements.add(star);
                         break;
                     case 'M':
                         PowerUp magnet = new PowerUp(currentPosition, new CoinMagnetStrategy());
+                        powerUps.add(magnet);
                         globalElements.add(magnet);
                         break;
                     case 'R':
@@ -146,6 +156,8 @@ public class MapLoader {
     public List<Wall> getWalls() {return this.walls;}
     public List<Spike> getSpikes() {return this.spikes;}
     public List<DartTrap> getDartTraps() {return this.dartTraps;}
+    public List<Collectable> getCollectables() {return collectables;}
+    public List<PowerUp> getPowerUps() {return powerUps;}
     public List<String> getGlobalPositions() {return this.globalPositions; }
     public List<Element> getGlobalElements() { return this.globalElements; }
 }

@@ -65,7 +65,7 @@ public class HeroController extends AbstractController<Arena>{
         return null;
     }
 
-    private Element checkCollision(Position position){
+    public Element checkCollision(Position position){
         Element element = getModel().getElementAtPosition(position);
         if(element instanceof PowerUp){
             ((PowerUp) element).getStrategy().execute(getModel());
@@ -83,7 +83,7 @@ public class HeroController extends AbstractController<Arena>{
         return element;
     }
 
-    private void handleTrampolineCollision(Trampoline trampoline){
+    public void handleTrampolineCollision(Trampoline trampoline){
         DIRECTION heroDirection = getModel().getHero().getDirection();
         DIRECTION newHeroDirection;
         switch (trampoline.getCorner()){
@@ -106,7 +106,7 @@ public class HeroController extends AbstractController<Arena>{
         }
     }
 
-    private void collectAdjacentCoins(){
+    public void collectAdjacentCoins(){
         int heroX = hero.getPosition().getX();
         int heroY = hero.getPosition().getY();
         for(int x = heroX - 1; x <= heroX + 1; x++){
