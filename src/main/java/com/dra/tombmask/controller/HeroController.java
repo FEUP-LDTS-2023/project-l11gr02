@@ -82,8 +82,7 @@ public class HeroController extends AbstractController<Arena>{
         }
         return element;
     }
-
-    public void handleTrampolineCollision(Trampoline trampoline){
+    private void handleTrampolineCollision(Trampoline trampoline){
         DIRECTION heroDirection = getModel().getHero().getDirection();
         DIRECTION newHeroDirection;
         switch (trampoline.getCorner()){
