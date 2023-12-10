@@ -16,6 +16,8 @@ public class Arena {
     private List<Spike> spikes;
     private List<DartTrap> dartTraps;
     private List<Dart> darts;
+    private List<Collectable> collectables;
+    private List<PowerUp> powerUps;
     private List<Element> globalElements;
     private String path;
 
@@ -31,6 +33,8 @@ public class Arena {
         this.dartTraps = loader.getDartTraps();
         this.darts = new ArrayList<>();
         this.spikes = loader.getSpikes();
+        this.collectables = loader.getCollectables();
+        this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) {
@@ -88,6 +92,9 @@ public class Arena {
     public List<Spike> getSpikes() {
         return spikes;
     }
+    public void setSpikes(List<Spike> spikes) {
+        this.spikes = spikes;
+    }
 
     public List<DartTrap> getDartTraps() { return dartTraps; }
 
@@ -97,8 +104,20 @@ public class Arena {
 
     public void setDarts(List<Dart> darts) { this.darts = darts; }
 
-    public void setSpikes(List<Spike> spikes) {
-        this.spikes = spikes;
+    public void setCollectables(List<Collectable> collectables) {
+        this.collectables = collectables;
+    }
+
+    public List<Collectable> getCollectables() {
+        return collectables;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
+    }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
     }
 
     public Element getElementAtPosition(Position position) {
