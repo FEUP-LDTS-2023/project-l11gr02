@@ -32,7 +32,7 @@ public enum ElementsSymbol {
     dartTrapRight("q"),
     dartTrapUp("k"),
     dartTrapDown("j"),
-    spikeElement("w"),
+    spikeElement("v"),
     endLevelElement("e");
     public final String symbol;
     ElementsSymbol(String symbol) {
