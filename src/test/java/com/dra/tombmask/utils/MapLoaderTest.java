@@ -1,14 +1,12 @@
 package com.dra.tombmask.utils;
 
 import com.dra.tombmask.model.*;
-import com.dra.tombmask.utils.MapLoader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,12 +24,12 @@ public class MapLoaderTest {
     }
     @Test
     public void positionHandlerTest() throws IOException {
-        Position expectedHeroPosition = new Position(3,1);
+        Position expectedMaskPosition = new Position(3,1);
 
         MapLoader mapLoader = new MapLoader(pathLevelTest);
 
-        assertEquals(expectedHeroPosition.getY(),mapLoader.getHero().getPosition().getY());
-        assertEquals(expectedHeroPosition.getX(),mapLoader.getHero().getPosition().getX());
+        assertEquals(expectedMaskPosition.getY(),mapLoader.getMask().getPosition().getY());
+        assertEquals(expectedMaskPosition.getX(),mapLoader.getMask().getPosition().getX());
     }
 
     @Test

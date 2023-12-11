@@ -8,11 +8,6 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class MiscView implements ElementView<Element> {
-
-
-
-
-
     @Override
     public void draw(Element element, GUI gui) {
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();

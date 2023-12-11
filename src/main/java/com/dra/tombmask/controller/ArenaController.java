@@ -6,15 +6,16 @@ import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ArenaController extends AbstractController<Arena>{
-    private final HeroController heroController;
+    private final MaskController maskController;
     private final BatController batController;
     private final DartController dartController;
     private final DartTrapController dartTrapController;
     public ArenaController(Arena arena) {
         super(arena);
-        heroController = new HeroController(arena);
+        maskController = new MaskController(arena);
         batController = new BatController(arena);
         dartController = new DartController(arena);
         dartTrapController = new DartTrapController(arena);
@@ -25,12 +26,10 @@ public class ArenaController extends AbstractController<Arena>{
         batController.executeState(game, action);
         dartController.executeState(game, action);
         dartTrapController.executeState(game, action);
-        switch (action){
-            case EXIT:
-                game.setState(new MenuState());
-                break;
-            default:
-                heroController.executeState(game, action);
+        if (Objects.requireNonNull(action) == ACTION.EXIT) {
+            game.setState(new MenuState());
+        } else {
+            maskController.executeState(game, action);
         }
     }
 }

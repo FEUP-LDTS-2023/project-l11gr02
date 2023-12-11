@@ -5,7 +5,6 @@ import com.dra.tombmask.GUI.GUI;
 import java.util.List;
 
 public class CompositeDrawerView {
-
     GUI gui;
 
     public CompositeDrawerView(GUI gui){

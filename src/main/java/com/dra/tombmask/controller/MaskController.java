@@ -9,59 +9,57 @@ import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
-public class HeroController extends AbstractController<Arena>{
-    private Arena arena;
-    private final Hero hero = getModel().getHero();
-    public HeroController(Arena arena){
+public class MaskController extends AbstractController<Arena>{
+    private final Mask mask = getModel().getMask();
+    public MaskController(Arena arena){
         super(arena);
-        this.arena = arena;
     }
 
-    public Element moveHero(){
-        if(hero.isShielded()) hero.setShieldedTime(hero.getShieldedTime() - 0.08);
-        if(hero.isMagnet()) hero.setMagnetTime(hero.getMagnetTime() - 0.08);
-        int x = hero.getPosition().getX();
-        int y = hero.getPosition().getY();
-        switch (hero.getDirection()){
+    public Element moveMask(){
+        if(mask.isShielded()) mask.setShieldedTime(mask.getShieldedTime() - 0.08);
+        if(mask.isMagnet()) mask.setMagnetTime(mask.getMagnetTime() - 0.08);
+        int x = mask.getPosition().getX();
+        int y = mask.getPosition().getY();
+        switch (mask.getDirection()){
             case UP:
                 y--;
                 if(!getModel().isEmpty(new Position(x,y))){
-                    hero.setDirection(DIRECTION.IDLE);
+                    mask.setDirection(DIRECTION.IDLE);
                     break;
                 }
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-                hero.setPosition(new Position(x,y));
+                mask.setPosition(new Position(x,y));
                 break;
             case DOWN:
                 y++;
                 if(!getModel().isEmpty(new Position(x,y))){
-                    hero.setDirection(DIRECTION.IDLE);
+                    mask.setDirection(DIRECTION.IDLE);
                     break;
                 }
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-                hero.setPosition(new Position(x,y));
+                mask.setPosition(new Position(x,y));
                 break;
             case LEFT:
                 x--;
                 if(!getModel().isEmpty(new Position(x,y))){
-                    hero.setDirection(DIRECTION.IDLE);
+                    mask.setDirection(DIRECTION.IDLE);
                     break;
                 }
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-                hero.setPosition(new Position(x,y));
+                mask.setPosition(new Position(x,y));
                 break;
             case RIGHT:
                 x++;
                 if(!getModel().isEmpty(new Position(x,y))){
-                    hero.setDirection(DIRECTION.IDLE);
+                    mask.setDirection(DIRECTION.IDLE);
                     break;
                 }
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-                hero.setPosition(new Position(x,y));
+                mask.setPosition(new Position(x,y));
                 break;
             case IDLE:
                 if(checkCollision(new Position(x, y)) != null) return checkCollision(new Position(x,y));
-                hero.setPosition(new Position(x,y));
+                mask.setPosition(new Position(x,y));
                 break;
         }
         return null;
@@ -82,38 +80,38 @@ public class HeroController extends AbstractController<Arena>{
             handleTrampolineCollision((Trampoline) element);
             return null;
         }
-        if(Hero.collected_stars != Arena.availableStars && element instanceof EndLevel) return null;
+        if(Mask.collected_stars != Arena.availableStars && element instanceof EndLevel) return null;
         return element;
     }
     public void handleTrampolineCollision(Trampoline trampoline){
-        DIRECTION heroDirection = getModel().getHero().getDirection();
-        Hero hero = getModel().getHero();
-        DIRECTION newHeroDirection;
+        DIRECTION maskDirection = getModel().getMask().getDirection();
+        Mask mask = getModel().getMask();
+        DIRECTION newMaskDirection;
         switch (trampoline.getCorner()){
             case TOPRIGHT:
-                newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.DOWN : DIRECTION.LEFT;
-                hero.setDirection(newHeroDirection);
+                newMaskDirection = maskDirection == DIRECTION.RIGHT ? DIRECTION.DOWN : DIRECTION.LEFT;
+                mask.setDirection(newMaskDirection);
                 break;
             case TOPLEFT:
-                newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.DOWN : DIRECTION.RIGHT;
-                hero.setDirection(newHeroDirection);
+                newMaskDirection = maskDirection == DIRECTION.LEFT ? DIRECTION.DOWN : DIRECTION.RIGHT;
+                mask.setDirection(newMaskDirection);
                 break;
             case BOTRIGHT:
-                newHeroDirection = heroDirection == DIRECTION.RIGHT ? DIRECTION.UP : DIRECTION.LEFT;
-                hero.setDirection(newHeroDirection);
+                newMaskDirection = maskDirection == DIRECTION.RIGHT ? DIRECTION.UP : DIRECTION.LEFT;
+                mask.setDirection(newMaskDirection);
                 break;
             case BOTLEFT:
-                newHeroDirection = heroDirection == DIRECTION.LEFT ? DIRECTION.UP : DIRECTION.RIGHT;
-                hero.setDirection(newHeroDirection);
+                newMaskDirection = maskDirection == DIRECTION.LEFT ? DIRECTION.UP : DIRECTION.RIGHT;
+                mask.setDirection(newMaskDirection);
                 break;
         }
     }
 
     public void collectAdjacentCoins(){
-        int heroX = hero.getPosition().getX();
-        int heroY = hero.getPosition().getY();
-        for(int x = heroX - 1; x <= heroX + 1; x++){
-            for(int y = heroY - 1; y <= heroY + 1; y++){
+        int maskX = mask.getPosition().getX();
+        int maskY = mask.getPosition().getY();
+        for(int x = maskX - 1; x <= maskX + 1; x++){
+            for(int y = maskY - 1; y <= maskY + 1; y++){
                 Element e = getModel().getElementAtPosition(new Position(x,y));
                 if(e instanceof Collectable) ((Collectable) e).collect(getModel());
             }
@@ -125,24 +123,24 @@ public class HeroController extends AbstractController<Arena>{
     public void executeState(Game game, ACTION action) throws IOException, InterruptedException {
         switch (action){
             case UP:
-                if(hero.getDirection() != DIRECTION.IDLE) break;
-                hero.setDirection(DIRECTION.UP);
+                if(mask.getDirection() != DIRECTION.IDLE) break;
+                mask.setDirection(DIRECTION.UP);
                 break;
             case DOWN:
-                if(hero.getDirection() != DIRECTION.IDLE) break;
-                hero.setDirection(DIRECTION.DOWN);
+                if(mask.getDirection() != DIRECTION.IDLE) break;
+                mask.setDirection(DIRECTION.DOWN);
                 break;
             case LEFT:
-                if(hero.getDirection() != DIRECTION.IDLE) break;
-                hero.setDirection(DIRECTION.LEFT);
+                if(mask.getDirection() != DIRECTION.IDLE) break;
+                mask.setDirection(DIRECTION.LEFT);
                 break;
             case RIGHT:
-                if(hero.getDirection() != DIRECTION.IDLE) break;
-                hero.setDirection(DIRECTION.RIGHT);
+                if(mask.getDirection() != DIRECTION.IDLE) break;
+                mask.setDirection(DIRECTION.RIGHT);
                 break;
         }
-        if(hero.isMagnet()) collectAdjacentCoins();
-        if(moveHero() instanceof EndLevel) {
+        if(mask.isMagnet()) collectAdjacentCoins();
+        if(moveMask() instanceof EndLevel) {
             game.setCurrentArena(game.currentArena + 1);
             try {
                 String path = "./src/main/resources/levels/level"+game.currentArena;
@@ -152,9 +150,9 @@ public class HeroController extends AbstractController<Arena>{
                 game.setCurrentArena(1);
             }
         }
-        else if((moveHero() instanceof Bat || moveHero() instanceof Spike || moveHero() instanceof Dart)){
-            if(hero.isShielded()){
-                hero.setShieldedTime(0.0);
+        else if((moveMask() instanceof Bat || moveMask() instanceof Spike || moveMask() instanceof Dart)){
+            if(mask.isShielded()){
+                mask.setShieldedTime(0.0);
             }
             else{
                 game.setState(new MenuState());

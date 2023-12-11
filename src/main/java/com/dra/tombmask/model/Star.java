@@ -1,8 +1,5 @@
 package com.dra.tombmask.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Star extends Collectable{
     public Star(int x, int y){
         super(x,y);
@@ -14,7 +11,7 @@ public class Star extends Collectable{
     }
     @Override
     public void collect(Arena arena) {
-        Hero.setCollected_stars(Hero.getCollected_stars()+1);
+        Mask.setCollected_stars(Mask.getCollected_stars()+1);
         arena.getCollectables().remove(this);
         arena.getGlobalElements().remove(this);
     }

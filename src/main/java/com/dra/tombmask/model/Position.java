@@ -26,7 +26,6 @@ public class Position {
         return x;
     }
 
-    //TOOD
     @Override
     public boolean equals(Object o) {
         if(!(o instanceof Position position)) return false;

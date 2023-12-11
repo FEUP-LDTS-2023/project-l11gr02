@@ -2,7 +2,6 @@ package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.model.EndLevel;
-import com.dra.tombmask.model.Hero;
 import com.dra.tombmask.utils.ElementsSymbol;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;

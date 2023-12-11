@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MapLoader {
-    private Hero hero;
+    private Mask mask;
     private EndLevel endLevel;
     private final List<Bat> bats;
     private final List<Wall> walls;
@@ -28,7 +28,7 @@ public class MapLoader {
     private int availableStars;
 
     public MapLoader(String path) throws IOException {
-        this.hero = new Hero(new Position(0, 0));
+        this.mask = new Mask(new Position(0, 0));
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
@@ -75,7 +75,7 @@ public class MapLoader {
                         globalElements.add(spike);
                         break;
                     case 'H':
-                        this.hero = new Hero(currentPosition);
+                        this.mask = new Mask(currentPosition);
                         break;
                     case 'E':
                         EndLevel endLevel = new EndLevel(currentPosition);
@@ -154,7 +154,7 @@ public class MapLoader {
         }
     }
 
-    public Hero getHero() {return this.hero;}
+    public Mask getMask() {return this.mask;}
     public EndLevel getEndLevel() {return this.endLevel;}
     public List<Bat> getBats() {return this.bats;}
     public List<Wall> getWalls() {return this.walls;}

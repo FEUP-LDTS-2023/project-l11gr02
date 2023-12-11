@@ -7,14 +7,14 @@ using SOLID principles and Design Patterns.
 </h1>
 
 ## Objective of the game
-The main objective is to take the hero from the beginning of the level's map to the end without him touching forbidden obstacles. Furthermore, as a second objective,
+The main objective is to take the mask from the beginning of the level's map to the end without him touching forbidden obstacles. Furthermore, as a second objective,
 he has to catch the maximum possible of power-ups, such as coins, points and stars.
 
 ## Features implemented
 Our game consists, for now, in 3 levels. It has several characters and static features related to the map of the levels:
 * Hero
   <p align="left">
-    <img src="https://static.wikia.nocookie.net/tomb-of-the-mask/images/d/d9/Travelboy.png/revision/latest?cb=2022081314381" alt="image of hero" width = 50>
+    <img src="https://static.wikia.nocookie.net/tomb-of-the-mask/images/d/d9/Travelboy.png/revision/latest?cb=2022081314381" alt="image of mask" width = 50>
   </p>
 * Bats
   <p align="left">
