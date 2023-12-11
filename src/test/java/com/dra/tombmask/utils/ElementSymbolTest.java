@@ -12,10 +12,10 @@ import org.junit.jupiter.api.Test;
 public class ElementSymbolTest {
     @Test
     public void testGetShielded() {
-        Assertions.assertEquals("p", ElementsSymbol.ninjaHero.getShielded("n"));
-        Assertions.assertEquals("z", ElementsSymbol.amongusHero.getShielded("a"));
-        Assertions.assertEquals("d", ElementsSymbol.crowHero.getShielded("c"));
-        Assertions.assertEquals("i", ElementsSymbol.defaultHero.getShielded("someOtherValue"));
+        Assertions.assertEquals("p", ElementsSymbol.getShielded("n"));
+        Assertions.assertEquals("z", ElementsSymbol.getShielded("a"));
+        Assertions.assertEquals("d", ElementsSymbol.getShielded("c"));
+        Assertions.assertEquals("i", ElementsSymbol.getShielded("someOtherValue"));
     }
 
     @Test

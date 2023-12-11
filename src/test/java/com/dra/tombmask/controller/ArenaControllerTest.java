@@ -30,14 +30,14 @@ public class ArenaControllerTest {
         elements.add(bat);
         arena.setGlobalElements(elements);
 
-        Hero hero = arena.getHero();
-        hero.setPosition(new Position(4,4));
-        hero.setDirection(DIRECTION.IDLE);
+        Mask mask = arena.getMask();
+        mask.setPosition(new Position(4,4));
+        mask.setDirection(DIRECTION.IDLE);
 
         arenaController.executeState(game, ACTION.UP);
 
         Assertions.assertEquals(new Position(4,4),arena.getBats().get(0).getPosition());
-        Assertions.assertEquals(new Position(4,0),hero.getPosition());
+        Assertions.assertEquals(new Position(4,0), mask.getPosition());
     }
 
     @Test

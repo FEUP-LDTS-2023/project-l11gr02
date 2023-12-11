@@ -1,6 +1,6 @@
 package com.dra.tombmask.model;
 
-import com.dra.tombmask.view.HeroView;
+import com.dra.tombmask.view.MaskView;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -30,10 +30,10 @@ public class Store {
         this.ownedMasks = new ArrayList<>();
         this.selectedMask = "";
         this.currentIndex = 0;
-        this.currentCoins = Hero.getCollected_coins();
+        this.currentCoins = Mask.getCollected_coins();
         loadMasks(pathPricesMasks);
         loadSymbols();
-        HeroView.heroSymbol = maskSymbolMap.get(selectedMask);
+        MaskView.maskSymbol = maskSymbolMap.get(selectedMask);
     }
     public Store(String path) throws IOException {
         this.availableMasks = new ArrayList<>();
@@ -42,10 +42,10 @@ public class Store {
         this.ownedMasks = new ArrayList<>();
         this.selectedMask = "";
         this.currentIndex = 0;
-        this.currentCoins = Hero.getCollected_coins();
+        this.currentCoins = Mask.getCollected_coins();
         loadMasks(path);
         loadSymbols();
-        HeroView.heroSymbol = maskSymbolMap.get(selectedMask);
+        MaskView.maskSymbol = maskSymbolMap.get(selectedMask);
     }
     private void loadMasks(String path) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(path))));
@@ -95,14 +95,14 @@ public class Store {
         getMaskPriceMap().put(selectedMask,"OWNED");
         getMaskPriceMap().put(mask,"SEL");
         this.selectedMask = mask;
-        HeroView.heroSymbol = maskSymbolMap.get(mask);
+        MaskView.maskSymbol = maskSymbolMap.get(mask);
     }
     public void buyMask(String mask){
         if(maskPriceMap.get(mask).equals("SEL") || maskPriceMap.get(mask).equals("OWNED"))
             return;
         if(Integer.parseInt(maskPriceMap.get(mask)) <= currentCoins) {
             currentCoins -= Integer.parseInt(maskPriceMap.get(mask));
-            Hero.collected_coins = currentCoins;
+            Mask.collected_coins = currentCoins;
             maskPriceMap.put(mask,"OWNED");
             ownedMasks.add(mask);
         }

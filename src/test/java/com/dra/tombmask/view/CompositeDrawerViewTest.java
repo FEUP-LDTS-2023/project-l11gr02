@@ -1,12 +1,10 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.model.Coin;
-import com.dra.tombmask.model.Hero;
+import com.dra.tombmask.model.Mask;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.model.Wall;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -19,12 +17,12 @@ public class CompositeDrawerViewTest {
     @Test
     public void drawSingleTest() throws IOException {
         GUI gui = Mockito.mock(GUI.class);
-        Hero hero = new Hero(new Position(0,0));
-        HeroView heroView = Mockito.mock(HeroView.class);
+        Mask mask = new Mask(new Position(0,0));
+        MaskView maskView = Mockito.mock(MaskView.class);
         CompositeDrawerView compositeDrawerView = new CompositeDrawerView(gui);
-        compositeDrawerView.draw(hero,heroView);
+        compositeDrawerView.draw(mask, maskView);
 
-        Mockito.verify(heroView,Mockito.times(1)).draw(hero,gui);
+        Mockito.verify(maskView,Mockito.times(1)).draw(mask,gui);
     }
     @Test
     public void drawListTest() {

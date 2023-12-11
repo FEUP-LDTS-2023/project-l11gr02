@@ -3,21 +3,20 @@ package com.dra.tombmask.utils;
 import com.dra.tombmask.model.PowerUp;
 import com.dra.tombmask.powerups.CoinMagnetStrategy;
 import com.dra.tombmask.powerups.FreezeStrategy;
-import com.dra.tombmask.powerups.PowerUpStrategy;
 import com.dra.tombmask.powerups.ShieldStrategy;
 
 import java.util.Objects;
 
 public enum ElementsSymbol {
     batEnemy("b"),
-    defaultHero("h"),
-    defaultShieldedHero("i"),
-    ninjaHero("n"),
-    ninjaShieldedHero("p"),
-    crowHero("c"),
-    crowShieldedHero("d"),
-    amongusHero("a"),
-    amongusShieldedHero("z"),
+    defaultMask("h"),
+    defaultShieldedMask("i"),
+    ninjaMask("n"),
+    ninjaShieldedMask("p"),
+    crowMask("c"),
+    crowShieldedMask("d"),
+    amongusMask("a"),
+    amongusShieldedMask("z"),
     shieldPowerUp("g"),
     freezePowerUp("f"),
     trampolineTR("y"),
@@ -40,10 +39,10 @@ public enum ElementsSymbol {
         this.symbol = symbol;
     }
     public static String getShielded(String value){
-        if(Objects.equals(ninjaHero.symbol,value)) return ninjaShieldedHero.symbol;
-        if(Objects.equals(amongusHero.symbol,value)) return amongusShieldedHero.symbol;
-        if(Objects.equals(crowHero.symbol,value)) return crowShieldedHero.symbol;
-        return defaultShieldedHero.symbol;
+        if(Objects.equals(ninjaMask.symbol,value)) return ninjaShieldedMask.symbol;
+        if(Objects.equals(amongusMask.symbol,value)) return amongusShieldedMask.symbol;
+        if(Objects.equals(crowMask.symbol,value)) return crowShieldedMask.symbol;
+        return defaultShieldedMask.symbol;
     }
     public static String getTrapDirection(DIRECTION direction){
         switch (direction){

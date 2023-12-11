@@ -42,7 +42,7 @@ public class StoreTests {
         store.buyMask("NINJA");
         assertTrue(store.getOwnedMasks().contains("NINJA"));
         assertEquals(currentCoins-2000,store.getCurrentCoins());
-        Hero.setCollected_coins(currentCoins);
+        Mask.setCollected_coins(currentCoins);
     }
     @Test
     public void buyMask2Test() {
