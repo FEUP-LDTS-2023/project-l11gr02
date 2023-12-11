@@ -11,7 +11,7 @@ public class DartTrapView implements ElementView<DartTrap>{
     @Override
     public void draw(DartTrap trap, GUI gui) {
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         TerminalPosition terminalPosition = new TerminalPosition(trap.getPosition().getX(), trap.getPosition().getY());
         textGraphics.putString(terminalPosition, ElementsSymbol.getTrapDirection(trap.getDirection()));
     }

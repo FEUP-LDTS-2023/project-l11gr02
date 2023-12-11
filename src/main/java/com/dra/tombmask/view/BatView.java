@@ -10,6 +10,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 public class BatView implements ElementView<Bat>{
     public void draw(Bat bat, GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#03ffd5"));
         TerminalPosition terminalPosition = new TerminalPosition(bat.getPosition().getX(),bat.getPosition().getY());
         textGraphics.putString(terminalPosition, ElementsSymbol.batEnemy.symbol);
     }

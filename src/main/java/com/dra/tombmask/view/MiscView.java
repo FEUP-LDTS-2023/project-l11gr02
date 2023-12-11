@@ -17,15 +17,15 @@ public class MiscView implements ElementView<Element> {
     public void draw(Element element, GUI gui) {
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         if(element instanceof Coin){
-            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.coinCollectable.symbol);
         }
         else if(element instanceof Point){
-            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.pointCollectable.symbol);
         }
         else if(element instanceof Star){
-            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.starCollectable.symbol);
         }
         else if(element instanceof Trampoline) {
@@ -33,7 +33,7 @@ public class MiscView implements ElementView<Element> {
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getTrampolineCorner(((Trampoline) element).getCorner()));
         }
         else if(element instanceof PowerUp){
-            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+            textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
             textGraphics.putString(new TerminalPosition(element.getPosition().getX(), element.getPosition().getY()), ElementsSymbol.getPowerUp((PowerUp) element));
         }
     }
