@@ -9,10 +9,10 @@ import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
-public class MaskController extends AbstractController<Arena>{
+public class MaskController extends AbstractController<Tomb>{
     private final Mask mask = getModel().getMask();
-    public MaskController(Arena arena){
-        super(arena);
+    public MaskController(Tomb tomb){
+        super(tomb);
     }
 
     public Element moveMask(){
@@ -80,7 +80,7 @@ public class MaskController extends AbstractController<Arena>{
             handleTrampolineCollision((Trampoline) element);
             return null;
         }
-        if(Mask.collected_stars != Arena.availableStars && element instanceof EndLevel) return null;
+        if(Mask.collected_stars != Tomb.availableStars && element instanceof EndLevel) return null;
         return element;
     }
     public void handleTrampolineCollision(Trampoline trampoline){
@@ -141,13 +141,13 @@ public class MaskController extends AbstractController<Arena>{
         }
         if(mask.isMagnet()) collectAdjacentCoins();
         if(moveMask() instanceof EndLevel) {
-            game.setCurrentArena(game.currentArena + 1);
+            game.setCurrentTomb(game.currentTomb + 1);
             try {
-                String path = "./src/main/resources/levels/level"+game.currentArena;
-                game.setState(new GameState(new Arena(60, 30,path)));
+                String path = "./src/main/resources/levels/level"+game.currentTomb;
+                game.setState(new GameState(new Tomb(60, 30,path)));
             }catch (IOException e){
                 game.setState(new MenuState());
-                game.setCurrentArena(1);
+                game.setCurrentTomb(1);
             }
         }
         else if((moveMask() instanceof Bat || moveMask() instanceof Spike || moveMask() instanceof Dart)){

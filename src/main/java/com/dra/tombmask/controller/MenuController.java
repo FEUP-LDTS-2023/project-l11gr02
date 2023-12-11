@@ -1,14 +1,11 @@
 package com.dra.tombmask.controller;
-import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Menu;
 import com.dra.tombmask.model.Store;
 import com.dra.tombmask.state.GameState;
-import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.state.StoreState;
 import com.dra.tombmask.utils.ACTION;
-import com.dra.tombmask.utils.MENU_OPTION;
 
 import java.io.IOException;
 
@@ -31,10 +28,10 @@ public class MenuController extends AbstractController<Menu>{
         }
     }
     public void consumeOption(Game game) throws IOException {
-        String path = "src/main/resources/levels/level"+ game.getCurrentArena();
+        String path = "src/main/resources/levels/level"+ game.getCurrentTomb();
         switch (getModel().getCurrentOption()){
             case PLAY -> {
-                game.setState(new GameState(new Arena(60,30,path)));
+                game.setState(new GameState(new Tomb(60,30,path)));
             }
             case STORE ->{
                 game.setState(new StoreState(new Store()));

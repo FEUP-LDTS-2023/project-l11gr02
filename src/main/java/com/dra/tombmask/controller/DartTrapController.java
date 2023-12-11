@@ -1,7 +1,7 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Dart;
 import com.dra.tombmask.model.DartTrap;
 import com.dra.tombmask.utils.ACTION;
@@ -9,9 +9,9 @@ import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
-public class DartTrapController extends AbstractController<Arena>{
-    public DartTrapController(Arena arena) {
-        super(arena);
+public class DartTrapController extends AbstractController<Tomb>{
+    public DartTrapController(Tomb tomb) {
+        super(tomb);
     }
 
     private void shoot(DartTrap trap){

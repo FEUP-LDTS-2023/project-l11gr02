@@ -1,7 +1,7 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.DartTrap;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.utils.ACTION;
@@ -15,21 +15,21 @@ import java.io.IOException;
 
 public class DartTrapControllerTest {
     private DartTrapController dartTrapController;
-    private Arena arena;
+    private Tomb tomb;
     private Game game;
 
     @BeforeEach
     void setup() throws IOException{
-        arena = new Arena(30, 30);
-        dartTrapController = new DartTrapController(arena);
+        tomb = new Tomb(30, 30);
+        dartTrapController = new DartTrapController(tomb);
         game = Mockito.mock(Game.class);
     }
 
     @Test
     void testStandbyMode() throws IOException, InterruptedException {
         DartTrap trap = new DartTrap(new Position(2,2), DIRECTION.LEFT);
-        arena.getDartTraps().add(trap);
-        arena.getGlobalElements().add(trap);
+        tomb.getDartTraps().add(trap);
+        tomb.getGlobalElements().add(trap);
         trap.setStandby(2);
         dartTrapController.executeState(game, ACTION.NONE);
         Assertions.assertEquals(2-0.08, trap.getStandby());
@@ -39,17 +39,17 @@ public class DartTrapControllerTest {
     void testLeftDartTrap() throws IOException, InterruptedException {
         DartTrap trap = new DartTrap(new Position(2,2), DIRECTION.LEFT);
 
-        arena.getDartTraps().add(trap);
-        arena.getGlobalElements().add(trap);
+        tomb.getDartTraps().add(trap);
+        tomb.getGlobalElements().add(trap);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(1, tomb.getGlobalElements().size());
 
         dartTrapController.executeState(game, ACTION.NONE);
 
-        Assertions.assertEquals(new Position(1,2), arena.getDarts().get(0).getPosition());
-        Assertions.assertEquals(1, arena.getDartTraps().size());
-        Assertions.assertEquals(2, arena.getGlobalElements().size());
+        Assertions.assertEquals(new Position(1,2), tomb.getDarts().get(0).getPosition());
+        Assertions.assertEquals(1, tomb.getDartTraps().size());
+        Assertions.assertEquals(2, tomb.getGlobalElements().size());
         Assertions.assertEquals(2, trap.getStandby());
     }
 
@@ -57,17 +57,17 @@ public class DartTrapControllerTest {
     void testDownDartTrap() throws IOException, InterruptedException {
         DartTrap trap = new DartTrap(new Position(2,2), DIRECTION.DOWN);
 
-        arena.getDartTraps().add(trap);
-        arena.getGlobalElements().add(trap);
+        tomb.getDartTraps().add(trap);
+        tomb.getGlobalElements().add(trap);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(1, tomb.getGlobalElements().size());
 
         dartTrapController.executeState(game, ACTION.NONE);
 
-        Assertions.assertEquals(new Position(2,3), arena.getDarts().get(0).getPosition());
-        Assertions.assertEquals(1, arena.getDartTraps().size());
-        Assertions.assertEquals(2, arena.getGlobalElements().size());
+        Assertions.assertEquals(new Position(2,3), tomb.getDarts().get(0).getPosition());
+        Assertions.assertEquals(1, tomb.getDartTraps().size());
+        Assertions.assertEquals(2, tomb.getGlobalElements().size());
         Assertions.assertEquals(2, trap.getStandby());
     }
 
@@ -75,17 +75,17 @@ public class DartTrapControllerTest {
     void testUpDartTrap() throws IOException, InterruptedException {
         DartTrap trap = new DartTrap(new Position(2,2), DIRECTION.UP);
 
-        arena.getDartTraps().add(trap);
-        arena.getGlobalElements().add(trap);
+        tomb.getDartTraps().add(trap);
+        tomb.getGlobalElements().add(trap);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(1, tomb.getGlobalElements().size());
 
         dartTrapController.executeState(game, ACTION.NONE);
 
-        Assertions.assertEquals(new Position(2,1), arena.getDarts().get(0).getPosition());
-        Assertions.assertEquals(1, arena.getDartTraps().size());
-        Assertions.assertEquals(2, arena.getGlobalElements().size());
+        Assertions.assertEquals(new Position(2,1), tomb.getDarts().get(0).getPosition());
+        Assertions.assertEquals(1, tomb.getDartTraps().size());
+        Assertions.assertEquals(2, tomb.getGlobalElements().size());
         Assertions.assertEquals(2, trap.getStandby());
     }
 
@@ -93,17 +93,17 @@ public class DartTrapControllerTest {
     void testRightDartTrap() throws IOException, InterruptedException {
         DartTrap trap = new DartTrap(new Position(2,2), DIRECTION.RIGHT);
 
-        arena.getDartTraps().add(trap);
-        arena.getGlobalElements().add(trap);
+        tomb.getDartTraps().add(trap);
+        tomb.getGlobalElements().add(trap);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(1, tomb.getGlobalElements().size());
 
         dartTrapController.executeState(game, ACTION.NONE);
 
-        Assertions.assertEquals(new Position(3,2), arena.getDarts().get(0).getPosition());
-        Assertions.assertEquals(1, arena.getDartTraps().size());
-        Assertions.assertEquals(2, arena.getGlobalElements().size());
+        Assertions.assertEquals(new Position(3,2), tomb.getDarts().get(0).getPosition());
+        Assertions.assertEquals(1, tomb.getDartTraps().size());
+        Assertions.assertEquals(2, tomb.getGlobalElements().size());
         Assertions.assertEquals(2, trap.getStandby());
     }
 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arena {
+public class Tomb {
     private final int width;
     private final int height;
     private Mask mask;
@@ -22,7 +22,7 @@ public class Arena {
     public static int availableStars;
     private String path;
 
-    public Arena(int width, int height, String path) throws IOException {
+    public Tomb(int width, int height, String path) throws IOException {
         Mask.collected_stars = 0;
         Mask.collected_points = 0;
         MapLoader loader = new MapLoader(path);
@@ -41,7 +41,7 @@ public class Arena {
         this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
     }
-    public Arena(int width,int height) throws IOException {
+    public Tomb(int width, int height) throws IOException {
         Mask.collected_stars = 0;
         Mask.collected_points = 0;
         this.width = width;

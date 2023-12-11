@@ -17,18 +17,18 @@ import java.util.List;
 public class BatControllerTest {
     BatController batController;
     Bat bat;
-    Arena arena;
+    Tomb tomb;
 
     @BeforeEach
     public void setup() throws IOException {
-        arena = new Arena(30,30);
-        batController = new BatController(arena);
+        tomb = new Tomb(30,30);
+        batController = new BatController(tomb);
     }
     @Test
     public void moveBatLeftTest(){
         bat = new Bat(5,5,false);
 
-        Assertions.assertTrue(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(4, 5)));
         batController.moveBat(bat);
         Assertions.assertEquals(new Position(4, 5), bat.getPosition());
     }
@@ -38,7 +38,7 @@ public class BatControllerTest {
         bat = new Bat(5,5,true);
         DIRECTION expected = DIRECTION.RIGHT;
 
-        Assertions.assertTrue(arena.isEmpty(new Position(6, 5)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(6, 5)));
         batController.moveBat(bat);
         Assertions.assertEquals(new Position(6, 5), bat.getPosition());
         Assertions.assertEquals(expected, bat.getDirection());
@@ -51,13 +51,13 @@ public class BatControllerTest {
         Wall wall = new Wall(6,5);
         List<Wall> walls = new ArrayList<>();
         walls.add(wall);
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(wall);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(6, 5)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(6, 5)));
         batController.moveBat(bat);
         Assertions.assertEquals(new Position(5, 5), bat.getPosition());
         Assertions.assertEquals(DIRECTION.LEFT, bat.getDirection());
@@ -70,13 +70,13 @@ public class BatControllerTest {
         Wall wall = new Wall(4,5);
         List<Wall> walls = new ArrayList<>();
         walls.add(wall);
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(wall);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(4, 5)));
         batController.moveBat(bat);
         Assertions.assertEquals(new Position(5, 5), bat.getPosition());
         Assertions.assertEquals(DIRECTION.RIGHT, bat.getDirection());
@@ -96,9 +96,9 @@ public class BatControllerTest {
     @Test
     public void executeStateTest() throws IOException, FontFormatException, InterruptedException {
         Game game = Mockito.mock(Game.class);
-        Arena arena = new Arena(30,30);
+        Tomb tomb = new Tomb(30,30);
 
-        BatController b = new BatController(arena);
+        BatController b = new BatController(tomb);
 
         Bat bat1 = new Bat(1, 1, true);
         Bat bat2 = new Bat(2, 2, true);
@@ -106,11 +106,11 @@ public class BatControllerTest {
         List<Bat> bats = new ArrayList<>();
         bats.add(bat1);
         bats.add(bat2);
-        arena.setBats(bats);
+        tomb.setBats(bats);
 
         b.executeState(game, ACTION.LEFT);
 
-        Assertions.assertEquals(new Position(2,1),arena.getBats().get(0).getPosition());
-        Assertions.assertEquals(new Position(3,2),arena.getBats().get(1).getPosition());
+        Assertions.assertEquals(new Position(2,1), tomb.getBats().get(0).getPosition());
+        Assertions.assertEquals(new Position(3,2), tomb.getBats().get(1).getPosition());
     }
 }

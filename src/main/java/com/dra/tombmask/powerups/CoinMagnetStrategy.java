@@ -1,11 +1,11 @@
 package com.dra.tombmask.powerups;
 
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 
 public class CoinMagnetStrategy extends PowerUpStrategy{
     final double MAGNET_TIME = 10.0;
     @Override
-    public void execute(Arena arena) {
-        arena.getMask().setMagnetTime(MAGNET_TIME);
+    public void execute(Tomb tomb) {
+        tomb.getMask().setMagnetTime(MAGNET_TIME);
     }
 }

@@ -10,10 +10,10 @@ public class Coin extends Collectable{
         this.setSymbol("c");
     }
     @Override
-    public void collect(Arena arena) {
+    public void collect(Tomb tomb) {
         Mask.setCollected_coins(Mask.getCollected_coins()+1);
-        arena.getCollectables().remove(this);
-        arena.getGlobalElements().remove(this);
+        tomb.getCollectables().remove(this);
+        tomb.getGlobalElements().remove(this);
     }
 
     @Override

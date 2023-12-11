@@ -1,15 +1,15 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Dart;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.utils.ACTION;
 
 import java.io.IOException;
 
-public class DartController extends AbstractController<Arena>{
-    public DartController(Arena arena) { super(arena); }
+public class DartController extends AbstractController<Tomb>{
+    public DartController(Tomb tomb) { super(tomb); }
 
     public void moveDart(Dart dart){
         int x = dart.getPosition().getX();

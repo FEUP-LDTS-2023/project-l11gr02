@@ -2,24 +2,24 @@ package com.dra.tombmask.state;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
-import com.dra.tombmask.controller.ArenaController;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.controller.TombController;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.view.GameView;
 
 import java.io.IOException;
 
 public class GameState implements AbstractState{
-    public ArenaController arenaController;
+    public TombController tombController;
     public GameView gameViewer;
-    public GameState(Arena arena) throws IOException {
-        arenaController = new ArenaController(arena);
-        gameViewer = new GameView(arena);
+    public GameState(Tomb tomb) throws IOException {
+        tombController = new TombController(tomb);
+        gameViewer = new GameView(tomb);
     }
     @Override
     public void nextState(Game game, GUI gui) throws IOException, InterruptedException {
         ACTION action = gui.getAction(gui.getUserInput());
-        arenaController.executeState(game, action);
+        tombController.executeState(game, action);
         gameViewer.draw(gui);
     }
 
@@ -30,8 +30,8 @@ public class GameState implements AbstractState{
 
         GameState gameState = (GameState) obj;
 
-        return gameState.arenaController.getModel().getWidth() == arenaController.getModel().getWidth()
-                && gameState.arenaController.getModel().getHeight() == arenaController.getModel().getHeight()
-                && gameState.arenaController.getModel().getPath().equals(arenaController.getModel().getPath());
+        return gameState.tombController.getModel().getWidth() == tombController.getModel().getWidth()
+                && gameState.tombController.getModel().getHeight() == tombController.getModel().getHeight()
+                && gameState.tombController.getModel().getPath().equals(tombController.getModel().getPath());
     }
 }

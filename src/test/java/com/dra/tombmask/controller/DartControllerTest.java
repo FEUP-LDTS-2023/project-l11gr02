@@ -1,6 +1,6 @@
 package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Dart;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.model.Wall;
@@ -12,23 +12,20 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
 
 class DartControllerTest {
 
     private DartController dartController;
-    private Arena arena;
+    private Tomb tomb;
 
     @BeforeEach
     void setUp() throws IOException {
-        arena = new Arena(30, 30);
-        dartController = new DartController(arena);
+        tomb = new Tomb(30, 30);
+        dartController = new DartController(tomb);
     }
 
     @Test
@@ -66,83 +63,83 @@ class DartControllerTest {
         Dart dartA = new Dart(3,3, DIRECTION.LEFT);
         Dart dartB = new Dart(2,2, DIRECTION.RIGHT);
 
-        arena.getGlobalElements().add(dartA);
-        arena.getDarts().add(dartA);
-        arena.getGlobalElements().add(dartB);
-        arena.getDarts().add(dartB);
+        tomb.getGlobalElements().add(dartA);
+        tomb.getDarts().add(dartA);
+        tomb.getGlobalElements().add(dartB);
+        tomb.getDarts().add(dartB);
 
         dartController.executeState(game, ACTION.NONE);
 
-        Assertions.assertEquals(new Position(2,3), arena.getDarts().get(0).getPosition());
-        Assertions.assertEquals(new Position(3, 2), arena.getDarts().get(1).getPosition());
+        Assertions.assertEquals(new Position(2,3), tomb.getDarts().get(0).getPosition());
+        Assertions.assertEquals(new Position(3, 2), tomb.getDarts().get(1).getPosition());
     }
 
     @Test
     void testMoveDartLeftRemovesDartFromLists() {
         Wall wall = new Wall(new Position(1,1));
         Dart dart = new Dart(new Position(2,1), DIRECTION.LEFT);
-        arena.getDarts().add(dart);
-        arena.getGlobalElements().add(dart);
-        arena.getGlobalElements().add(wall);
+        tomb.getDarts().add(dart);
+        tomb.getGlobalElements().add(dart);
+        tomb.getGlobalElements().add(wall);
 
-        int expectedGlobals = arena.getGlobalElements().size();
+        int expectedGlobals = tomb.getGlobalElements().size();
 
-        Assertions.assertEquals(1, arena.getDarts().size());
+        Assertions.assertEquals(1, tomb.getDarts().size());
 
         dartController.moveDart(dart);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(expectedGlobals-1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(expectedGlobals-1, tomb.getGlobalElements().size());
     }
     @Test
     void testMoveRightDartRemovesDartFromLists() {
         Wall wall = new Wall(new Position(3,1));
         Dart dart = new Dart(new Position(2,1), DIRECTION.RIGHT);
-        arena.getDarts().add(dart);
-        arena.getGlobalElements().add(dart);
-        arena.getGlobalElements().add(wall);
+        tomb.getDarts().add(dart);
+        tomb.getGlobalElements().add(dart);
+        tomb.getGlobalElements().add(wall);
 
-        int expectedGlobals = arena.getGlobalElements().size();
+        int expectedGlobals = tomb.getGlobalElements().size();
 
-        Assertions.assertEquals(1, arena.getDarts().size());
+        Assertions.assertEquals(1, tomb.getDarts().size());
 
         dartController.moveDart(dart);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(expectedGlobals-1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(expectedGlobals-1, tomb.getGlobalElements().size());
     }
     @Test
     void testMoveDartDownRemovesDartFromLists() {
         Wall wall = new Wall(new Position(2,2));
         Dart dart = new Dart(new Position(2,1), DIRECTION.DOWN);
-        arena.getDarts().add(dart);
-        arena.getGlobalElements().add(dart);
-        arena.getGlobalElements().add(wall);
+        tomb.getDarts().add(dart);
+        tomb.getGlobalElements().add(dart);
+        tomb.getGlobalElements().add(wall);
 
-        int expectedGlobals = arena.getGlobalElements().size();
+        int expectedGlobals = tomb.getGlobalElements().size();
 
-        Assertions.assertEquals(1, arena.getDarts().size());
+        Assertions.assertEquals(1, tomb.getDarts().size());
 
         dartController.moveDart(dart);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(expectedGlobals-1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(expectedGlobals-1, tomb.getGlobalElements().size());
     }
     @Test
     void testMoveDartUpRemovesDartFromLists() {
         Wall wall = new Wall(new Position(2,1));
         Dart dart = new Dart(new Position(2,2), DIRECTION.UP);
-        arena.getDarts().add(dart);
-        arena.getGlobalElements().add(dart);
-        arena.getGlobalElements().add(wall);
+        tomb.getDarts().add(dart);
+        tomb.getGlobalElements().add(dart);
+        tomb.getGlobalElements().add(wall);
 
-        int expectedGlobals = arena.getGlobalElements().size();
+        int expectedGlobals = tomb.getGlobalElements().size();
 
-        Assertions.assertEquals(1, arena.getDarts().size());
+        Assertions.assertEquals(1, tomb.getDarts().size());
 
         dartController.moveDart(dart);
 
-        Assertions.assertEquals(0, arena.getDarts().size());
-        Assertions.assertEquals(expectedGlobals-1, arena.getGlobalElements().size());
+        Assertions.assertEquals(0, tomb.getDarts().size());
+        Assertions.assertEquals(expectedGlobals-1, tomb.getGlobalElements().size());
     }
 }

@@ -2,13 +2,10 @@ package com.dra.tombmask.state;
 
 import com.dra.tombmask.GUI.GUI;
 import com.dra.tombmask.Game;
-import com.dra.tombmask.controller.ArenaController;
-import com.dra.tombmask.controller.StoreController;
-import com.dra.tombmask.model.Arena;
-import com.dra.tombmask.model.Store;
+import com.dra.tombmask.controller.TombController;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.view.GameView;
-import com.dra.tombmask.view.StoreView;
 import com.googlecode.lanterna.input.KeyStroke;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -26,17 +23,17 @@ public class GameStateTest {
         Mockito.when(gui.getAction(new KeyStroke(ArrowLeft))).thenReturn(ACTION.LEFT);
         Game game = Mockito.mock(Game.class);
 
-        Arena arena = Mockito.mock(Arena.class);
+        Tomb tomb = Mockito.mock(Tomb.class);
         GameView gameView = Mockito.mock(GameView.class);
-        ArenaController arenaController = Mockito.mock(ArenaController.class);
+        TombController tombController = Mockito.mock(TombController.class);
 
-        GameState gameState = new GameState(arena);
-        gameState.arenaController = arenaController;
+        GameState gameState = new GameState(tomb);
+        gameState.tombController = tombController;
         gameState.gameViewer = gameView;
 
         gameState.nextState(game,gui);
 
-        Mockito.verify(arenaController,Mockito.times(1)).executeState(Mockito.any(),Mockito.any());
+        Mockito.verify(tombController,Mockito.times(1)).executeState(Mockito.any(),Mockito.any());
         Mockito.verify(gameView,Mockito.times(1)).draw(Mockito.any());
 
     }

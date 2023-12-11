@@ -1,14 +1,14 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Mask;
 
 import java.io.IOException;
 
-public class GameView extends AbstractView<Arena>{
-    public GameView(Arena arena){
-        super(arena);
+public class GameView extends AbstractView<Tomb>{
+    public GameView(Tomb tomb){
+        super(tomb);
     }
 
     public void drawModel(CompositeDrawerView compositeDrawerView) throws IOException {
@@ -16,7 +16,7 @@ public class GameView extends AbstractView<Arena>{
         compositeDrawerView.draw(getModel().getMask(), new MaskView());
         compositeDrawerView.draw(getModel().getBats(), new BatView());
         compositeDrawerView.draw(getModel().getSpikes(),new SpikeView());
-        if(Mask.collected_stars == Arena.availableStars)
+        if(Mask.collected_stars == Tomb.availableStars)
             compositeDrawerView.draw(getModel().getEndLevel(),new EndLevelView());
         compositeDrawerView.draw(getModel().getGlobalElements(),new MiscView());
         compositeDrawerView.draw(getModel().getDartTraps(),new DartTrapView());

@@ -1,7 +1,7 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AbstractViewTest {
     @Test
     public void draw() throws IOException {
-        GameView gameView = new GameView(new Arena(0,0));
+        GameView gameView = new GameView(new Tomb(0,0));
         GUI gui = Mockito.mock(GUI.class);
         Screen screen = Mockito.mock(Screen.class);
         TextGraphics textGraphics = Mockito.mock(TextGraphics.class);

@@ -1,7 +1,7 @@
 package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 import com.dra.tombmask.model.Bat;
 import com.dra.tombmask.model.Position;
 import com.dra.tombmask.utils.ACTION;
@@ -9,9 +9,9 @@ import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
-public class BatController extends AbstractController<Arena>{
-    public BatController(Arena arena){
-        super(arena);
+public class BatController extends AbstractController<Tomb>{
+    public BatController(Tomb tomb){
+        super(tomb);
     }
 
     public void moveBat(Bat bat){

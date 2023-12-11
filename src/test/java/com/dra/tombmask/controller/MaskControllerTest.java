@@ -17,26 +17,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaskControllerTest {
-    Arena arena;
+    Tomb tomb;
     MaskController maskController;
 
     Game game;
     Mask mask;
     @BeforeEach
     public void setup() throws IOException {
-        arena = new Arena(30,30);
-        maskController = new MaskController(arena);
+        tomb = new Tomb(30,30);
+        maskController = new MaskController(tomb);
         game = Mockito.mock(Game.class);
     }
 
     @Test
     public void moveMaskUpTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.UP);
         mask.setShieldedTime(10);
 
-        Assertions.assertTrue(arena.isEmpty(new Position(4, 3)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(4, 3)));
         Assertions.assertEquals(DIRECTION.UP, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(new Position(4, 3), mask.getPosition());
@@ -45,19 +45,19 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskUpBlockedTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.UP);
 
         List<Wall> walls = new ArrayList<>();
         walls.add(new Wall(4,3));
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(new Wall(4,3));
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(4, 3)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(4, 3)));
         Assertions.assertEquals(DIRECTION.UP, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(DIRECTION.IDLE, mask.getDirection());
@@ -66,11 +66,11 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskDownTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.DOWN);
 
-        Assertions.assertTrue(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(4, 5)));
         Assertions.assertEquals(DIRECTION.DOWN, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(new Position(4, 5), mask.getPosition());
@@ -78,19 +78,19 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskDownBlockedTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.DOWN);
 
         List<Wall> walls = new ArrayList<>();
         walls.add(new Wall(4,5));
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(new Wall(4,5));
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(4, 5)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(4, 5)));
         Assertions.assertEquals(DIRECTION.DOWN, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(DIRECTION.IDLE, mask.getDirection());
@@ -99,11 +99,11 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskLeftTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.LEFT);
 
-        Assertions.assertTrue(arena.isEmpty(new Position(3, 4)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(3, 4)));
         Assertions.assertEquals(DIRECTION.LEFT, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(new Position(3, 4), mask.getPosition());
@@ -111,19 +111,19 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskLeftBlockedTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.LEFT);
 
         List<Wall> walls = new ArrayList<>();
         walls.add(new Wall(3,4));
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(new Wall(3,4));
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(3, 4)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(3, 4)));
         Assertions.assertEquals(DIRECTION.LEFT, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(DIRECTION.IDLE, mask.getDirection());
@@ -132,11 +132,11 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskRightTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.RIGHT);
 
-        Assertions.assertTrue(arena.isEmpty(new Position(5, 4)));
+        Assertions.assertTrue(tomb.isEmpty(new Position(5, 4)));
         Assertions.assertEquals(DIRECTION.RIGHT, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(new Position(5, 4), mask.getPosition());
@@ -144,19 +144,19 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskRightBlockedTest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.RIGHT);
 
         List<Wall> walls = new ArrayList<>();
         walls.add(new Wall(5,4));
-        arena.setWalls(walls);
+        tomb.setWalls(walls);
 
         List<Element> elements = new ArrayList<>();
         elements.add(new Wall(5,4));
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
-        Assertions.assertFalse(arena.isEmpty(new Position(5, 4)));
+        Assertions.assertFalse(tomb.isEmpty(new Position(5, 4)));
         Assertions.assertEquals(DIRECTION.RIGHT, mask.getDirection());
         maskController.moveMask();
         Assertions.assertEquals(DIRECTION.IDLE, mask.getDirection());
@@ -165,7 +165,7 @@ public class MaskControllerTest {
 
     @Test
     public void moveMaskIDLETest(){
-        mask =  arena.getMask();
+        mask =  tomb.getMask();
         mask.setPosition(new Position(4,4));
         mask.setDirection(DIRECTION.IDLE);
         mask.setMagnetTime(10);
@@ -179,9 +179,9 @@ public class MaskControllerTest {
 
     @Test
     public void executeStateUpTest() throws IOException, InterruptedException {
-        mask = arena.getMask();
+        mask = tomb.getMask();
         Game game = Mockito.mock(Game.class);
-        Mockito.when(game.getCurrentArena()).thenReturn(1);
+        Mockito.when(game.getCurrentTomb()).thenReturn(1);
         mask.setPosition(new Position(2,2));
         mask.setDirection(DIRECTION.IDLE);
         mask.setMagnetTime(5);
@@ -193,32 +193,32 @@ public class MaskControllerTest {
         coins.add(c1);
         coins.add(c2);
         coins.add(c3);
-        arena.setCollectables(coins);
+        tomb.setCollectables(coins);
 
         EndLevel e = new EndLevel(2,1);
-        arena.setEndLevel(e);
+        tomb.setEndLevel(e);
 
         List<Element> elements =new ArrayList<>();
         elements.add(c1);
         elements.add(e);
         elements.add(c2);
         elements.add(c3);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
         maskController.executeState(game, ACTION.UP);
 
-        Assertions.assertEquals(1,arena.getCollectables().size());
-        Assertions.assertEquals(2,arena.getGlobalElements().size());
+        Assertions.assertEquals(1, tomb.getCollectables().size());
+        Assertions.assertEquals(2, tomb.getGlobalElements().size());
         Assertions.assertEquals(DIRECTION.UP, mask.getDirection());
         Assertions.assertTrue(maskController.moveMask() instanceof EndLevel);
-        Mockito.when(game.getCurrentArena()).thenReturn(2);
-        Mockito.verify(game,Mockito.times(2)).setCurrentArena(game.currentArena+1);
+        Mockito.when(game.getCurrentTomb()).thenReturn(2);
+        Mockito.verify(game,Mockito.times(2)).setCurrentTomb(game.currentTomb +1);
         Mockito.verify(game,Mockito.times(1)).setState(new MenuState());
     }
 
     @Test
     public void executeStateDownTest() throws IOException, InterruptedException {
-        mask = arena.getMask();
+        mask = tomb.getMask();
         Game game = Mockito.mock(Game.class);
         mask.setPosition(new Position(2,2));
         mask.setDirection(DIRECTION.IDLE);
@@ -227,11 +227,11 @@ public class MaskControllerTest {
         Bat bat = new Bat(new Position(2,3), true);
         List<Bat> bats = new ArrayList<>();
         bats.add(bat);
-        arena.setBats(bats);
+        tomb.setBats(bats);
 
         List<Element> elements =new ArrayList<>();
         elements.add(bat);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
         maskController.executeState(game, ACTION.DOWN);
 
@@ -242,7 +242,7 @@ public class MaskControllerTest {
 
     @Test
     public void executeStateLeftTest() throws IOException, InterruptedException {
-        mask = arena.getMask();
+        mask = tomb.getMask();
         Game game = Mockito.mock(Game.class);
         mask.setPosition(new Position(2,2));
         mask.setDirection(DIRECTION.IDLE);
@@ -251,11 +251,11 @@ public class MaskControllerTest {
         Spike spike = new Spike(new Position(1,2));
         List<Spike> spikes = new ArrayList<>();
         spikes.add(spike);
-        arena.setSpikes(spikes);
+        tomb.setSpikes(spikes);
 
         List<Element> elements =new ArrayList<>();
         elements.add(spike);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
         maskController.executeState(game, ACTION.LEFT);
 
@@ -267,7 +267,7 @@ public class MaskControllerTest {
 
     @Test
     public void executeStateRightTest() throws IOException, InterruptedException {
-        mask = arena.getMask();
+        mask = tomb.getMask();
         Game game = Mockito.mock(Game.class);
         mask.setPosition(new Position(2,2));
         mask.setDirection(DIRECTION.IDLE);
@@ -276,11 +276,11 @@ public class MaskControllerTest {
         Spike spike = new Spike(new Position(3,2));
         List<Spike> spikes = new ArrayList<>();
         spikes.add(spike);
-        arena.setSpikes(spikes);
+        tomb.setSpikes(spikes);
 
         List<Element> elements =new ArrayList<>();
         elements.add(spike);
-        arena.setGlobalElements(elements);
+        tomb.setGlobalElements(elements);
 
         maskController.executeState(game, ACTION.RIGHT);
 
@@ -291,7 +291,7 @@ public class MaskControllerTest {
 
     @Test
     public void collectAdjacentCoinsTest(){
-        mask = arena.getMask();
+        mask = tomb.getMask();
         mask.setPosition(new Position(4,4));
 
         Coin c1 = new Coin(2,2);
@@ -301,37 +301,37 @@ public class MaskControllerTest {
         coins.add(c1);
         coins.add(c2);
         coins.add(c3);
-        arena.setCollectables(coins);
+        tomb.setCollectables(coins);
 
         List<Element> globalElements = new ArrayList<>();
         globalElements.add(c1);
         globalElements.add(c2);
         globalElements.add(c3);
-        arena.setGlobalElements(globalElements);
+        tomb.setGlobalElements(globalElements);
 
         maskController.collectAdjacentCoins();
-        Assertions.assertEquals(1,arena.getCollectables().size());
-        Assertions.assertEquals(1,arena.getGlobalElements().size());
+        Assertions.assertEquals(1, tomb.getCollectables().size());
+        Assertions.assertEquals(1, tomb.getGlobalElements().size());
     }
 
     @Test
     public void checkCollisionCollectableTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         Coin coin = Mockito.mock(Coin.class);
-        Mockito.when(mockArena.getElementAtPosition(Mockito.any(Position.class))).thenReturn(coin);
+        Mockito.when(mockTomb.getElementAtPosition(Mockito.any(Position.class))).thenReturn(coin);
 
         maskController1.checkCollision(new Position(0,0));
 
-        Mockito.verify(coin,Mockito.times(1)).collect(Mockito.any(Arena.class));
+        Mockito.verify(coin,Mockito.times(1)).collect(Mockito.any(Tomb.class));
     }
     @Test
     public void checkCollisionPowerUpTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         PowerUp powerUp = Mockito.mock(PowerUp.class);
         PowerUpStrategy powerUpStrategy = Mockito.mock(PowerUpStrategy.class);
-        Mockito.when(mockArena.getElementAtPosition(Mockito.any(Position.class))).thenReturn(powerUp);
+        Mockito.when(mockTomb.getElementAtPosition(Mockito.any(Position.class))).thenReturn(powerUp);
         Mockito.when(powerUp.getStrategy()).thenReturn(powerUpStrategy);
 
         maskController1.checkCollision(new Position(0,0));
@@ -340,11 +340,11 @@ public class MaskControllerTest {
     }
     @Test
     public void handleTrampolineTOPLEFTCollisionTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.TOPLEFT);
         Mask mask1 = Mockito.mock(Mask.class);
-        Mockito.when(mockArena.getMask()).thenReturn(mask1);
+        Mockito.when(mockTomb.getMask()).thenReturn(mask1);
 
         maskController1.handleTrampolineCollision(trampoline);
 
@@ -352,11 +352,11 @@ public class MaskControllerTest {
     }
     @Test
     public void handleTrampolineTOPRIGHTCollisionTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.TOPRIGHT);
         Mask mask1 = Mockito.mock(Mask.class);
-        Mockito.when(mockArena.getMask()).thenReturn(mask1);
+        Mockito.when(mockTomb.getMask()).thenReturn(mask1);
 
         maskController1.handleTrampolineCollision(trampoline);
 
@@ -364,11 +364,11 @@ public class MaskControllerTest {
     }
     @Test
     public void handleTrampolineBOTLEFTCollisionTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.BOTLEFT);
         Mask mask1 = Mockito.mock(Mask.class);
-        Mockito.when(mockArena.getMask()).thenReturn(mask1);
+        Mockito.when(mockTomb.getMask()).thenReturn(mask1);
 
         maskController1.handleTrampolineCollision(trampoline);
 
@@ -376,11 +376,11 @@ public class MaskControllerTest {
     }
     @Test
     public void handleTrampolineBOTRIGHTCollisionTest() {
-        Arena mockArena = Mockito.mock(Arena.class);
-        MaskController maskController1 = new MaskController(mockArena);
+        Tomb mockTomb = Mockito.mock(Tomb.class);
+        MaskController maskController1 = new MaskController(mockTomb);
         Trampoline trampoline = new Trampoline(new Position(0,0), CORNER.BOTRIGHT);
         Mask mask1 = Mockito.mock(Mask.class);
-        Mockito.when(mockArena.getMask()).thenReturn(mask1);
+        Mockito.when(mockTomb.getMask()).thenReturn(mask1);
 
         maskController1.handleTrampolineCollision(trampoline);
 

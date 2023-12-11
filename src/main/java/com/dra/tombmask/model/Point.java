@@ -10,10 +10,10 @@ public class Point extends Collectable{
         this.setSymbol("p");
     }
     @Override
-    public void collect(Arena arena) {
+    public void collect(Tomb tomb) {
         Mask.setCollected_points(Mask.getCollected_points()+1);
-        arena.getCollectables().remove(this);
-        arena.getGlobalElements().remove(this);
+        tomb.getCollectables().remove(this);
+        tomb.getGlobalElements().remove(this);
     }
 
     @Override

@@ -9,21 +9,21 @@ import java.io.IOException;
 public class Game {
     private final GUI gui;
     private AbstractState state;
-    public int currentArena;
+    public int currentTomb;
 
     public Game() throws IOException, FontFormatException {
         this.gui = new GUI();
         this.state = new MenuState();
-        this.currentArena = 1;
+        this.currentTomb = 1;
     }
 
     public void setState(AbstractState state){
         this.state = state;
     }
-    public void setCurrentArena(int i) { this.currentArena = i; }
+    public void setCurrentTomb(int i) { this.currentTomb = i; }
 
-    public int getCurrentArena() {
-        return currentArena;
+    public int getCurrentTomb() {
+        return currentTomb;
     }
 
     public AbstractState getState(){
@@ -41,7 +41,7 @@ public class Game {
             long sleepTime = frameTime - elapsedTime;
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
         }
         gui.close();

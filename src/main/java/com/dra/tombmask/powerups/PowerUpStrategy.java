@@ -1,8 +1,7 @@
 package com.dra.tombmask.powerups;
 
-import com.dra.tombmask.Game;
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 
 public abstract class PowerUpStrategy {
-    public abstract void execute(Arena arena);
+    public abstract void execute(Tomb tomb);
 }

@@ -1,10 +1,10 @@
 package com.dra.tombmask.powerups;
 
-import com.dra.tombmask.model.Arena;
+import com.dra.tombmask.model.Tomb;
 
 public class ShieldStrategy extends PowerUpStrategy{
     final double SHIELD_TIME = 10.0;
-    public void execute(Arena arena){
-        arena.getMask().setShieldedTime(SHIELD_TIME);
+    public void execute(Tomb tomb){
+        tomb.getMask().setShieldedTime(SHIELD_TIME);
     }
 }
