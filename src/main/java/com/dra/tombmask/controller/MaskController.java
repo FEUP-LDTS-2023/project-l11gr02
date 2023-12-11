@@ -2,6 +2,7 @@ package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.*;
+import com.dra.tombmask.state.GameOverState;
 import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
@@ -157,7 +158,7 @@ public class MaskController extends AbstractController<Arena>{
                 mask.setShieldedTime(0.0);
             }
             else{
-                game.setState(new MenuState());
+                game.setState(new GameOverState());
             }
         }
     }
