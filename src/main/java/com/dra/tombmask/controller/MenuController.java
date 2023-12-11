@@ -29,16 +29,17 @@ public class MenuController extends AbstractController<Menu>{
         }
     }
     public void consumeOption(Game game) throws IOException {
-        StateExecuter stateExecuter = new MenuStateHandler();
+        StateExecuter stateExecuter;
         switch (getModel().getCurrentOption()){
             case PLAY -> {
                 stateExecuter = new GameStateHandler();
+                game.setState(stateExecuter.createStateHandler());
             }
             case STORE ->{
                 stateExecuter = new StoreStateHandler();
+                game.setState(stateExecuter.createStateHandler());
             }
             case EXIT -> game.setState(null);
         }
-        game.setState(stateExecuter.createStateHandler());
     }
 }
