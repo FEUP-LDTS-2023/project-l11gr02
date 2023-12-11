@@ -28,4 +28,5 @@ public class GameView extends AbstractView<Arena>{
         drawModel(compositeDrawerView);
         gui.drawText(20, 15, "" + Mask.collected_coins);
     }
+
 }
