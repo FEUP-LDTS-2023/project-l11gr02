@@ -15,10 +15,10 @@ player, the game ends.
 
 ### CONTROLS
 
-'^' : moves hero up until he finds an obstacle as, for example, a wall or a spike.<br>
-'<' : moves hero to the left until he finds an obstacle as,for example, a wall or a spike.<br>
-'>' : moves hero to the right until he finds an obstacle as,for example, a wall or a spike.<br>
-'v' : moves hero down until he finds an obstacle as, for example, a wall or a spike.<br>
+'^' : moves mask up until he finds an obstacle as, for example, a wall or a spike.<br>
+'<' : moves mask to the left until he finds an obstacle as,for example, a wall or a spike.<br>
+'>' : moves mask to the right until he finds an obstacle as,for example, a wall or a spike.<br>
+'v' : moves mask down until he finds an obstacle as, for example, a wall or a spike.<br>
 'ESC' : press ESC to leave the level you are playing.<br>
 'exit' : option in the menu to exit the game.
 

@@ -1,7 +1,7 @@
 package com.dra.tombmask.view;
 
 import com.dra.tombmask.GUI.GUI;
-import com.dra.tombmask.model.Hero;
+import com.dra.tombmask.model.Mask;
 import com.dra.tombmask.model.Position;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -11,17 +11,17 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class HeroViewTest {
+public class MaskViewTest {
     TextGraphics textGraphics;
     GUI gui;
-    HeroView testView;
-    Hero element;
+    MaskView testView;
+    Mask element;
     @BeforeEach
     public void setup() throws IOException {
         textGraphics = Mockito.mock(TextGraphics.class);
         gui = Mockito.mock(GUI.class);
-        testView = new HeroView();
-        element = new Hero(new Position(0,0));
+        testView = new MaskView();
+        element = new Mask(new Position(0,0));
     }
     @Test
     public void drawTest2() {

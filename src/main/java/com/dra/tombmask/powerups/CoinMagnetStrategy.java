@@ -6,6 +6,6 @@ public class CoinMagnetStrategy extends PowerUpStrategy{
     final double MAGNET_TIME = 10.0;
     @Override
     public void execute(Arena arena) {
-        arena.getHero().setMagnetTime(MAGNET_TIME);
+        arena.getMask().setMagnetTime(MAGNET_TIME);
     }
 }

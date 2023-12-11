@@ -3,7 +3,6 @@ package com.dra.tombmask.model;
 import com.dra.tombmask.powerups.FreezeStrategy;
 import com.dra.tombmask.powerups.ShieldStrategy;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -37,10 +36,10 @@ public class ArenaTest {
     }
 
     @Test
-    public void heroTest() throws IOException{
+    public void maskTest() throws IOException{
         arena = new Arena(30,30,"src/main/resources/levels/level1");
-        arena.setHero(new Hero(new Position(5,5)));
-        Assertions.assertEquals(new Hero(new Position(5,5)),arena.getHero());
+        arena.setMask(new Mask(new Position(5,5)));
+        Assertions.assertEquals(new Mask(new Position(5,5)),arena.getMask());
     }
 
     @Test
@@ -99,7 +98,7 @@ public class ArenaTest {
         List<Element> globalElements = new ArrayList<>();
         globalElements.add(new Wall(0,0));
         globalElements.add(new Coin(1,4));
-        globalElements.add(new Hero(new Position(1,1)));
+        globalElements.add(new Mask(new Position(1,1)));
 
         arena.setGlobalElements(globalElements);
         Assertions.assertEquals(globalElements,arena.getGlobalElements());

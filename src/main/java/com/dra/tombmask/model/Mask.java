@@ -4,18 +4,18 @@ import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
-public class Hero extends Element{
+public class Mask extends Element{
     public static int collected_coins = 0;
     public static int collected_stars = 0;
     public static int collected_points = 0;
     private DIRECTION direction;
     private double shieldedTime = 0;
     private double magnetTime = 0;
-    public Hero(Position position) throws IOException {
+    public Mask(Position position) throws IOException {
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
         Store store = new Store();
-        Hero.collected_coins = store.getCurrentCoins();
+        Mask.collected_coins = store.getCurrentCoins();
     }
 
     public DIRECTION getDirection(){ return direction; }
@@ -35,15 +35,15 @@ public class Hero extends Element{
     }
 
     public static void setCollected_coins(int collected_coins) {
-        Hero.collected_coins = collected_coins;
+        Mask.collected_coins = collected_coins;
     }
 
     public static void setCollected_points(int collected_points) {
-        Hero.collected_points = collected_points;
+        Mask.collected_points = collected_points;
     }
 
     public static void setCollected_stars(int collected_stars) {
-        Hero.collected_stars = collected_stars;
+        Mask.collected_stars = collected_stars;
     }
 
     public double getShieldedTime() {

@@ -9,7 +9,7 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-    private Hero hero;
+    private Mask mask;
     private EndLevel endLevel;
     private List<Bat> bats;
     private List<Wall> walls;
@@ -23,14 +23,14 @@ public class Arena {
     private String path;
 
     public Arena(int width, int height, String path) throws IOException {
-        Hero.collected_stars = 0;
-        Hero.collected_points = 0;
+        Mask.collected_stars = 0;
+        Mask.collected_points = 0;
         MapLoader loader = new MapLoader(path);
         this.path = path;
         this.width = width;
         this.height = height;
         this.bats = loader.getBats();
-        this.hero = loader.getHero();
+        this.mask = loader.getMask();
         this.endLevel = loader.getEndLevel();
         this.walls = loader.getWalls();
         this.dartTraps = loader.getDartTraps();
@@ -42,12 +42,12 @@ public class Arena {
         this.globalElements = loader.getGlobalElements();
     }
     public Arena(int width,int height) throws IOException {
-        Hero.collected_stars = 0;
-        Hero.collected_points = 0;
+        Mask.collected_stars = 0;
+        Mask.collected_points = 0;
         this.width = width;
         this.height = height;
         this.bats = new ArrayList<>();
-        this.hero = new Hero(new Position(0,0));
+        this.mask = new Mask(new Position(0,0));
         this.endLevel = new EndLevel(0,0);
         this.walls = new ArrayList<>();
         this.spikes = new ArrayList<>();
@@ -74,12 +74,12 @@ public class Arena {
     public EndLevel getEndLevel() {return endLevel;}
     public void setEndLevel(EndLevel endLevel) {this.endLevel = endLevel;}
 
-    public Hero getHero() {
-        return hero;
+    public Mask getMask() {
+        return mask;
     }
 
-    public void setHero(Hero hero) {
-        this.hero = hero;
+    public void setMask(Mask mask) {
+        this.mask = mask;
     }
 
     public List<Bat> getBats() {
