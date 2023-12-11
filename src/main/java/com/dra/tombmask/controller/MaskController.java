@@ -2,20 +2,16 @@ package com.dra.tombmask.controller;
 
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.*;
-import com.dra.tombmask.state.GameOverState;
-import com.dra.tombmask.state.GameState;
-import com.dra.tombmask.state.MenuState;
+import com.dra.tombmask.state.*;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.DIRECTION;
 
 import java.io.IOException;
 
 public class MaskController extends AbstractController<Arena>{
-    private Arena arena;
     private final Mask mask = getModel().getMask();
     public MaskController(Arena arena){
         super(arena);
-        this.arena = arena;
     }
 
     public Element moveMask(){
@@ -143,13 +139,15 @@ public class MaskController extends AbstractController<Arena>{
                 break;
         }
         if(mask.isMagnet()) collectAdjacentCoins();
+        StateExecuter stateExecuter;
         if(moveMask() instanceof EndLevel) {
-            game.setCurrentArena(game.currentArena + 1);
+            game.setCurrentArena(Game.currentArena + 1);
             try {
-                String path = "./src/main/resources/levels/level"+game.currentArena;
-                game.setState(new GameState(new Arena(60, 30,path)));
+                stateExecuter = new GameStateHandler();
+                game.setState(stateExecuter.createStateHandler());
             }catch (IOException e){
-                game.setState(new MenuState());
+                stateExecuter = new MenuStateHandler();
+                game.setState(stateExecuter.createStateHandler());
                 game.setCurrentArena(1);
             }
         }
@@ -158,7 +156,8 @@ public class MaskController extends AbstractController<Arena>{
                 mask.setShieldedTime(0.0);
             }
             else{
-                game.setState(new GameOverState());
+                stateExecuter = new GameOverStateHandler();
+                game.setState(stateExecuter.createStateHandler());
             }
         }
     }

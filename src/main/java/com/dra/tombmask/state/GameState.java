@@ -12,7 +12,8 @@ import java.io.IOException;
 public class GameState implements AbstractState{
     public ArenaController arenaController;
     public GameView gameViewer;
-    public GameState(Arena arena) throws IOException {
+    public GameState() throws IOException {
+        Arena arena = new Arena(60,30,Game.currentPath);
         arenaController = new ArenaController(arena);
         gameViewer = new GameView(arena);
     }

@@ -3,9 +3,9 @@ package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.Arena;
 import com.dra.tombmask.model.GameOver;
-import com.dra.tombmask.state.GameState;
-import com.dra.tombmask.state.MenuState;
+import com.dra.tombmask.state.*;
 import com.dra.tombmask.utils.ACTION;
+import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
 
 import java.io.IOException;
 
@@ -31,12 +31,13 @@ public class GameOverController extends AbstractController<GameOver>{
     }
 
     public void consumeOption(Game game) throws IOException {
-        String path = "src/main/resources/levels/level"+ game.getCurrentArena();
+        StateExecuter stateExecuter = new GameStateHandler();
         switch (getModel().getCurrentOption()){
             case PLAY -> {
-                game.setState(new GameState(new Arena(60,30,path)));
+                stateExecuter = new GameStateHandler();
             }
-            case EXIT -> game.setState(new MenuState());
+            case EXIT -> stateExecuter = new MenuStateHandler();
         }
+        game.setState(stateExecuter.createStateHandler());
     }
 }

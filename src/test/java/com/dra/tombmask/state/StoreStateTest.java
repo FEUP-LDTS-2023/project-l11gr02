@@ -27,7 +27,7 @@ public class StoreStateTest {
         StoreView storeView = Mockito.mock(StoreView.class);
         StoreController storeController = Mockito.mock(StoreController.class);
 
-        StoreState storeState = new StoreState(store);
+        StoreState storeState = new StoreState();
         storeState.storeController = storeController;
         storeState.storeView = storeView;
 

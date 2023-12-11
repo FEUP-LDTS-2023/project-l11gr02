@@ -30,7 +30,7 @@ public class GameStateTest {
         GameView gameView = Mockito.mock(GameView.class);
         ArenaController arenaController = Mockito.mock(ArenaController.class);
 
-        GameState gameState = new GameState(arena);
+        GameState gameState = new GameState();
         gameState.arenaController = arenaController;
         gameState.gameViewer = gameView;
 
