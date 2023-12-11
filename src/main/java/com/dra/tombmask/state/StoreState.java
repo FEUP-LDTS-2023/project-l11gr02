@@ -13,7 +13,8 @@ public class StoreState implements AbstractState {
     public StoreController storeController;
     public StoreView storeView;
 
-    public StoreState(Store store) throws IOException {
+    public StoreState() throws IOException {
+        Store store = new Store();
         storeController = new StoreController(store);
         storeView = new StoreView(store);
     }

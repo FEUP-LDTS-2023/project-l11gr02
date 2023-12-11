@@ -68,14 +68,14 @@ public class MenuControllerTest {
         Mockito.verify(menu, Mockito.times(0)).downMenu();
 
         String path = "src/main/resources/levels/level"+ game.getCurrentArena();
-        Mockito.verify(game,Mockito.times(1)).setState(new GameState(new Arena(60,30,path)));
+        Mockito.verify(game,Mockito.times(1)).setState(new GameState());
     }
 
     @Test
     public void testConsumeOptionStore() throws IOException{
         Menu menu = Mockito.mock(Menu.class);
         Game game = Mockito.mock(Game.class);
-        StoreState s = new StoreState(new Store());
+        StoreState s = new StoreState();
 
         MenuController menuController = new MenuController(menu);
 
