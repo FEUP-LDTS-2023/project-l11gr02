@@ -28,9 +28,9 @@ public class ElementTest {
         Element e4 = new Element(1,1);
         String s = "afg";
 
-        Assertions.assertFalse(e4.equals(e1));
-        Assertions.assertFalse(e4.equals(s));
-        Assertions.assertTrue(e4.equals(e2));
-        Assertions.assertFalse(e4.equals(e3));
+        Assertions.assertNotEquals(e4, null);
+        Assertions.assertNotEquals(e4, s);
+        Assertions.assertEquals(e4, e2);
+        Assertions.assertNotEquals(e4, e3);
     }
 }

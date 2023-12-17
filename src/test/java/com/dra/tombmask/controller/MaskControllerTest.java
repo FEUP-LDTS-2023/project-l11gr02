@@ -3,6 +3,8 @@ package com.dra.tombmask.controller;
 import com.dra.tombmask.Game;
 import com.dra.tombmask.model.*;
 import com.dra.tombmask.powerups.PowerUpStrategy;
+import com.dra.tombmask.state.GameOverState;
+import com.dra.tombmask.state.GameState;
 import com.dra.tombmask.state.MenuState;
 import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.utils.CORNER;
@@ -212,8 +214,8 @@ public class MaskControllerTest {
         Assertions.assertEquals(DIRECTION.UP, mask.getDirection());
         Assertions.assertTrue(maskController.moveMask() instanceof EndLevel);
         Mockito.when(game.getCurrentArena()).thenReturn(2);
-        Mockito.verify(game,Mockito.times(2)).setCurrentArena(game.currentArena+1);
-        Mockito.verify(game,Mockito.times(1)).setState(new MenuState());
+        Mockito.verify(game,Mockito.times(1)).setCurrentArena(Game.currentArena +1);
+        Mockito.verify(game,Mockito.times(1)).setState(new GameState());
     }
 
     @Test
@@ -262,7 +264,7 @@ public class MaskControllerTest {
         Assertions.assertEquals(DIRECTION.LEFT, mask.getDirection());
         Assertions.assertTrue(maskController.moveMask() instanceof Spike);
         Assertions.assertFalse(mask.isShielded());
-        Mockito.verify(game,Mockito.times(1)).setState(new MenuState());
+        Mockito.verify(game,Mockito.times(1)).setState(new GameOverState());
     }
 
     @Test

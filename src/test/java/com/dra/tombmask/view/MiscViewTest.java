@@ -30,21 +30,21 @@ public class MiscViewTest {
     public void drawCoinTest(){
         miscView.draw(new Coin(0,0),gui);
 
-        Mockito.verify(textGraphics,Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(textGraphics,Mockito.times(1)).setForegroundColor(Mockito.any());
         Mockito.verify(textGraphics,Mockito.times(1)).putString(Mockito.any(),Mockito.any());
     }
     @Test
     public void drawPointTest(){
         miscView.draw(new Point(0,0),gui);
 
-        Mockito.verify(textGraphics,Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(textGraphics,Mockito.times(1)).setForegroundColor(Mockito.any());
         Mockito.verify(textGraphics,Mockito.times(1)).putString(Mockito.any(),Mockito.any());
     }
     @Test
     public void drawStarTest(){
         miscView.draw(new Star(0,0),gui);
 
-        Mockito.verify(textGraphics,Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(textGraphics,Mockito.times(1)).setForegroundColor(Mockito.any());
         Mockito.verify(textGraphics,Mockito.times(1)).putString(Mockito.any(),Mockito.any());
     }
     @Test
@@ -59,7 +59,7 @@ public class MiscViewTest {
     public void drawPowerUpTest(){
         miscView.draw(new PowerUp(new Position(0,0), new FreezeStrategy()),gui);
 
-        Mockito.verify(textGraphics,Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(textGraphics,Mockito.times(1)).setForegroundColor(Mockito.any());
         Mockito.verify(textGraphics,Mockito.times(1)).putString(Mockito.any(),Mockito.any());
     }
 }

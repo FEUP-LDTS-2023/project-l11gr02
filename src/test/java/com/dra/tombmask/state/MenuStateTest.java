@@ -10,6 +10,7 @@ import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.view.MainMenuView;
 import com.dra.tombmask.view.StoreView;
 import com.googlecode.lanterna.input.KeyStroke;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -38,5 +39,11 @@ public class MenuStateTest {
         Mockito.verify(menuController,Mockito.times(1)).executeState(Mockito.any(),Mockito.any());
         Mockito.verify(mainMenuView,Mockito.times(1)).draw(Mockito.any());
 
+    }
+    @Test
+    public void equalsTest() throws IOException {
+        MenuState menuState = new MenuState();
+        Assertions.assertTrue(menuState.equals(menuState));
+        Assertions.assertFalse(menuState.equals(null));
     }
 }
