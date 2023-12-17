@@ -13,7 +13,6 @@ import javax.swing.text.Element;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.eq;
@@ -26,6 +25,6 @@ public class GameViewTest {
         CompositeDrawerView compositeDrawerView = Mockito.mock(CompositeDrawerView.class);
         gameView.drawModel(compositeDrawerView);
 
-        Mockito.verify(compositeDrawerView,Mockito.times(2)).draw(Mockito.any(Object.class),Mockito.any());
+        Mockito.verify(compositeDrawerView,Mockito.times(2)).draw(Optional.ofNullable(Mockito.any()),Mockito.any());
     }
 }

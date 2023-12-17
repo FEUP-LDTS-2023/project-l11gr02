@@ -25,8 +25,10 @@ public class StoreTests {
         storeView.drawModel(gui);
         Mockito.verify(gui,Mockito.times(1)).drawText(10,1,"STORE");
         Mockito.verify(gui,Mockito.times(1)).drawText(GUI.WIDTH - 7,1,"0");
-        Mockito.verify(gui,Mockito.times(availableMasks.size())).drawBoxSelectable(
-                Mockito.any(Integer.class),Mockito.any(Integer.class),Mockito.any(String.class),Mockito.any(boolean.class));
+        Mockito.verify(gui,Mockito.times(1)).drawBoxSelectable(
+                Mockito.any(Integer.class),Mockito.any(Integer.class),eq("AMONGUS    1000"),Mockito.any(boolean.class));
+        Mockito.verify(gui,Mockito.times(1)).drawBoxSelectable(
+                Mockito.any(Integer.class),Mockito.any(Integer.class),eq("NINJA      2000"),Mockito.any(boolean.class));
         Mockito.verify(gui,Mockito.times(1)).drawSelectable(
                 eq(GUI.WIDTH - ("EXIT".length()+ 3)),eq(GUI.HEIGHT-1),eq("EXIT"),Mockito.any(boolean.class));
     }

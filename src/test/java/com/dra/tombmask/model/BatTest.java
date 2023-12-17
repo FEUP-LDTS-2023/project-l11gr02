@@ -5,6 +5,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class BatTest {
+
+    @Test
+    public void symbolTest() {
+        Bat bat = new Bat(0,0,true);
+        Assertions.assertEquals(bat.getSymbol(),"b");
+        Assertions.assertEquals(bat.getColor(),"#636261");
+    }
     @Test
     public void timeoutFailTest(){
         Bat bat = new Bat(1,1,true);

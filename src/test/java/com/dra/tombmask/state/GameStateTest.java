@@ -10,9 +10,11 @@ import com.dra.tombmask.utils.ACTION;
 import com.dra.tombmask.view.GameView;
 import com.dra.tombmask.view.StoreView;
 import com.googlecode.lanterna.input.KeyStroke;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.awt.*;
 import java.io.IOException;
 
 import static com.googlecode.lanterna.input.KeyType.ArrowLeft;
@@ -39,5 +41,11 @@ public class GameStateTest {
         Mockito.verify(arenaController,Mockito.times(1)).executeState(Mockito.any(),Mockito.any());
         Mockito.verify(gameView,Mockito.times(1)).draw(Mockito.any());
 
+    }
+    @Test
+    public void equalsTest() throws IOException, FontFormatException, InterruptedException {
+        GameState gameState = new GameState();
+        Assertions.assertTrue(gameState.equals(gameState));
+        Assertions.assertFalse(gameState.equals(null));
     }
 }
