@@ -8,10 +8,13 @@ import com.dra.tombmask.powerups.ShieldStrategy;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class MapLoader {
     private Mask mask;
@@ -43,7 +46,7 @@ public class MapLoader {
     }
 
     public List<String> getGlobalPositions(String file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(file))));
+        BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(String.valueOf(Paths.get(file))), UTF_8);
         String line;
         List<String> result = new ArrayList<String>();
         while((line = bufferedReader.readLine()) != null) {

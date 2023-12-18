@@ -51,6 +51,7 @@ public class DartController extends AbstractController<Arena>{
                 }
                 dart.setPosition(new Position(x, y));
                 break;
+            default:
         }
     }
 

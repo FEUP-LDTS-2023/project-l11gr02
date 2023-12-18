@@ -51,6 +51,7 @@ public class DartTrapController extends AbstractController<Arena>{
                 getModel().getGlobalElements().add(dart);
                 trap.setStandby(2);
                 break;
+            default:
         }
     }
 

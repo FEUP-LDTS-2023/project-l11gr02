@@ -58,8 +58,10 @@ public enum ElementsSymbol {
             case DOWN -> {
                 return dartTrapDown.symbol;
             }
+            default -> {
+                return "";
+            }
         }
-        return "";
     }
     public static String getTrampolineCorner(CORNER corner) {
         switch (corner) {

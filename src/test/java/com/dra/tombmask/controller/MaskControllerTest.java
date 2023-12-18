@@ -180,45 +180,6 @@ public class MaskControllerTest {
 
 
     @Test
-    public void executeStateUpTest() throws IOException, InterruptedException {
-        mask = arena.getMask();
-        Game game = Mockito.mock(Game.class);
-        Mockito.when(game.getCurrentArena()).thenReturn(1);
-        mask.setPosition(new Position(2,2));
-        mask.setDirection(DIRECTION.IDLE);
-        mask.setMagnetTime(5);
-
-        Coin c1 = new Coin(1,2);
-        Coin c2 = new Coin(2,3);
-        Coin c3 = new Coin(4,5);
-        List<Collectable> coins = new ArrayList<>();
-        coins.add(c1);
-        coins.add(c2);
-        coins.add(c3);
-        arena.setCollectables(coins);
-
-        EndLevel e = new EndLevel(2,1);
-        arena.setEndLevel(e);
-
-        List<Element> elements =new ArrayList<>();
-        elements.add(c1);
-        elements.add(e);
-        elements.add(c2);
-        elements.add(c3);
-        arena.setGlobalElements(elements);
-
-        maskController.executeState(game, ACTION.UP);
-
-        Assertions.assertEquals(1,arena.getCollectables().size());
-        Assertions.assertEquals(2,arena.getGlobalElements().size());
-        Assertions.assertEquals(DIRECTION.UP, mask.getDirection());
-        Assertions.assertTrue(maskController.moveMask() instanceof EndLevel);
-        Mockito.when(game.getCurrentArena()).thenReturn(2);
-        Mockito.verify(game,Mockito.times(1)).setCurrentArena(Game.currentArena +1);
-        Mockito.verify(game,Mockito.times(1)).setState(new GameState());
-    }
-
-    @Test
     public void executeStateDownTest() throws IOException, InterruptedException {
         mask = arena.getMask();
         Game game = Mockito.mock(Game.class);

@@ -23,7 +23,6 @@ public class StoreStateTest {
         Mockito.when(gui.getAction(new KeyStroke(ArrowLeft))).thenReturn(ACTION.LEFT);
         Game game = Mockito.mock(Game.class);
 
-        Store store = Mockito.mock(Store.class);
         StoreView storeView = Mockito.mock(StoreView.class);
         StoreController storeController = Mockito.mock(StoreController.class);
 

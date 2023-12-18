@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'info.solidsoft.pitest' version '1.7.4'
+    id "org.kordamp.gradle.errorprone" version "0.47.0"
 }
 
 group = 'com.dra.tombmask'
@@ -14,15 +15,13 @@ repositories {
 }
 
 dependencies {
-    //testImplementation platform('org.junit:junit-bom:5.10.0')
-    //testImplementation 'org.junit:junit-bom:5.10.0'
-    //testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testImplementation 'junit:junit:4.13.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'org.mockito:mockito-core:3.7.7'
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
     implementation 'com.groupcdg:pitest-annotations:1.1.2'
+    errorprone("com.google.errorprone:error_prone_core:2.23.0")
 }
 
 test {

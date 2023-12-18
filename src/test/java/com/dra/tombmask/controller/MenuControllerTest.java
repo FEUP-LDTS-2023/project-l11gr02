@@ -67,7 +67,6 @@ public class MenuControllerTest {
         Mockito.verify(menu, Mockito.times(0)).upMenu();
         Mockito.verify(menu, Mockito.times(0)).downMenu();
 
-        String path = "src/main/resources/levels/level"+ game.getCurrentArena();
         Mockito.verify(game,Mockito.times(1)).setState(new GameState());
     }
 

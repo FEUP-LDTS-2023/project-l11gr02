@@ -137,6 +137,7 @@ public class MaskController extends AbstractController<Arena>{
                 if(mask.getDirection() != DIRECTION.IDLE) break;
                 mask.setDirection(DIRECTION.RIGHT);
                 break;
+            default:
         }
         if(mask.isMagnet()) collectAdjacentCoins();
         StateExecuter stateExecuter;

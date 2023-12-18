@@ -5,10 +5,12 @@ import com.dra.tombmask.view.MaskView;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
 import static java.lang.Math.max;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 
 public class Store {
@@ -33,7 +35,7 @@ public class Store {
         this.currentCoins = Mask.getCollected_coins();
         loadMasks(pathPricesMasks);
         loadSymbols();
-        MaskView.maskSymbol = maskSymbolMap.get(selectedMask);
+        MaskView.setMaskSymbol(maskSymbolMap.get(selectedMask));
     }
     public Store(String path) throws IOException {
         this.availableMasks = new ArrayList<>();
@@ -45,10 +47,10 @@ public class Store {
         this.currentCoins = Mask.getCollected_coins();
         loadMasks(path);
         loadSymbols();
-        MaskView.maskSymbol = maskSymbolMap.get(selectedMask);
+        MaskView.setMaskSymbol(maskSymbolMap.get(selectedMask));
     }
     private void loadMasks(String path) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(path))));
+        BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(String.valueOf(Paths.get(path))), UTF_8);
         String line;
         while((line = bufferedReader.readLine()) != null) {
             List<String> splitLine = List.of(line.split("="));
@@ -65,7 +67,7 @@ public class Store {
         bufferedReader.close();
     }
     private void loadSymbols() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(pathSymbolsMasks))));
+        BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(String.valueOf(Paths.get(pathSymbolsMasks))), UTF_8);
         String line;
         while((line = bufferedReader.readLine()) != null) {
             List<String> splitLine = List.of(line.split("="));
