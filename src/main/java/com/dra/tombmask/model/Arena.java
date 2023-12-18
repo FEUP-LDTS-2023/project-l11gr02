@@ -27,33 +27,21 @@ public class Arena {
         Mask.collected_points = 0;
         this.width = width;
         this.height = height;
-        try {
-            MapLoader loader = new MapLoader(path);
-            this.path = path;
-            this.bats = loader.getBats();
-            this.mask = loader.getMask();
-            this.endLevel = loader.getEndLevel();
-            this.walls = loader.getWalls();
-            this.dartTraps = loader.getDartTraps();
-            this.darts = new ArrayList<>();
-            this.spikes = loader.getSpikes();
-            availableStars = loader.getAvailableStars();
-            this.collectables = loader.getCollectables();
-            this.powerUps = loader.getPowerUps();
-            this.globalElements = loader.getGlobalElements();
-        } catch (Exception e) {
-            Mask.collected_stars = 0;
-            Mask.collected_points = 0;
-            this.bats = new ArrayList<>();
-            this.mask = new Mask(new Position(0,0));
-            this.endLevel = new EndLevel(0,0);
-            this.walls = new ArrayList<>();
-            this.spikes = new ArrayList<>();
-            this.dartTraps = new ArrayList<>();
-            this.darts = new ArrayList<>();
-            availableStars = 0;
-            this.globalElements = new ArrayList<Element>();
-        }
+        path = path == null ? "./src/main/resources/levels/level1" : path;
+        MapLoader loader = new MapLoader(path);
+        this.path = path;
+        this.bats = loader.getBats();
+        this.mask = loader.getMask();
+        this.endLevel = loader.getEndLevel();
+        this.walls = loader.getWalls();
+        this.dartTraps = loader.getDartTraps();
+        this.darts = new ArrayList<>();
+        this.spikes = loader.getSpikes();
+        availableStars = loader.getAvailableStars();
+        this.collectables = loader.getCollectables();
+        this.powerUps = loader.getPowerUps();
+        this.globalElements = loader.getGlobalElements();
+
     }
     public Arena(int width,int height) throws IOException {
         Mask.collected_stars = 0;
