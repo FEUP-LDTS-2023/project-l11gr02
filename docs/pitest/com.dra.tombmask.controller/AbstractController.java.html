@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AbstractController.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.dra.tombmask.controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.dra.tombmask.GUI.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.dra.tombmask.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.dra.tombmask.utils.ACTION;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class AbstractController&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public AbstractController(T model){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_16'>1</a>
+<span>
+1. getModel : replaced return value with null for com/dra/tombmask/controller/AbstractController::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public T getModel() { return model; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract void executeState(Game game, ACTION action) throws IOException, InterruptedException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3889c343_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3889c343_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3889c343_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testUpAction()]</span></span> replaced return value with null for com/dra/tombmask/controller/AbstractController::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.dra.tombmask.GUI.GUITest.[engine:junit-jupiter]/[class:com.dra.tombmask.GUI.GUITest]/[method:draw_boxSelectable()] (12 ms)</li><li>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testUpAction()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartDownRemovesDartFromLists()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateLeftTest()] (3 ms)</li><li>com.dra.tombmask.state.GameStateTest.[engine:junit-jupiter]/[class:com.dra.tombmask.state.GameStateTest]/[method:nextStateTest()] (4 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:multipleMovesTest()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartUp()] (3 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testLeftDartTrap()] (2 ms)</li><li>com.dra.tombmask.controller.ArenaControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.ArenaControllerTest]/[method:executeStateExitTest()] (3 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatBlockedLeftTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskLeftBlockedTest()] (2 ms)</li><li>com.dra.tombmask.controller.ArenaControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.ArenaControllerTest]/[method:executeStateDefaultTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskRightTest()] (4 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:consumeOptionBuyTest()] (3 ms)</li><li>com.dra.tombmask.state.GameStateTest.[engine:junit-jupiter]/[class:com.dra.tombmask.state.GameStateTest]/[method:equalsTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineTOPRIGHTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineBOTRIGHTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testEnterAction()] (4 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testDownDartTrap()] (2 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatLeftTest()] (2 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:enterExitTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskIDLETest()] (3 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testRightDartTrap()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskUpBlockedTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskLeftTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:collectAdjacentCoinsTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:checkCollisionPowerUpTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartLeft()] (4 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateUpTest()] (4 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:consumeOptionSelectTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartDown()] (3 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testConsumeOptionStore()] (4 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:onceDownTest()] (2 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testStandbyMode()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskDownBlockedTest()] (3 ms)</li><li>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testDownAction()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testExecuteState()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveRightDartRemovesDartFromLists()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineBOTLEFTCollisiontest()] (4 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testUpDartTrap()] (3 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:executeStateTest()] (4 ms)</li><li>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testEnterAction()] (4 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testConsumeOptionExit()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineTOPLEFTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testUpAction()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskUpTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskRightBlockedTest()] (34 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatBlockedRightTest()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartRight()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:checkCollisionCollectableTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateRightTest()] (3 ms)</li><li>com.dra.tombmask.controller.StoreControllerTests.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.StoreControllerTests]/[method:onceUpTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartUpRemovesDartFromLists()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateDownTest()] (3 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatRightTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskDownTest()] (3 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testDownAction()] (2 ms)</li><li>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testConsumeOptionExit()] (4 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartLeftRemovesDartFromLists()] (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.4
+
+</body>
+</html>

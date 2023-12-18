@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Mask.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.dra.tombmask.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.dra.tombmask.utils.DIRECTION;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Mask extends Element{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static int collected_coins = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static int collected_stars = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public static int collected_points = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private DIRECTION direction;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private double shieldedTime = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private double magnetTime = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Mask(Position position) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(position.getX(),position.getY());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.direction = DIRECTION.IDLE;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Store store = new Store();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Mask.collected_coins = store.getCurrentCoins();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_21'>1</a>
+<span>
+1. getDirection : replaced return value with null for com/dra/tombmask/model/Mask::getDirection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public DIRECTION getDirection(){ return direction; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public void setDirection(DIRECTION direction) { this.direction = direction; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getCollected_stars() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_26'>1</a>
+<span>
+1. getCollected_stars : replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_stars &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return collected_stars;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getCollected_points() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_30'>1</a>
+<span>
+1. getCollected_points : replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_points &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return collected_points;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getCollected_coins() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_34'>1</a>
+<span>
+1. getCollected_coins : replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_coins &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return collected_coins;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setCollected_coins(int collected_coins) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Mask.collected_coins = collected_coins;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setCollected_points(int collected_points) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Mask.collected_points = collected_points;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setCollected_stars(int collected_stars) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Mask.collected_stars = collected_stars;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getShieldedTime() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_50'>1</a>
+<span>
+1. getShieldedTime : replaced double return with 0.0d for com/dra/tombmask/model/Mask::getShieldedTime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return shieldedTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean isShielded(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_54'>4</a>
+<span>
+1. isShielded : changed conditional boundary &rarr; KILLED<br/>
+2. isShielded : negated conditional &rarr; KILLED<br/>
+3. isShielded : replaced Boolean return with False for com/dra/tombmask/model/Mask::isShielded &rarr; KILLED<br/>
+4. isShielded : replaced Boolean return with True for com/dra/tombmask/model/Mask::isShielded &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return shieldedTime &#62; 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean isMagnet(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_57'>4</a>
+<span>
+1. isMagnet : changed conditional boundary &rarr; SURVIVED<br/>
+2. isMagnet : replaced Boolean return with True for com/dra/tombmask/model/Mask::isMagnet &rarr; SURVIVED<br/>
+3. isMagnet : negated conditional &rarr; KILLED<br/>
+4. isMagnet : replaced Boolean return with False for com/dra/tombmask/model/Mask::isMagnet &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return magnetTime &#62; 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setShieldedTime(double shieldedTime) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.shieldedTime = shieldedTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getMagnetTime() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_65'>1</a>
+<span>
+1. getMagnetTime : replaced double return with 0.0d for com/dra/tombmask/model/Mask::getMagnetTime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return magnetTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setMagnetTime(double magnetTime) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.magnetTime = magnetTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3da55998_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDirection<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:directionTest()]</span></span> replaced return value with null for com/dra/tombmask/model/Mask::getDirection &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCollected_stars<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedStarsTest()]</span></span> replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_stars &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCollected_points<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedPointsTest()]</span></span> replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_points &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCollected_coins<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedCoinsTest()]</span></span> replaced int return with 0 for com/dra/tombmask/model/Mask::getCollected_coins &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShieldedTime<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:shieldTimeTest()]</span></span> replaced double return with 0.0d for com/dra/tombmask/model/Mask::getShieldedTime &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isShielded<br/><b>Killed by : </b>com.dra.tombmask.view.MaskViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.MaskViewTest]/[method:drawTest()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isShielded<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:shieldTimeTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isShielded<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:shieldTimeTest()]</span></span> replaced Boolean return with False for com/dra/tombmask/model/Mask::isShielded &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isShielded<br/><b>Killed by : </b>com.dra.tombmask.view.MaskViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.MaskViewTest]/[method:drawTest()]</span></span> replaced Boolean return with True for com/dra/tombmask/model/Mask::isShielded &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isMagnet<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isMagnet<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:magnetTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isMagnet<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:magnetTest()]</span></span> replaced Boolean return with False for com/dra/tombmask/model/Mask::isMagnet &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isMagnet<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for com/dra/tombmask/model/Mask::isMagnet &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3da55998_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3da55998_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMagnetTime<br/><b>Killed by : </b>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:magnetTest()]</span></span> replaced double return with 0.0d for com/dra/tombmask/model/Mask::getMagnetTime &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartDownRemovesDartFromLists()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateLeftTest()] (3 ms)</li><li>com.dra.tombmask.state.GameStateTest.[engine:junit-jupiter]/[class:com.dra.tombmask.state.GameStateTest]/[method:nextStateTest()] (4 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testLeftDartTrap()] (2 ms)</li><li>com.dra.tombmask.view.MaskViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.MaskViewTest]/[method:drawTest()] (4 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isCoin()] (2 ms)</li><li>com.dra.tombmask.model.StoreTests.[engine:junit-jupiter]/[class:com.dra.tombmask.model.StoreTests]/[method:upMenuTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskLeftBlockedTest()] (2 ms)</li><li>com.dra.tombmask.view.MaskViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.MaskViewTest]/[method:drawTest2()] (3 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_star()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskRightTest()] (4 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:getElementAtPositionTest()] (3 ms)</li><li>com.dra.tombmask.state.GameStateTest.[engine:junit-jupiter]/[class:com.dra.tombmask.state.GameStateTest]/[method:equalsTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineBOTRIGHTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:pathTest()] (2 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testEnterAction()] (4 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:directionTest()] (1 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getDartTrapsTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskIDLETest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:collectAdjacentCoinsTest()] (3 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedPointsTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:checkCollisionPowerUpTest()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:globalElementsTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isPoint()] (3 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_point()] (3 ms)</li><li>com.dra.tombmask.controller.MenuControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MenuControllerTest]/[method:testConsumeOptionStore()] (4 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:openFileTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionSpikeHandlerTest()] (3 ms)</li><li>com.dra.tombmask.model.StoreTests.[engine:junit-jupiter]/[class:com.dra.tombmask.model.StoreTests]/[method:buyMaskTest()] (2 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:spikeTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testStandbyMode()] (2 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:isEmpty()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveRightDartRemovesDartFromLists()] (3 ms)</li><li>com.dra.tombmask.model.StoreTests.[engine:junit-jupiter]/[class:com.dra.tombmask.model.StoreTests]/[method:buyMask2Test()] (2 ms)</li><li>com.dra.tombmask.controller.GameOverControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.GameOverControllerTest]/[method:testEnterAction()] (4 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:shieldTimeTest()] (2 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:magnetTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskRightBlockedTest()] (34 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatBlockedRightTest()] (2 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_coin()] (2 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isStar()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:checkCollisionCollectableTest()] (3 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedCoinsTest()] (2 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isBat()] (2 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatRightTest()] (3 ms)</li><li>com.dra.tombmask.model.StoreTests.[engine:junit-jupiter]/[class:com.dra.tombmask.model.StoreTests]/[method:selectMaskTest()] (2 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isSpike()] (3 ms)</li><li>com.dra.tombmask.GUI.GUITest.[engine:junit-jupiter]/[class:com.dra.tombmask.GUI.GUITest]/[method:draw_boxSelectable()] (12 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartUp()] (3 ms)</li><li>com.dra.tombmask.controller.ArenaControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.ArenaControllerTest]/[method:executeStateExitTest()] (3 ms)</li><li>com.dra.tombmask.model.MaskTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.MaskTest]/[method:collectedStarsTest()] (1 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatBlockedLeftTest()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:heightTest()] (2 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionWallHandlerTest()] (3 ms)</li><li>com.dra.tombmask.model.StoreTests.[engine:junit-jupiter]/[class:com.dra.tombmask.model.StoreTests]/[method:downMenuTest()] (2 ms)</li><li>com.dra.tombmask.controller.ArenaControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.ArenaControllerTest]/[method:executeStateDefaultTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineTOPRIGHTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatTimeoutTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testDownDartTrap()] (2 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:moveBatLeftTest()] (2 ms)</li><li>com.dra.tombmask.view.GameViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.GameViewTest]/[method:drawModelTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isWall()] (3 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testRightDartTrap()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskUpBlockedTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskLeftTest()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:widthTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isEnd()] (2 ms)</li><li>com.dra.tombmask.state.StoreStateTest.[engine:junit-jupiter]/[class:com.dra.tombmask.state.StoreStateTest]/[method:nextStateTest()] (4 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getSpikesTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartLeft()] (4 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateUpTest()] (4 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:endLevelTest()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartDown()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:maskTest()] (2 ms)</li><li>com.dra.tombmask.view.CompositeDrawerViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.CompositeDrawerViewTest]/[method:drawSingleTest()] (2 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskDownBlockedTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getWallsTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:magnetTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionHandlerTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testExecuteState()] (2 ms)</li><li>com.dra.tombmask.view.AbstractViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.AbstractViewTest]/[method:draw()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineBOTLEFTCollisiontest()] (4 ms)</li><li>com.dra.tombmask.controller.DartTrapControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartTrapControllerTest]/[method:testUpDartTrap()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:powerupsTest()] (3 ms)</li><li>com.dra.tombmask.controller.BatControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.BatControllerTest]/[method:executeStateTest()] (4 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:handleTrampolineTOPLEFTCollisiontest()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:batTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskUpTest()] (2 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartRight()] (2 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:shieldTest()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateRightTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartUpRemovesDartFromLists()] (3 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:executeStateDownTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getAvailableStarsTest()] (4 ms)</li><li>com.dra.tombmask.controller.MaskControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.MaskControllerTest]/[method:moveMaskDownTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionBatHandlerTest()] (2 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:wallTest()] (3 ms)</li><li>com.dra.tombmask.controller.DartControllerTest.[engine:junit-jupiter]/[class:com.dra.tombmask.controller.DartControllerTest]/[method:testMoveDartLeftRemovesDartFromLists()] (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.4
+
+</body>
+</html>
