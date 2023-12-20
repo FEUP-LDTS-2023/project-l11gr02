@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Point.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.dra.tombmask.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Point extends Collectable{</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Point(int x, int y){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(x,y);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_6'/>
+6
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_6'>1</a>
+<span>
+1. &#60;init&#62; : removed call to com/dra/tombmask/model/Point::setSymbol &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.setSymbol(&#34;p&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Point(Position position) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(position.getX(), position.getY());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_10'/>
+10
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_10'>1</a>
+<span>
+1. &#60;init&#62; : removed call to com/dra/tombmask/model/Point::setSymbol &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.setSymbol(&#34;p&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void collect(Arena arena) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_14'/>
+14
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_14'>2</a>
+<span>
+1. collect : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+2. collect : removed call to com/dra/tombmask/model/Mask::setCollected_points &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Mask.setCollected_points(Mask.getCollected_points()+1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        arena.getCollectables().remove(this);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        arena.getGlobalElements().remove(this);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_21'>1</a>
+<span>
+1. toString : replaced return value with &#34;&#34; for com/dra/tombmask/model/Point::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;(&#34; + getPosition().getX() + &#34;, &#34; + getPosition().getY() + &#34;)&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_6'>6</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_6'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.dra.tombmask.model.PointTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.PointTest]/[method:symbolTest()]</span></span> removed call to com/dra/tombmask/model/Point::setSymbol &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_10'>10</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_10'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to com/dra/tombmask/model/Point::setSymbol &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_14'>14</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_14'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collect<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collect<br/><b>Killed by : </b>none</span></span> removed call to com/dra/tombmask/model/Mask::setCollected_points &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b9fc5c7_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>com.dra.tombmask.model.PointTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.PointTest]/[method:toStringTest()]</span></span> replaced return value with &#34;&#34; for com/dra/tombmask/model/Point::toString &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isSpike()] (3 ms)</li><li>com.dra.tombmask.GUI.GUITest.[engine:junit-jupiter]/[class:com.dra.tombmask.GUI.GUITest]/[method:draw_boxSelectable()] (12 ms)</li><li>com.dra.tombmask.view.MiscViewTest.[engine:junit-jupiter]/[class:com.dra.tombmask.view.MiscViewTest]/[method:drawPointTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isPoint()] (3 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_point()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:openFileTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionWallHandlerTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionSpikeHandlerTest()] (3 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_coin()] (2 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:shieldTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isStar()] (3 ms)</li><li>com.dra.tombmask.model.PointTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.PointTest]/[method:symbolTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:magnetTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionHandlerTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isCoin()] (2 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:isEmpty()] (2 ms)</li><li>com.dra.tombmask.model.PointTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.PointTest]/[method:toStringTest()] (3 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isEnd()] (2 ms)</li><li>com.dra.tombmask.model.VerifyCollisionTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.VerifyCollisionTest]/[method:isBat()] (2 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getAvailableStarsTest()] (4 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:positionBatHandlerTest()] (2 ms)</li><li>com.dra.tombmask.model.RemoveCollectableTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.RemoveCollectableTest]/[method:collect_star()] (3 ms)</li><li>com.dra.tombmask.model.ArenaTest.[engine:junit-jupiter]/[class:com.dra.tombmask.model.ArenaTest]/[method:getElementAtPositionTest()] (3 ms)</li><li>com.dra.tombmask.utils.MapLoaderTest.[engine:junit-jupiter]/[class:com.dra.tombmask.utils.MapLoaderTest]/[method:getSpikesTest()] (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.4
+
+</body>
+</html>

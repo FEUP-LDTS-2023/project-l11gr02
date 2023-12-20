@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameOver implements AbstractState {
+public class GameOver{
     private final List<MENU_OPTION> listOptions;
     private int currentIndex;
 
@@ -32,10 +32,5 @@ public class GameOver implements AbstractState {
 
     public boolean isSelected(MENU_OPTION value) {
         return value == getCurrentOption();
-    }
-
-    @Override
-    public void nextState(Game game, GUI gui) throws IOException, InterruptedException {
-
     }
 }
