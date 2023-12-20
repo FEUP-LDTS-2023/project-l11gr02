@@ -23,8 +23,8 @@ public class Arena {
     private String path;
 
     public Arena(int width, int height, String path) throws IOException {
-        Mask.collected_stars = 0;
-        Mask.collected_points = 0;
+        Mask.setCollectedStars(0);
+        Mask.setCollectedPoints(0);
         this.width = width;
         this.height = height;
         path = path == null ? "./src/main/resources/levels/level1" : path;
@@ -37,15 +37,14 @@ public class Arena {
         this.dartTraps = loader.getDartTraps();
         this.darts = new ArrayList<>();
         this.spikes = loader.getSpikes();
-        availableStars = loader.getAvailableStars();
+        setAvailableStars(loader.getAvailableStars());
         this.collectables = loader.getCollectables();
         this.powerUps = loader.getPowerUps();
         this.globalElements = loader.getGlobalElements();
-
     }
     public Arena(int width,int height) throws IOException {
-        Mask.collected_stars = 0;
-        Mask.collected_points = 0;
+        Mask.setCollectedStars(0);
+        Mask.setCollectedPoints(0);
         this.width = width;
         this.height = height;
         this.bats = new ArrayList<>();
@@ -55,11 +54,15 @@ public class Arena {
         this.spikes = new ArrayList<>();
         this.dartTraps = new ArrayList<>();
         this.darts = new ArrayList<>();
-        availableStars = 0;
+        setAvailableStars(0);
         this.globalElements = new ArrayList<Element>();
     }
 
     public int getAvailableStars() {return availableStars;}
+
+    static void setAvailableStars(int availableStars){
+        Arena.availableStars = availableStars;
+    }
 
     public String getPath() {
         return path == null ? "" : path;

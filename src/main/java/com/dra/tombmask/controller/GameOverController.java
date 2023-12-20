@@ -27,6 +27,8 @@ public class GameOverController extends AbstractController<GameOver>{
             case ENTER:
                 consumeOption(game);
                 break;
+            default:
+                break;
         }
     }
 
@@ -37,6 +39,7 @@ public class GameOverController extends AbstractController<GameOver>{
                 stateExecuter = new GameStateHandler();
             }
             case EXIT -> stateExecuter = new MenuStateHandler();
+            default -> {}
         }
         game.setState(stateExecuter.createStateHandler());
     }

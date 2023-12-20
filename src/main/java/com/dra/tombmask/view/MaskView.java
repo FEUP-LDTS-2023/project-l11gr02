@@ -15,9 +15,13 @@ public class MaskView implements ElementView<Mask>{
 
     public MaskView() throws IOException {
         Store store = new Store();
-        maskSymbol = store.maskSymbolMap.get(store.getSelectedMask());
+        setMaskSymbol(store.maskSymbolMap.get(store.getSelectedMask()));
     }
 
+    static public void setMaskSymbol(String value){
+        MaskView.maskSymbol = value;
+    }
+    @Override
     public void draw(Mask mask, GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));

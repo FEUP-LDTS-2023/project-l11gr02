@@ -8,8 +8,8 @@ public class FreezeStrategy extends PowerUpStrategy {
 
     @Override
     public void execute(Arena arena) {
-        arena.getBats().forEach((bat -> {
+        arena.getBats().forEach(bat -> {
             bat.setTimeout(FREEZE_TIMEOUT);
-        }));
+        });
     }
 }

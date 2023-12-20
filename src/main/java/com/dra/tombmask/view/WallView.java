@@ -10,6 +10,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
 public class WallView implements ElementView<Wall>{
+    @Override
     public void draw(Wall wall, GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#993399"));

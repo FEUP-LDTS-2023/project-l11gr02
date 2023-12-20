@@ -28,7 +28,6 @@ public class GameStateTest {
         Mockito.when(gui.getAction(new KeyStroke(ArrowLeft))).thenReturn(ACTION.LEFT);
         Game game = Mockito.mock(Game.class);
 
-        Arena arena = Mockito.mock(Arena.class);
         GameView gameView = Mockito.mock(GameView.class);
         ArenaController arenaController = Mockito.mock(ArenaController.class);
 
@@ -41,10 +40,6 @@ public class GameStateTest {
         Mockito.verify(arenaController,Mockito.times(1)).executeState(Mockito.any(),Mockito.any());
         Mockito.verify(gameView,Mockito.times(1)).draw(Mockito.any());
 
-    }
-    @Test
-    public void equalsTest() throws IOException, FontFormatException, InterruptedException {
-        GameState gameState = new GameState();
         Assertions.assertTrue(gameState.equals(gameState));
         Assertions.assertFalse(gameState.equals(null));
     }

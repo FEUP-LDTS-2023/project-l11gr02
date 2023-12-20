@@ -8,6 +8,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class BatView implements ElementView<Bat>{
+    @Override
     public void draw(Bat bat, GUI gui){
         TextGraphics textGraphics = gui.getScreen().newTextGraphics();
         textGraphics.setForegroundColor(TextColor.Factory.fromString("#03ffd5"));

@@ -26,12 +26,13 @@ public class Position {
         return x;
     }
 
-    //TOOD
     @Override
+    @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object o) {
         if(!(o instanceof Position position)) return false;
         return x == position.x && y == position.y;
     }
+    @Override
     public String toString() {
         return "(" + this.x + ", " + this.y + ")";
     }

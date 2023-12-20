@@ -22,7 +22,6 @@ public class ElementTest {
 
     @Test
     public void equalsTest(){
-        Element e1 = null;
         Element e2 = new Element(1,1);
         Element e3 = new Element(1,2);
         Element e4 = new Element(1,1);

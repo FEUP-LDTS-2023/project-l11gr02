@@ -41,6 +41,8 @@ public class StoreController extends AbstractController<Store>{
                 storeExiter.exit();
                 stateExecuter = new MenuStateHandler();
                 game.setState(stateExecuter.createStateHandler());
+                break;
+            default:
         }
     }
     void consumeOption(String mask){

@@ -26,6 +26,7 @@ public class MenuController extends AbstractController<Menu>{
             case ENTER:
                 consumeOption(game);
                 break;
+            default:
         }
     }
     public void consumeOption(Game game) throws IOException {

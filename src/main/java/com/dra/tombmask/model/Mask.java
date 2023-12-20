@@ -15,9 +15,15 @@ public class Mask extends Element{
         super(position.getX(),position.getY());
         this.direction = DIRECTION.IDLE;
         Store store = new Store();
-        Mask.collected_coins = store.getCurrentCoins();
+        setCollectedCoins(store.getCurrentCoins());
     }
-
+    static public void setCollectedCoins(int value){Mask.collected_coins = value;}
+    static public void setCollectedStars(int value){
+        Mask.collected_stars = value;
+    }
+    static public void setCollectedPoints(int value){
+        Mask.collected_points = value;
+    }
     public DIRECTION getDirection(){ return direction; }
   
     public void setDirection(DIRECTION direction) { this.direction = direction; }

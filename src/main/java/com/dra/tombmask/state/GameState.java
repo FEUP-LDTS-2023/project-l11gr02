@@ -25,11 +25,10 @@ public class GameState implements AbstractState{
     }
 
     @Override
+    @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-
-        GameState gameState = (GameState) obj;
+        if (!(obj instanceof GameState gameState)) return false;
 
         return gameState.arenaController.getModel().getWidth() == arenaController.getModel().getWidth()
                 && gameState.arenaController.getModel().getHeight() == arenaController.getModel().getHeight()

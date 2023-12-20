@@ -16,8 +16,7 @@ public class Game {
     public Game() throws IOException, FontFormatException {
         this.gui = new GUI();
         this.state = new MenuState();
-        currentArena = 1;
-        currentPath = "./src/main/resources/levels/level"+currentArena;
+        setCurrentArena(1);
     }
 
     public void setState(AbstractState state){
@@ -48,6 +47,7 @@ public class Game {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                // no problem if fails
             }
         }
         gui.close();

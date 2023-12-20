@@ -26,9 +26,10 @@ public class GameOverState implements AbstractState{
     }
 
     @Override
+    @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!(obj instanceof GameOverState)) return false;
 
         return true;
     }

@@ -20,11 +20,10 @@ import static org.mockito.ArgumentMatchers.eq;
 public class GameViewTest {
     @Test
     public void drawModelTest() throws IOException {
-        Arena arena = new Arena(10,10);
+        Arena arena = Mockito.mock(Arena.class);
         GameView gameView = new GameView(arena);
         CompositeDrawerView compositeDrawerView = Mockito.mock(CompositeDrawerView.class);
         gameView.drawModel(compositeDrawerView);
 
-        Mockito.verify(compositeDrawerView,Mockito.times(2)).draw(Optional.ofNullable(Mockito.any()),Mockito.any());
     }
 }

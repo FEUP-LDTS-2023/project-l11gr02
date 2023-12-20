@@ -23,6 +23,7 @@ public class Element {
     public void setColor(String color) {this.color = color;}
     public void setSymbol(String symbol){this.symbol= symbol;}
     @Override
+    @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
