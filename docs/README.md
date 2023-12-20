@@ -76,7 +76,7 @@ The Pattern used was the **Game Loop** pattern.
 
 The following image represents how the solution was implemented in UML diagram.
 
-![placeholder.png](images%2Fplaceholder.png)
+![gameloop_pattern.png](images%2Fgameloop_pattern.png)
 
 **Consequences**
 
@@ -121,7 +121,7 @@ simplifying the development.
 
 **Implementation**
 
-![placeholder.png](images%2Fplaceholder.png)
+![facade_pattern.png](images%2Ffacade_pattern.png)
 
 **Consequences**
 
@@ -143,7 +143,7 @@ a different behavior for the same method.
 
 **Implementation**
 
-![placeholder.png](images%2Fplaceholder.png)
+![strategy_pattern.png](images%2Fstrategy_pattern.png)
 
 **Consequences**
 
@@ -166,7 +166,7 @@ difference between a composite or a leaf (single element).
 
 **Implementation**
 
-![placeholder.png](images%2Fplaceholder.png)
+![composite_pattern.png](images%2Fcomposite_pattern.png)
 
 **Consequences**
 
@@ -187,7 +187,7 @@ of the game and its features, since a new State Class, at some point, is going t
 
 **Implementation**
 
-![placeholder.png](images%2Fplaceholder.png)
+![factory_pattern.png](images%2Ffactory_pattern.png)
 
 **Consequences**
 

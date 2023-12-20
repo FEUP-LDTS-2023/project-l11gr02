@@ -11,7 +11,7 @@ he has to catch the maximum possible of power-ups, such as coins, points and sta
 ## UML Class Diagram
 A UML class diagram showcasing used Design Patterns:
 
-<img src="docs/images/uml2.jpg" alt="UML">
+<img src="docs/images/uml.png" alt="UML">
 
 
 
