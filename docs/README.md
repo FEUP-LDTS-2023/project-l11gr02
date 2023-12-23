@@ -199,7 +199,8 @@ of the game and its features, since a new State Class, at some point, is going t
 
 ![img.png](images%2Fpitest.png)
 
-[Pitest](pitest/index.html)
+[Pitest](pitest/index.html)\
+[JUnit Tests](tests/test/index.html)
 
 **The current coverage is not 100% because:**
 - Some of the methods of the GUI are exclusively responsible by the Laterna Framework which cannot be tested using any of
